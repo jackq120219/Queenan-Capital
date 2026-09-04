@@ -1,180 +1,197 @@
-const notes = [
+const disciplines = [
   {
-    date: 'September 2026',
-    title: 'Why fragmented logistics markets are worth studying',
-    status: 'Working note',
+    verb: 'Own',
+    text: 'Acquire and hold useful businesses with understandable economics and room for patient ownership.',
   },
   {
-    date: 'September 2026',
-    title: 'What building Waterline is teaching us about commercial research',
-    status: 'In progress',
+    verb: 'Build',
+    text: 'Start operating projects when we understand a problem well enough to make something better.',
   },
+  {
+    verb: 'Study',
+    text: 'Do the industry work first. Research is part of deciding where capital and time should go.',
+  },
+];
+
+const ownerCriteria = [
+  'Essential or recurring demand',
+  'Understandable operations',
+  'Strong customer relationships',
+  'A reason to own for years, not quarters',
 ];
 
 export default function Home() {
   return (
-    <main id="top">
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="Queenan Capital home">
-          <span className="brand-mark">Q</span>
-          <span>QUEENAN CAPITAL</span>
-        </a>
-        <nav className="nav" aria-label="Main navigation">
-          <a href="#what-we-do">What we do</a>
-          <a href="#companies">Companies</a>
-          <a href="#notes">Notes</a>
-          <a href="#about">About</a>
-          <a className="contact-link" href="mailto:contact@queenancapital.com">Contact</a>
-        </nav>
-        <details className="mobile-nav">
-          <summary>Menu</summary>
-          <div>
-            <a href="#what-we-do">What we do</a>
-            <a href="#companies">Companies</a>
-            <a href="#notes">Notes</a>
+    <main id="top" className="site">
+      <aside className="rail" aria-label="Queenan Capital identity">
+        <a className="rail-mark" href="#top" aria-label="Queenan Capital home">Q</a>
+        <span className="rail-name">QUEENAN CAPITAL LLC</span>
+        <span className="rail-year">2026</span>
+      </aside>
+
+      <div className="page">
+        <header className="header">
+          <a className="header-name" href="#top">QUEENAN CAPITAL</a>
+          <nav className="desktop-nav" aria-label="Main navigation">
+            <a href="#company">Company</a>
+            <a href="#waterline">Waterline</a>
+            <a href="#owners">For Owners</a>
             <a href="#about">About</a>
-            <a href="mailto:contact@queenancapital.com">Contact</a>
+          </nav>
+          <a className="header-contact" href="mailto:contact@queenancapital.com">Contact ↗</a>
+          <details className="mobile-nav">
+            <summary>Menu</summary>
+            <div>
+              <a href="#company">Company</a>
+              <a href="#waterline">Waterline</a>
+              <a href="#owners">For Owners</a>
+              <a href="#about">About</a>
+              <a href="mailto:contact@queenancapital.com">Contact</a>
+            </div>
+          </details>
+        </header>
+
+        <section className="masthead" aria-labelledby="masthead-title">
+          <div className="masthead-meta">
+            <span>Independent holding company</span>
+            <span>Chicago, Illinois</span>
           </div>
-        </details>
-      </header>
 
-      <section className="hero">
-        <div className="hero-copy">
-          <p className="kicker">Independent holding company · Chicago</p>
-          <h1>Building businesses for the long term.</h1>
-          <p className="hero-deck">
-            Queenan Capital is a young holding company focused on operating businesses,
-            logistics, and select investment opportunities where patient ownership can matter.
-          </p>
-          <div className="hero-actions">
-            <a className="button solid" href="#companies">See our work</a>
-            <a className="button text" href="mailto:contact@queenancapital.com">Get in touch</a>
-          </div>
-        </div>
-        <aside className="hero-side">
-          <p className="side-label">Today</p>
-          <div className="side-item"><span>Waterline</span><strong>Live</strong></div>
-          <div className="side-item"><span>Acquisition search</span><strong>Active</strong></div>
-          <div className="side-item"><span>Research</span><strong>Ongoing</strong></div>
-          <p className="side-note">We are early, and we prefer being precise about what exists.</p>
-        </aside>
-      </section>
+          <h1 id="masthead-title" aria-label="Queenan Capital">
+            <span>QUEENAN</span>
+            <span>CAPITAL</span>
+          </h1>
 
-      <section id="what-we-do" className="plain-section">
-        <div className="section-heading">
-          <p className="section-label">What we do</p>
-          <h2>Own. Build. Study.</h2>
-        </div>
-        <div className="three-col">
-          <article>
-            <h3>Own</h3>
-            <p>Acquire and hold businesses with understandable economics, useful products, and room for stronger long-term ownership.</p>
-          </article>
-          <article>
-            <h3>Build</h3>
-            <p>Create operating platforms when a market problem is clear enough to justify building rather than simply observing.</p>
-          </article>
-          <article>
-            <h3>Study</h3>
-            <p>Research industries before committing capital. The objective is better judgment, not more commentary.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="companies" className="companies-section">
-        <div className="section-heading inverse-heading">
-          <p className="section-label">Companies &amp; projects</p>
-          <h2>Waterline</h2>
-        </div>
-
-        <div className="waterline-layout">
-          <div className="waterline-main">
-            <p className="project-tag">Operating project · Logistics intelligence</p>
-            <p className="project-lead">
-              Waterline is the first operating project built under Queenan Capital.
-              It organizes logistics research, market mapping, counterparties, and commercial outreach in one place.
+          <div className="masthead-bottom">
+            <p className="masthead-line">
+              Building and studying businesses with a long time horizon.
             </p>
-            <a className="button outline" href="https://waterlineintel.com" target="_blank" rel="noreferrer">Visit Waterline ↗</a>
+            <div className="masthead-note">
+              <span className="red-rule" aria-hidden="true" />
+              <p>
+                Queenan Capital is in its first chapter. Waterline is the first operating project.
+                Acquisition work is active. The rest will be built deliberately.
+              </p>
+            </div>
           </div>
-          <div className="waterline-facts">
-            <div><span>Focus</span><strong>Great Lakes &amp; freight markets</strong></div>
-            <div><span>Status</span><strong>Live</strong></div>
-            <div><span>Built</span><strong>2026</strong></div>
-            <div><span>Role</span><strong>Research &amp; operating platform</strong></div>
+        </section>
+
+        <section id="company" className="company-section">
+          <div className="section-index">01 / COMPANY</div>
+          <div className="company-intro">
+            <h2>Three things.<br />Done seriously.</h2>
+            <p>
+              Queenan Capital is not trying to be every kind of investment firm. The work is simple to describe:
+              own businesses, build useful operating projects, and study industries before making commitments.
+            </p>
           </div>
-        </div>
 
-        <div className="future-row">
-          <span>Next</span>
-          <p>Future companies will appear here only when they actually exist.</p>
-        </div>
-      </section>
-
-      <section id="notes" className="notes-section">
-        <div className="section-heading">
-          <p className="section-label">From Queenan Capital</p>
-          <h2>Notes, not noise.</h2>
-        </div>
-        <div className="notes-list">
-          {notes.map((note) => (
-            <article key={note.title}>
-              <div className="note-meta"><span>{note.date}</span><span>{note.status}</span></div>
-              <h3>{note.title}</h3>
-            </article>
-          ))}
-        </div>
-        <p className="notes-foot">Nothing here is published just to keep a content calendar full.</p>
-      </section>
-
-      <section className="owners-section">
-        <div>
-          <p className="section-label inverse">For business owners</p>
-          <h2>Thinking about what comes next?</h2>
-        </div>
-        <div className="owners-copy">
-          <p>
-            We are interested in durable small businesses, especially in logistics, industrial services,
-            infrastructure-adjacent operations, and other essential service categories.
-          </p>
-          <p>
-            If you own a business and are considering a transition, we are happy to have a straightforward conversation.
-          </p>
-          <a className="button light" href="mailto:contact@queenancapital.com?subject=Business%20Owner%20Inquiry">Contact Queenan Capital</a>
-        </div>
-      </section>
-
-      <section id="about" className="about-section">
-        <div className="about-intro">
-          <p className="section-label">About</p>
-          <h2>A long-term vehicle, built from the beginning.</h2>
-        </div>
-        <div className="about-copy">
-          <p>
-            Queenan Capital was founded in 2026 by Jack Queenan as a long-term vehicle for building,
-            studying, and eventually owning operating businesses.
-          </p>
-          <p>
-            The company is still at the beginning of that process. For now, the work is practical:
-            building Waterline, learning industries directly, developing an acquisition process, and keeping the standard for future projects high.
-          </p>
-          <div className="about-meta">
-            <div><span>Founded</span><strong>2026</strong></div>
-            <div><span>Based</span><strong>Chicago, Illinois</strong></div>
-            <div><span>Structure</span><strong>Queenan Capital LLC</strong></div>
+          <div className="discipline-list">
+            {disciplines.map((item, index) => (
+              <article className="discipline" key={item.verb}>
+                <span className="discipline-num">0{index + 1}</span>
+                <h3>{item.verb}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="contact-section">
-        <p>QUEENAN CAPITAL</p>
-        <a href="mailto:contact@queenancapital.com">contact@queenancapital.com ↗</a>
-      </section>
+        <section id="waterline" className="waterline-section">
+          <div className="waterline-top">
+            <span>02 / OPERATING PROJECT</span>
+            <span className="live-dot"><i /> LIVE</span>
+          </div>
 
-      <footer>
-        <div>© 2026 Queenan Capital LLC</div>
-        <div>Chicago, Illinois</div>
-        <p>This website is for informational purposes only and does not constitute an offer, solicitation, or investment advice.</p>
-      </footer>
+          <div className="waterline-word">WATERLINE</div>
+
+          <div className="waterline-bottom">
+            <div className="waterline-description">
+              <p className="waterline-lead">Logistics intelligence built from a real attempt to move freight.</p>
+              <p>
+                Waterline grew out of direct work in Great Lakes shipping and freight research. It is a separate
+                product with its own identity, built under Queenan Capital.
+              </p>
+            </div>
+            <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
+              <span>Visit Waterline</span>
+              <b>↗</b>
+            </a>
+          </div>
+        </section>
+
+        <section id="owners" className="owners-section">
+          <div className="owners-title">
+            <span>03 / FOR BUSINESS OWNERS</span>
+            <h2>A straightforward conversation is enough.</h2>
+          </div>
+
+          <div className="owners-body">
+            <p className="owners-lead">
+              We are interested in durable small businesses where continuity, patient ownership,
+              and operating attention can matter.
+            </p>
+            <div className="criteria">
+              {ownerCriteria.map((criterion) => (
+                <div key={criterion}><span>—</span>{criterion}</div>
+              ))}
+            </div>
+            <a href="mailto:contact@queenancapital.com?subject=Business%20Owner%20Inquiry" className="owners-link">
+              Contact Queenan Capital <span>↗</span>
+            </a>
+          </div>
+        </section>
+
+        <section className="notes-section">
+          <div className="notes-label">04 / NOTES</div>
+          <div className="notes-copy">
+            <h2>No content calendar.</h2>
+            <p>
+              Queenan Capital will publish notes when there is something useful to say.
+              Until then, an empty shelf is better than manufactured expertise.
+            </p>
+            <span className="notes-status">FIRST LETTER — FORTHCOMING</span>
+          </div>
+        </section>
+
+        <section id="about" className="about-section">
+          <div className="about-left">
+            <span>05 / ABOUT</span>
+            <h2>Built at the beginning.</h2>
+          </div>
+
+          <div className="about-right">
+            <p className="about-lead">
+              Queenan Capital was founded in 2026 by Jack Queenan as a long-term vehicle for building,
+              studying, and eventually owning operating businesses.
+            </p>
+            <p>
+              The company is early. That means the job today is not to imitate a mature portfolio.
+              It is to build judgment, operating capability, relationships, and a record of useful work.
+            </p>
+            <div className="about-data">
+              <div><span>Founded</span><strong>2026</strong></div>
+              <div><span>Base</span><strong>Chicago, Illinois</strong></div>
+              <div><span>Entity</span><strong>Queenan Capital LLC</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="closing-section">
+          <span>QUEENAN</span>
+          <span>CAPITAL</span>
+          <a href="mailto:contact@queenancapital.com">contact@queenancapital.com ↗</a>
+        </section>
+
+        <footer>
+          <span>© 2026 Queenan Capital LLC</span>
+          <span>queenancapital.com</span>
+          <p>
+            For informational purposes only. Nothing on this website constitutes an offer,
+            solicitation, or investment advice.
+          </p>
+        </footer>
+      </div>
     </main>
   );
 }
