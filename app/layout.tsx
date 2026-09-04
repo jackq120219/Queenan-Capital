@@ -1,8 +1,19 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Queenan Capital | Independent Holding Company',
-  description: 'Queenan Capital LLC is an independent holding company focused on operating businesses, logistics, and select long-term investment opportunities.',
+  metadataBase: new URL('https://queenancapital.com'),
+  title: {
+    default: 'Queenan Capital',
+    template: '%s | Queenan Capital',
+  },
+  description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on building, studying, and owning operating businesses for the long term.',
+  openGraph: {
+    title: 'Queenan Capital',
+    description: 'Independent holding company. Chicago, Illinois.',
+    url: 'https://queenancapital.com',
+    siteName: 'Queenan Capital',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
