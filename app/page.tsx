@@ -54,13 +54,28 @@ export default function Home() {
         <section className="masthead" aria-labelledby="masthead-title">
           <div className="masthead-meta">
             <span>Independent holding company</span>
-            <span>Chicago, Illinois</span>
+            <span>Founded 2026 · Chicago, Illinois · Jack Queenan, Founder</span>
           </div>
 
           <h1 id="masthead-title" aria-label="Queenan Capital">
             <span>QUEENAN</span>
             <span>CAPITAL</span>
           </h1>
+
+          <div className="capital-lines" aria-hidden="true">
+            <svg viewBox="0 0 980 190" preserveAspectRatio="none">
+              <path className="line-a" d="M8 142 C138 44 222 178 350 84 S590 44 712 121 S862 176 972 51" />
+              <path className="line-b" d="M12 91 C150 178 242 21 384 113 S612 169 740 76 S858 22 970 121" />
+              <path className="line-c" d="M20 158 C164 127 267 70 402 76 S624 96 744 151 S878 127 963 31" />
+              <circle cx="350" cy="84" r="5" />
+              <circle cx="740" cy="76" r="5" />
+              <circle cx="963" cy="31" r="5" />
+            </svg>
+            <div className="capital-lines-caption">
+              <span>Capital · Operations · Research</span>
+              <span>Queenan Capital / 2026</span>
+            </div>
+          </div>
 
           <div className="masthead-bottom">
             <p className="masthead-line">
@@ -69,8 +84,8 @@ export default function Home() {
             <div className="masthead-note">
               <span className="red-rule" aria-hidden="true" />
               <p>
-                Queenan Capital is in its first chapter. Waterline is the first operating project.
-                Acquisition work is active. The rest will be built deliberately.
+                Queenan Capital is being built deliberately around operating work, direct industry research,
+                and long-term ownership. Waterline is the first operating project under the company.
               </p>
             </div>
           </div>
@@ -145,10 +160,10 @@ export default function Home() {
         <section className="notes-section">
           <div className="notes-label">04 / NOTES</div>
           <div className="notes-copy">
-            <h2>No content calendar.</h2>
+            <h2>Notes, when useful.</h2>
             <p>
-              Queenan Capital will publish notes when there is something useful to say.
-              Until then, an empty shelf is better than manufactured expertise.
+              Queenan Capital will publish occasional notes on businesses, logistics, ownership,
+              and the industries we spend time understanding.
             </p>
             <span className="notes-status">FIRST LETTER — FORTHCOMING</span>
           </div>
@@ -157,20 +172,21 @@ export default function Home() {
         <section id="about" className="about-section">
           <div className="about-left">
             <span>05 / ABOUT</span>
-            <h2>Built at the beginning.</h2>
+            <h2>Built for the long term.</h2>
           </div>
 
           <div className="about-right">
             <p className="about-lead">
-              Queenan Capital was founded in 2026 by Jack Queenan as a long-term vehicle for building,
+              Queenan Capital was founded in Chicago in 2026 by Jack Queenan as a long-term vehicle for building,
               studying, and eventually owning operating businesses.
             </p>
             <p>
-              The company is early. That means the job today is not to imitate a mature portfolio.
-              It is to build judgment, operating capability, relationships, and a record of useful work.
+              The focus today is practical: build operating capability, learn industries directly,
+              develop an acquisition process, and create a foundation that can compound over time.
             </p>
             <div className="about-data">
               <div><span>Founded</span><strong>2026</strong></div>
+              <div><span>Founder</span><strong>Jack Queenan</strong></div>
               <div><span>Base</span><strong>Chicago, Illinois</strong></div>
               <div><span>Entity</span><strong>Queenan Capital LLC</strong></div>
             </div>
@@ -185,7 +201,7 @@ export default function Home() {
 
         <footer>
           <span>© 2026 Queenan Capital LLC</span>
-          <span>queenancapital.com</span>
+          <span>Founded by Jack Queenan · Chicago, Illinois</span>
           <p>
             For informational purposes only. Nothing on this website constitutes an offer,
             solicitation, or investment advice.
