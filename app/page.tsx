@@ -3,7 +3,7 @@ import expenseStyles from './expense.module.css';
 const disciplines = [
   {
     verb: 'Study',
-    text: 'Learn the market before risking money. We look at customers, competitors, costs, regulation, and how the work is actually done.',
+    text: 'Learn the market before risking money. We look at customers, competitors, costs, regulation, and how the work is done.',
   },
   {
     verb: 'Own',
@@ -89,13 +89,6 @@ export default function Home() {
           font-family: Georgia, "Times New Roman", serif;
           font-size: clamp(1.35rem, 2vw, 2rem);
           line-height: 1.42;
-        }
-        .mission-copy > p:not(.mission-lead) {
-          margin: 24px 0 0;
-          max-width: 720px;
-          color: #67615b;
-          font-size: .9rem;
-          line-height: 1.72;
         }
         .mission-principles {
           margin-top: 38px;
@@ -321,7 +314,7 @@ export default function Home() {
             <a href="#owners">For Owners</a>
             <a href="#about">About</a>
           </nav>
-          <a className="header-contact" href="mailto:contact@queenancapital.com">Contact ↗</a>
+          <a className="header-contact" href="mailto:contact@queenancapital.com">Contact</a>
           <details className="mobile-nav">
             <summary>Menu</summary>
             <div>
@@ -368,10 +361,7 @@ export default function Home() {
             </p>
             <div className="masthead-note">
               <span className="red-rule" aria-hidden="true" />
-              <p>
-                Queenan Capital is being built deliberately around operating work, direct industry research,
-                and long-term ownership. Waterline Intel and ExpenseIntel are current operating projects under the company.
-              </p>
+              <p>Queenan Capital combines direct industry research, operating work, and long-term ownership.</p>
             </div>
           </div>
         </section>
@@ -400,23 +390,23 @@ export default function Home() {
         <section id="vision" className="vision-section">
           <div className="vision-label">
             <span>02 / VISION</span>
-            <span className="vision-year">2026 →</span>
+            <span className="vision-year">2026 / FORWARD</span>
           </div>
 
           <div className="vision-statement">
             <p className="vision-lead">
-              Queenan Capital is built to operate through volatile markets with a long time horizon and a stable objective: to create businesses and capabilities that can strengthen one another over time.
+              Queenan Capital is built to operate through volatile markets with a long time horizon: to create businesses and capabilities that can strengthen one another over time.
             </p>
 
             <div className="vision-body">
               <p>
-                We simply cannot afford to be myopic. Temporary market conditions matter, but they should not dictate permanent decisions. The goal is not to react to every movement; it is to understand which changes are noise and which reveal something worth pursuing.
+                We simply cannot afford to be myopic. Temporary market conditions matter, but they should not dictate permanent decisions. We try to distinguish noise from changes worth pursuing.
               </p>
               <p>
-                Research therefore comes before commitment. We study markets, products, industries, and operating systems carefully enough to decide which opportunities deserve capital, which deserve time, and which are better left alone.
+                Research comes before commitment. We study markets, products, industries, and operating systems to decide what deserves capital, time, or neither.
               </p>
               <p>
-                Over time, that discipline should allow Queenan Capital to build toward vertical integration where it creates a real operating advantage — not a collection of disconnected assets, but businesses that share knowledge, relationships, infrastructure, and purpose.
+                Over time, that discipline should help us build businesses that share knowledge, relationships, infrastructure, and purpose.
               </p>
             </div>
 
@@ -434,9 +424,6 @@ export default function Home() {
             <div className="mission-copy">
               <p className="mission-lead">
                 Queenan Capital exists to identify practical information and operating problems that are still harder to solve than they should be.
-              </p>
-              <p>
-                We study the underlying economics, build or acquire selectively, and favor businesses that make decisions clearer, operations stronger, or markets easier to understand. The standard is usefulness first, then durability, then the ability to strengthen the rest of the company over time.
               </p>
               <div className="mission-principles">
                 <div><span>01</span>Evidence before conviction</div>
@@ -461,12 +448,12 @@ export default function Home() {
                 Waterline Intel was the first project developed by Queenan Capital, built to make fragmented Great Lakes freight information easier to find, compare, and use.
               </p>
               <p>
-                The project began with a simple operating problem: a small shipper trying to evaluate a freight move often has to piece together ports, routes, cargo, vessel information, and market context from disconnected sources. Waterline brings that information into one place so a potential move can be understood before time and money are committed.
+                Small shippers evaluating a Great Lakes move often have to piece together ports, routes, cargo, vessel data, and market context from disconnected sources. Waterline brings that information together before time and money are committed.
               </p>
             </div>
             <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
               <span>Visit Waterline Intel</span>
-              <b>↗</b>
+              <b aria-hidden="true">→</b>
             </a>
           </div>
 
@@ -482,7 +469,7 @@ export default function Home() {
               <span>Great Lakes freight in the physical world — Duluth, Minnesota</span>
               <span>
                 Photo: Pete Markham / Wikimedia Commons ·{' '}
-                <a href="https://commons.wikimedia.org/wiki/File:MV_Atlantic_Erie_enters_the_Duluth_Harbor_und_the_Aerial_Lift_Bridge.jpg" target="_blank" rel="noreferrer">CC BY-SA 2.0 ↗</a>
+                <a href="https://commons.wikimedia.org/wiki/File:MV_Atlantic_Erie_enters_the_Duluth_Harbor_und_the_Aerial_Lift_Bridge.jpg" target="_blank" rel="noreferrer">CC BY-SA 2.0</a>
               </span>
             </figcaption>
           </figure>
@@ -502,10 +489,10 @@ export default function Home() {
 
             <div>
               <p className={expenseStyles.lead}>
-                ExpenseIntel is Queenan Capital&apos;s second internally developed project, created to solve a different information problem: the true recurring cost of a location is difficult to understand before a commitment is made.
+                ExpenseIntel is Queenan Capital&apos;s second internally developed project, built around a simple problem: the true recurring cost of a location is difficult to understand before a commitment is made.
               </p>
               <p className={expenseStyles.copy}>
-                A lease rate or purchase price does not show the full economics of occupying a property. ExpenseIntel is being built to bring utilities, property taxes, insurance, waste, infrastructure, and other recurring costs into one operating view, then show how those costs may change and how one location compares with another.
+                It brings utilities, property taxes, insurance, waste, infrastructure, and other recurring costs into one operating view.
               </p>
             </div>
           </div>
@@ -514,10 +501,7 @@ export default function Home() {
             <div className={expenseStyles.panel}>
               <span className={expenseStyles.eyebrow}>Operating thesis</span>
               <p className={expenseStyles.thesis}>
-                Rent or purchase price is only one part of a location decision. Utilities, taxes, insurance, waste, and infrastructure can materially change the economics after the commitment is made.
-              </p>
-              <p className={expenseStyles.detail}>
-                ExpenseIntel is intended to put those recurring costs on the same page and normalize them into a decision-ready view rather than another general property-data dashboard.
+                Rent or purchase price is only one part of a location decision. Recurring costs can materially change the economics after the commitment is made.
               </p>
             </div>
 
@@ -541,7 +525,7 @@ export default function Home() {
                 <h3 id="expense-data-title">The cost beneath a location can move materially.</h3>
               </div>
               <p>
-                One simple example is electricity. The U.S. average commercial electricity price rose from 10.59¢ per kWh in 2020 to 13.41¢ in 2025. ExpenseIntel is being designed around the broader reality that location economics change across multiple recurring cost layers, not just the headline lease or purchase price.
+                Electricity is one example. The U.S. commercial average rose from 10.59¢ per kWh in 2020 to 13.41¢ in 2025. ExpenseIntel is built around the broader reality that recurring location costs move over time.
               </p>
             </div>
 
@@ -590,22 +574,22 @@ export default function Home() {
               <div className="expense-data-stats" aria-label="Electricity price summary statistics">
                 <div className="expense-data-stat">
                   <strong>+26.6%</strong>
-                  <span>Change in the U.S. commercial average electricity price from 2020 to 2025.</span>
+                  <span>U.S. commercial average, 2020–2025.</span>
                 </div>
                 <div className="expense-data-stat">
                   <strong>13.41¢</strong>
-                  <span>2025 U.S. commercial average price per kWh.</span>
+                  <span>2025 U.S. commercial average per kWh.</span>
                 </div>
                 <div className="expense-data-stat">
                   <strong>8.62¢</strong>
-                  <span>2025 U.S. industrial average price per kWh.</span>
+                  <span>2025 U.S. industrial average per kWh.</span>
                 </div>
               </div>
             </div>
 
             <div className="expense-data-source">
-              <span>This is public market context, not an ExpenseIntel quote or forecast for a specific property.</span>
-              <a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_03" target="_blank" rel="noreferrer">Source: U.S. EIA, Electric Power Monthly, Table 5.3 ↗</a>
+              <span>Public market context, not an ExpenseIntel quote or forecast for a specific property.</span>
+              <a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_03" target="_blank" rel="noreferrer">Source: U.S. EIA, Electric Power Monthly, Table 5.3</a>
             </div>
           </section>
 
@@ -630,7 +614,7 @@ export default function Home() {
             </p>
             <a className={expenseStyles.link} href="https://expenseintel.com" target="_blank" rel="noreferrer">
               <span>Visit ExpenseIntel</span>
-              <b>↗</b>
+              <b aria-hidden="true">→</b>
             </a>
           </div>
         </section>
@@ -652,7 +636,7 @@ export default function Home() {
               ))}
             </div>
             <a href="mailto:contact@queenancapital.com?subject=Business%20Owner%20Inquiry" className="owners-link">
-              Contact Queenan Capital <span>↗</span>
+              Contact Queenan Capital <span aria-hidden="true">→</span>
             </a>
           </div>
         </section>
@@ -662,8 +646,7 @@ export default function Home() {
           <div className="notes-copy">
             <h2>Notes, when useful.</h2>
             <p>
-              Occasional notes on what we learn while researching markets, studying businesses,
-              and building Waterline Intel and ExpenseIntel.
+              Occasional notes from researching markets and building Waterline Intel and ExpenseIntel.
             </p>
             <span className="notes-status">FIRST LETTER — FORTHCOMING</span>
           </div>
@@ -677,12 +660,7 @@ export default function Home() {
 
           <div className="about-right">
             <p className="about-lead">
-              Queenan Capital was founded in Chicago in 2026 by Jack Queenan.
-              Waterline Intel and ExpenseIntel are the company&apos;s current operating projects.
-            </p>
-            <p>
-              The plan is simple: learn industries closely, acquire businesses selectively,
-              and build toward a group of companies that can work better together than apart.
+              Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current operating projects are Waterline Intel and ExpenseIntel.
             </p>
             <div className="about-data">
               <div><span>Founded</span><strong>2026</strong></div>
@@ -696,7 +674,7 @@ export default function Home() {
         <section className="closing-section">
           <span>QUEENAN</span>
           <span>CAPITAL</span>
-          <a href="mailto:contact@queenancapital.com">contact@queenancapital.com ↗</a>
+          <a href="mailto:contact@queenancapital.com">contact@queenancapital.com</a>
         </section>
 
         <footer>
