@@ -14,6 +14,20 @@ export const metadata = {
     url: 'https://queenancapital.com',
     siteName: 'Queenan Capital',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Queenan Capital',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Queenan Capital',
+    description: 'Independent holding company. Chicago, Illinois.',
+    images: ['/opengraph-image'],
   },
 };
 
