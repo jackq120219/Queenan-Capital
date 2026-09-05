@@ -74,14 +74,14 @@ export default function Home() {
               <circle cx="963" cy="31" r="5" />
             </svg>
             <div className="capital-lines-caption">
-              <span>Study · Own · Build</span>
+              <span>Capital · Operations · Research</span>
               <span>Queenan Capital / 2026</span>
             </div>
           </div>
 
           <div className="masthead-bottom">
             <p className="masthead-line">
-              Study first. Own carefully. Build when it makes sense.
+              Building and studying businesses with a long time horizon.
             </p>
             <div className="masthead-note">
               <span className="red-rule" aria-hidden="true" />
@@ -122,18 +122,18 @@ export default function Home() {
 
           <div className="vision-statement">
             <p className="vision-lead">
-              Queenan Capital expects markets to be volatile. Our time horizon is longer.
+              Queenan Capital is built to operate through volatile markets with a long time horizon and a stable objective: to create businesses and capabilities that can strengthen one another over time.
             </p>
 
             <div className="vision-body">
               <p>
-                We are working toward a company in which the businesses we own can support one another — through customers, infrastructure, knowledge, purchasing power, or distribution. That is what vertical integration means to us.
+                We simply cannot afford to be myopic. Temporary market conditions matter, but they should not dictate permanent decisions. The goal is not to react to every movement; it is to understand which changes are noise and which reveal something worth pursuing.
               </p>
               <p>
-                We cannot build that by chasing every attractive market. Research comes first. We study demand, margins, competitors, regulation, and the actual work before deciding whether something deserves capital.
+                Research therefore comes before commitment. We study markets, products, industries, and operating systems carefully enough to decide which opportunities deserve capital, which deserve time, and which are better left alone.
               </p>
               <p>
-                The aim is not to own more things. It is to own the right things, for clear reasons, and over time make them more useful together than apart.
+                Over time, that discipline should allow Queenan Capital to build toward vertical integration where it creates a real operating advantage — not a collection of disconnected assets, but businesses that share knowledge, relationships, infrastructure, and purpose.
               </p>
             </div>
 
