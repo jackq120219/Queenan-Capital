@@ -1,4 +1,5 @@
 import './globals.css';
+import './vision.css';
 
 export const metadata = {
   metadataBase: new URL('https://queenancapital.com'),
