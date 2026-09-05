@@ -174,6 +174,135 @@ export default function Home() {
           </div>
         </section>
 
+        <section
+          id="expenseintel"
+          aria-labelledby="expenseintel-title"
+          style={{
+            padding: '68px 4.2vw 76px',
+            background: '#f7f4ee',
+            color: '#151515',
+            borderBottom: '1px solid #151515',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              gap: '24px',
+              paddingBottom: '18px',
+              borderBottom: '1px solid rgba(21,21,21,.25)',
+              color: '#6f2934',
+              fontSize: '.6rem',
+              fontWeight: 800,
+              letterSpacing: '.15em',
+              textTransform: 'uppercase',
+            }}
+          >
+            <span>Project / 02</span>
+            <span>Location Cost Intelligence</span>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '6vw',
+              alignItems: 'end',
+              padding: '50px 0 42px',
+            }}
+          >
+            <div>
+              <h2
+                id="expenseintel-title"
+                style={{
+                  margin: 0,
+                  fontSize: 'clamp(3.5rem, 7.4vw, 8.6rem)',
+                  lineHeight: '.84',
+                  letterSpacing: '-.06em',
+                  fontWeight: 700,
+                }}
+              >
+                ExpenseIntel
+              </h2>
+              <p
+                style={{
+                  maxWidth: '650px',
+                  margin: '30px 0 0',
+                  fontFamily: 'Georgia, "Times New Roman", serif',
+                  fontSize: 'clamp(1.45rem, 2.25vw, 2.5rem)',
+                  lineHeight: 1.12,
+                  letterSpacing: '-.025em',
+                }}
+              >
+                Know what a location will cost before you commit.
+              </p>
+            </div>
+
+            <div>
+              <p style={{ margin: 0, maxWidth: '720px', color: '#67615b', fontSize: '.9rem', lineHeight: 1.72 }}>
+                ExpenseIntel is designed to turn an address into a forward-looking operating-cost profile. The product brings recurring expenses such as utilities, property taxes, insurance, waste, and infrastructure into one decision so a buyer, tenant, or operator can compare locations before a lease, purchase, or occupancy decision is made.
+              </p>
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                  marginTop: '30px',
+                  borderTop: '1px solid #151515',
+                  borderBottom: '1px solid rgba(21,21,21,.2)',
+                }}
+              >
+                {[
+                  ['01 / ESTIMATE', 'Current operating cost'],
+                  ['02 / FORECAST', 'Where costs may move'],
+                  ['03 / COMPARE', 'Location vs. location'],
+                ].map(([label, value]) => (
+                  <div key={label} style={{ padding: '18px 18px 20px 0', minHeight: '92px' }}>
+                    <span style={{ display: 'block', marginBottom: '10px', color: '#6f2934', fontSize: '.55rem', fontWeight: 800, letterSpacing: '.12em' }}>{label}</span>
+                    <strong style={{ fontSize: '.85rem', fontWeight: 600 }}>{value}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '28px',
+              alignItems: 'center',
+              paddingTop: '24px',
+              borderTop: '1px solid rgba(21,21,21,.25)',
+            }}
+          >
+            <p style={{ margin: 0, maxWidth: '720px', color: '#67615b', fontSize: '.78rem', lineHeight: 1.65 }}>
+              Built around a simple operating question: the rent is not the whole cost. The location is.
+            </p>
+            <a
+              href="https://expenseintel.com"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                minHeight: '68px',
+                padding: '0 20px',
+                border: '1px solid #151515',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '20px',
+                fontSize: '.71rem',
+                fontWeight: 800,
+                letterSpacing: '.08em',
+                textTransform: 'uppercase',
+              }}
+            >
+              <span>Explore ExpenseIntel</span>
+              <b style={{ fontSize: '1.45rem', fontWeight: 400 }}>↗</b>
+            </a>
+          </div>
+        </section>
+
         <section id="owners" className="owners-section">
           <div className="owners-title">
             <span>04 / FOR BUSINESS OWNERS</span>
