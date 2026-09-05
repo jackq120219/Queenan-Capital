@@ -1,23 +1,23 @@
 const disciplines = [
   {
+    verb: 'Study',
+    text: 'Learn the market before risking money. We look at customers, competitors, costs, regulation, and how the work is actually done.',
+  },
+  {
     verb: 'Own',
-    text: 'Acquire and hold useful businesses with understandable economics and room for patient ownership.',
+    text: 'Buy businesses we can understand and improve, then hold them long enough for good decisions to matter.',
   },
   {
     verb: 'Build',
-    text: 'Start operating projects when we understand a problem well enough to make something better.',
-  },
-  {
-    verb: 'Study',
-    text: 'Do the industry work first. Research is part of deciding where capital and time should go.',
+    text: 'Create something ourselves when the problem is clear and existing options are not good enough.',
   },
 ];
 
 const ownerCriteria = [
-  'Essential or recurring demand',
-  'Understandable operations',
-  'Strong customer relationships',
-  'A reason to own for years, not quarters',
+  'Customers who come back',
+  'A business model we can understand',
+  'A useful product or service',
+  'A reason to own it for years',
 ];
 
 export default function Home() {
@@ -74,20 +74,20 @@ export default function Home() {
               <circle cx="963" cy="31" r="5" />
             </svg>
             <div className="capital-lines-caption">
-              <span>Capital · Operations · Research</span>
+              <span>Study · Own · Build</span>
               <span>Queenan Capital / 2026</span>
             </div>
           </div>
 
           <div className="masthead-bottom">
             <p className="masthead-line">
-              Building and studying businesses with a long time horizon.
+              Study first. Own carefully. Build when it makes sense.
             </p>
             <div className="masthead-note">
               <span className="red-rule" aria-hidden="true" />
               <p>
-                Queenan Capital is being built deliberately around operating work, direct industry research,
-                and long-term ownership. Waterline is the first operating project under the company.
+                Queenan Capital is a Chicago holding company founded in 2026 by Jack Queenan.
+                Waterline is its only current operating project.
               </p>
             </div>
           </div>
@@ -96,10 +96,10 @@ export default function Home() {
         <section id="company" className="company-section">
           <div className="section-index">01 / COMPANY</div>
           <div className="company-intro">
-            <h2>Three things.<br />Done seriously.</h2>
+            <h2>Study.<br />Own. Build.</h2>
             <p>
-              Queenan Capital is not trying to be every kind of investment firm. The work is simple to describe:
-              own businesses, build useful operating projects, and study industries before making commitments.
+              The order matters. We study an industry first, own when the case is strong,
+              and build when a problem is worth solving ourselves.
             </p>
           </div>
 
@@ -122,18 +122,18 @@ export default function Home() {
 
           <div className="vision-statement">
             <p className="vision-lead">
-              Queenan Capital is built to operate through volatile markets with a long time horizon and a stable objective: to create businesses and capabilities that can strengthen one another over time.
+              Queenan Capital expects markets to be volatile. Our time horizon is longer.
             </p>
 
             <div className="vision-body">
               <p>
-                We simply cannot afford to be myopic. Temporary market conditions matter, but they should not dictate permanent decisions. The goal is not to react to every movement; it is to understand which changes are noise and which reveal something worth pursuing.
+                We are working toward a company in which the businesses we own can support one another — through customers, infrastructure, knowledge, purchasing power, or distribution. That is what vertical integration means to us.
               </p>
               <p>
-                Research therefore comes before commitment. We study markets, products, industries, and operating systems carefully enough to decide which opportunities deserve capital, which deserve time, and which are better left alone.
+                We cannot build that by chasing every attractive market. Research comes first. We study demand, margins, competitors, regulation, and the actual work before deciding whether something deserves capital.
               </p>
               <p>
-                Over time, that discipline should allow Queenan Capital to build toward vertical integration where it creates a real operating advantage — not a collection of disconnected assets, but businesses that share knowledge, relationships, infrastructure, and purpose.
+                The aim is not to own more things. It is to own the right things, for clear reasons, and over time make them more useful together than apart.
               </p>
             </div>
 
@@ -146,7 +146,7 @@ export default function Home() {
 
         <section id="waterline" className="waterline-section">
           <div className="waterline-top">
-            <span>03 / OPERATING PROJECT</span>
+            <span>03 / CURRENT PROJECT</span>
             <span className="live-dot"><i /> LIVE</span>
           </div>
 
@@ -154,10 +154,11 @@ export default function Home() {
 
           <div className="waterline-bottom">
             <div className="waterline-description">
-              <p className="waterline-lead">Logistics intelligence built from a real attempt to move freight.</p>
+              <p className="waterline-lead">
+                A logistics platform for finding, comparing, and planning freight opportunities.
+              </p>
               <p>
-                Waterline grew out of direct work in Great Lakes shipping and freight research. It is a separate
-                product with its own identity, built under Queenan Capital.
+                Waterline began with a practical question: can a small shipper find a workable freight move without piecing the answer together across dozens of sources? The platform brings route planning, market data, vessel and operator information, shipment planning, and freight research into one place. It is Queenan Capital&apos;s only current project.
               </p>
             </div>
             <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
@@ -170,13 +171,13 @@ export default function Home() {
         <section id="owners" className="owners-section">
           <div className="owners-title">
             <span>04 / FOR BUSINESS OWNERS</span>
-            <h2>A straightforward conversation is enough.</h2>
+            <h2>If you are thinking about a sale, we are open to a conversation.</h2>
           </div>
 
           <div className="owners-body">
             <p className="owners-lead">
-              We are interested in durable small businesses where continuity, patient ownership,
-              and operating attention can matter.
+              We are most interested in small businesses that do something useful, have repeat customers,
+              and can be understood from the ground up.
             </p>
             <div className="criteria">
               {ownerCriteria.map((criterion) => (
@@ -194,8 +195,8 @@ export default function Home() {
           <div className="notes-copy">
             <h2>Notes, when useful.</h2>
             <p>
-              Queenan Capital will publish occasional notes on businesses, logistics, ownership,
-              and the industries we spend time understanding.
+              Occasional notes on what we learn while researching markets, studying businesses,
+              and building Waterline.
             </p>
             <span className="notes-status">FIRST LETTER — FORTHCOMING</span>
           </div>
@@ -204,17 +205,17 @@ export default function Home() {
         <section id="about" className="about-section">
           <div className="about-left">
             <span>06 / ABOUT</span>
-            <h2>Built for the long term.</h2>
+            <h2>Queenan Capital LLC.</h2>
           </div>
 
           <div className="about-right">
             <p className="about-lead">
-              Queenan Capital was founded in Chicago in 2026 by Jack Queenan as a long-term vehicle for building,
-              studying, and eventually owning operating businesses.
+              Queenan Capital was founded in Chicago in 2026 by Jack Queenan.
+              Waterline is the company&apos;s only current operating project.
             </p>
             <p>
-              The focus today is practical: build operating capability, learn industries directly,
-              develop an acquisition process, and create a foundation that can compound over time.
+              The plan is simple: learn industries closely, acquire businesses selectively,
+              and build toward a group of companies that can work better together than apart.
             </p>
             <div className="about-data">
               <div><span>Founded</span><strong>2026</strong></div>
