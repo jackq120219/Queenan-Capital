@@ -2,7 +2,8 @@
   background: #f7f4ee;
   color: #151515;
   border-bottom: 1px solid #151515;
-  padding: 72px 4.2vw 88px;
+  padding: 44px 4.2vw 78px;
+  scroll-margin-top: 78px;
 }
 
 .topline {
@@ -10,7 +11,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding-bottom: 18px;
+  padding-bottom: 16px;
   border-bottom: 1px solid rgba(21, 21, 21, .28);
   font-size: .58rem;
   font-weight: 800;
@@ -39,22 +40,27 @@
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
-  gap: 7vw;
-  align-items: end;
-  padding: 64px 0 58px;
+  grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr);
+  gap: 5vw;
+  align-items: start;
+  padding: 38px 0 46px;
+}
+
+.hero > div {
+  min-width: 0;
 }
 
 .name {
   margin: 0;
-  font-size: clamp(4.5rem, 8.7vw, 10rem);
-  line-height: .82;
+  max-width: 100%;
+  font-size: clamp(4rem, 7.6vw, 8.6rem);
+  line-height: .86;
   letter-spacing: -.065em;
   font-weight: 700;
 }
 
 .category {
-  margin: 28px 0 0;
+  margin: 18px 0 0;
   color: #6f2934;
   font-size: .62rem;
   font-weight: 800;
@@ -64,16 +70,16 @@
 
 .lead {
   margin: 0;
-  max-width: 700px;
+  max-width: 650px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.45rem, 2.15vw, 2.35rem);
-  line-height: 1.2;
+  font-size: clamp(1.35rem, 1.9vw, 2.1rem);
+  line-height: 1.22;
   letter-spacing: -.025em;
 }
 
 .copy {
-  margin: 24px 0 0;
-  max-width: 680px;
+  margin: 20px 0 0;
+  max-width: 650px;
   color: #67615b;
   font-size: .86rem;
   line-height: 1.72;
@@ -156,7 +162,7 @@
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  align-items: end;
+  align-items: flex-end;
   margin-bottom: 18px;
 }
 
@@ -246,6 +252,17 @@
   font-weight: 400;
 }
 
+@media (max-width: 1220px) {
+  .hero {
+    grid-template-columns: minmax(0, .9fr) minmax(390px, 1.1fr);
+    gap: 42px;
+  }
+
+  .name {
+    font-size: clamp(4rem, 6.8vw, 7.3rem);
+  }
+}
+
 @media (max-width: 1050px) {
   .hero,
   .grid {
@@ -253,7 +270,12 @@
   }
 
   .hero {
-    gap: 44px;
+    gap: 34px;
+    padding-top: 34px;
+  }
+
+  .name {
+    font-size: clamp(4.2rem, 12vw, 8.4rem);
   }
 
   .panel {
@@ -269,7 +291,8 @@
 
 @media (max-width: 780px) {
   .section {
-    padding: 58px 5vw 68px;
+    padding: 38px 5vw 62px;
+    scroll-margin-top: 70px;
   }
 
   .topline,
@@ -284,7 +307,21 @@
   }
 
   .hero {
-    padding: 48px 0 44px;
+    gap: 28px;
+    padding: 30px 0 38px;
+  }
+
+  .name {
+    font-size: clamp(3.35rem, 15vw, 6.2rem);
+    line-height: .88;
+  }
+
+  .category {
+    margin-top: 14px;
+  }
+
+  .lead {
+    font-size: clamp(1.25rem, 6vw, 1.65rem);
   }
 
   .grid {
