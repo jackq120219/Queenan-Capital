@@ -87,7 +87,7 @@ export default function Home() {
               <span className="red-rule" aria-hidden="true" />
               <p>
                 Queenan Capital is being built deliberately around operating work, direct industry research,
-                and long-term ownership. Waterline is the first operating project under the company.
+                and long-term ownership. Waterline Intel is the first operating project under the company.
               </p>
             </div>
           </div>
@@ -155,14 +155,14 @@ export default function Home() {
           <div className="waterline-bottom">
             <div className="waterline-description">
               <p className="waterline-lead">
-                A logistics platform for finding, comparing, and planning freight opportunities.
+                Waterline Intel is a Great Lakes freight intelligence platform for finding, comparing, and planning freight opportunities.
               </p>
               <p>
-                Waterline began with a practical question: can a small shipper find a workable freight move without piecing the answer together across dozens of sources? The platform brings route planning, market data, vessel and operator information, shipment planning, and freight research into one place. It is Queenan Capital&apos;s only current project.
+                Waterline Intel began with a practical question: can a small shipper find a workable freight move without piecing the answer together across dozens of sources? The platform brings route planning, market data, vessel and operator information, shipment planning, and freight research into one place. It is Queenan Capital&apos;s only current project.
               </p>
             </div>
             <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
-              <span>Visit Waterline</span>
+              <span>Visit Waterline Intel</span>
               <b>↗</b>
             </a>
           </div>
@@ -196,7 +196,7 @@ export default function Home() {
             <h2>Notes, when useful.</h2>
             <p>
               Occasional notes on what we learn while researching markets, studying businesses,
-              and building Waterline.
+              and building Waterline Intel.
             </p>
             <span className="notes-status">FIRST LETTER — FORTHCOMING</span>
           </div>
@@ -211,7 +211,7 @@ export default function Home() {
           <div className="about-right">
             <p className="about-lead">
               Queenan Capital was founded in Chicago in 2026 by Jack Queenan.
-              Waterline is the company&apos;s only current operating project.
+              Waterline Intel is the company&apos;s only current operating project.
             </p>
             <p>
               The plan is simple: learn industries closely, acquire businesses selectively,
