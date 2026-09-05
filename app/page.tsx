@@ -35,7 +35,7 @@ export default function Home() {
           <nav className="desktop-nav" aria-label="Main navigation">
             <a href="#company">Company</a>
             <a href="#vision">Vision</a>
-            <a href="#waterline">Waterline</a>
+            <a href="#waterline">Projects</a>
             <a href="#owners">For Owners</a>
             <a href="#about">About</a>
           </nav>
@@ -45,7 +45,7 @@ export default function Home() {
             <div>
               <a href="#company">Company</a>
               <a href="#vision">Vision</a>
-              <a href="#waterline">Waterline</a>
+              <a href="#waterline">Projects</a>
               <a href="#owners">For Owners</a>
               <a href="#about">About</a>
               <a href="mailto:contact@queenancapital.com">Contact</a>
@@ -87,7 +87,7 @@ export default function Home() {
               <span className="red-rule" aria-hidden="true" />
               <p>
                 Queenan Capital is being built deliberately around operating work, direct industry research,
-                and long-term ownership. Waterline Intel is the first operating project under the company.
+                and long-term ownership. Waterline Intel and ExpenseIntel are current operating projects under the company.
               </p>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function Home() {
 
         <section id="waterline" className="waterline-section">
           <div className="waterline-top">
-            <span>03 / CURRENT PROJECT</span>
+            <span>03 / CURRENT PROJECTS</span>
             <span className="live-dot"><i /> LIVE</span>
           </div>
 
@@ -158,13 +158,19 @@ export default function Home() {
                 Waterline Intel is a Great Lakes freight intelligence platform for finding, comparing, and planning freight opportunities.
               </p>
               <p>
-                Waterline Intel began with a practical question: can a small shipper find a workable freight move without piecing the answer together across dozens of sources? The platform brings route planning, market data, vessel and operator information, shipment planning, and freight research into one place. It is Queenan Capital&apos;s only current project.
+                Waterline Intel began with a practical question: can a small shipper find a workable freight move without piecing the answer together across dozens of sources? It was Queenan Capital&apos;s first operating project. Queenan Capital also operates ExpenseIntel, a location expense intelligence platform built to estimate recurring occupancy costs before a commitment is made.
               </p>
             </div>
-            <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
-              <span>Visit Waterline Intel</span>
-              <b>↗</b>
-            </a>
+            <div style={{ display: 'grid', gap: '12px' }}>
+              <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
+                <span>Visit Waterline Intel</span>
+                <b>↗</b>
+              </a>
+              <a className="waterline-link" href="https://expenseintel.com" target="_blank" rel="noreferrer">
+                <span>Visit ExpenseIntel</span>
+                <b>↗</b>
+              </a>
+            </div>
           </div>
         </section>
 
@@ -196,7 +202,7 @@ export default function Home() {
             <h2>Notes, when useful.</h2>
             <p>
               Occasional notes on what we learn while researching markets, studying businesses,
-              and building Waterline Intel.
+              and building Waterline Intel and ExpenseIntel.
             </p>
             <span className="notes-status">FIRST LETTER — FORTHCOMING</span>
           </div>
@@ -211,7 +217,7 @@ export default function Home() {
           <div className="about-right">
             <p className="about-lead">
               Queenan Capital was founded in Chicago in 2026 by Jack Queenan.
-              Waterline Intel is the company&apos;s only current operating project.
+              Waterline Intel and ExpenseIntel are the company&apos;s current operating projects.
             </p>
             <p>
               The plan is simple: learn industries closely, acquire businesses selectively,
