@@ -34,6 +34,7 @@ export default function Home() {
           <a className="header-name" href="#top">QUEENAN CAPITAL</a>
           <nav className="desktop-nav" aria-label="Main navigation">
             <a href="#company">Company</a>
+            <a href="#vision">Vision</a>
             <a href="#waterline">Waterline</a>
             <a href="#owners">For Owners</a>
             <a href="#about">About</a>
@@ -43,6 +44,7 @@ export default function Home() {
             <summary>Menu</summary>
             <div>
               <a href="#company">Company</a>
+              <a href="#vision">Vision</a>
               <a href="#waterline">Waterline</a>
               <a href="#owners">For Owners</a>
               <a href="#about">About</a>
@@ -112,9 +114,39 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="vision" className="vision-section">
+          <div className="vision-label">
+            <span>02 / VISION</span>
+            <span className="vision-year">2026 →</span>
+          </div>
+
+          <div className="vision-statement">
+            <p className="vision-lead">
+              Queenan Capital is built to operate through volatile markets with a long time horizon and a stable objective: to create businesses and capabilities that can strengthen one another over time.
+            </p>
+
+            <div className="vision-body">
+              <p>
+                We simply cannot afford to be myopic. Temporary market conditions matter, but they should not dictate permanent decisions. The goal is not to react to every movement; it is to understand which changes are noise and which reveal something worth pursuing.
+              </p>
+              <p>
+                Research therefore comes before commitment. We study markets, products, industries, and operating systems carefully enough to decide which opportunities deserve capital, which deserve time, and which are better left alone.
+              </p>
+              <p>
+                Over time, that discipline should allow Queenan Capital to build toward vertical integration where it creates a real operating advantage — not a collection of disconnected assets, but businesses that share knowledge, relationships, infrastructure, and purpose.
+              </p>
+            </div>
+
+            <div className="vision-close">
+              <span>2026 is not the destination.</span>
+              <strong>It is the beginning.</strong>
+            </div>
+          </div>
+        </section>
+
         <section id="waterline" className="waterline-section">
           <div className="waterline-top">
-            <span>02 / OPERATING PROJECT</span>
+            <span>03 / OPERATING PROJECT</span>
             <span className="live-dot"><i /> LIVE</span>
           </div>
 
@@ -137,7 +169,7 @@ export default function Home() {
 
         <section id="owners" className="owners-section">
           <div className="owners-title">
-            <span>03 / FOR BUSINESS OWNERS</span>
+            <span>04 / FOR BUSINESS OWNERS</span>
             <h2>A straightforward conversation is enough.</h2>
           </div>
 
@@ -158,7 +190,7 @@ export default function Home() {
         </section>
 
         <section className="notes-section">
-          <div className="notes-label">04 / NOTES</div>
+          <div className="notes-label">05 / NOTES</div>
           <div className="notes-copy">
             <h2>Notes, when useful.</h2>
             <p>
@@ -171,7 +203,7 @@ export default function Home() {
 
         <section id="about" className="about-section">
           <div className="about-left">
-            <span>05 / ABOUT</span>
+            <span>06 / ABOUT</span>
             <h2>Built for the long term.</h2>
           </div>
 
