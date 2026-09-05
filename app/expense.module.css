@@ -53,10 +53,20 @@
 .name {
   margin: 0;
   max-width: 100%;
-  font-size: clamp(4rem, 7.6vw, 8.6rem);
-  line-height: .86;
-  letter-spacing: -.065em;
+  font-size: 0;
+  line-height: 1;
+  letter-spacing: 0;
   font-weight: 700;
+}
+
+.name::before {
+  content: "Expense Intel";
+  display: block;
+  font-size: clamp(4rem, 7.1vw, 8.2rem);
+  line-height: .9;
+  letter-spacing: -.035em;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .category {
@@ -258,8 +268,8 @@
     gap: 42px;
   }
 
-  .name {
-    font-size: clamp(4rem, 6.8vw, 7.3rem);
+  .name::before {
+    font-size: clamp(3.9rem, 6.25vw, 7rem);
   }
 }
 
@@ -274,8 +284,8 @@
     padding-top: 34px;
   }
 
-  .name {
-    font-size: clamp(4.2rem, 12vw, 8.4rem);
+  .name::before {
+    font-size: clamp(4rem, 11.5vw, 8rem);
   }
 
   .panel {
@@ -311,9 +321,10 @@
     padding: 30px 0 38px;
   }
 
-  .name {
-    font-size: clamp(3.35rem, 15vw, 6.2rem);
-    line-height: .88;
+  .name::before {
+    font-size: clamp(3.1rem, 14vw, 5.9rem);
+    line-height: .92;
+    white-space: normal;
   }
 
   .category {
