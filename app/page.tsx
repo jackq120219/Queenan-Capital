@@ -1,3 +1,5 @@
+import expenseStyles from './expense.module.css';
+
 const disciplines = [
   {
     verb: 'Study',
@@ -18,6 +20,20 @@ const ownerCriteria = [
   'A business model we can understand',
   'A useful product or service',
   'A reason to own it for years',
+];
+
+const expenseQuestions = [
+  'What should this location cost to operate today?',
+  'Which recurring expenses are most likely to change?',
+  'How does the full cost compare with another address?',
+];
+
+const expenseSpecs = [
+  ['Primary inputs', 'Property address, use, and size'],
+  ['Cost layers', 'Utilities, property tax, insurance, waste, and relevant infrastructure costs'],
+  ['Core outputs', 'Annual operating cost, cost per square foot, forecast movement, and risk drivers'],
+  ['Decision horizon', 'Current estimate with a 12–36 month forward view'],
+  ['Current stage', 'Active development; public product currently uses an illustrative preview model'],
 ];
 
 export default function Home() {
@@ -158,147 +174,84 @@ export default function Home() {
                 Waterline Intel is a Great Lakes freight intelligence platform for finding, comparing, and planning freight opportunities.
               </p>
               <p>
-                Waterline Intel began with a practical question: can a small shipper find a workable freight move without piecing the answer together across dozens of sources? It was Queenan Capital&apos;s first operating project. Queenan Capital also operates ExpenseIntel, a location expense intelligence platform built to estimate recurring occupancy costs before a commitment is made.
+                Waterline Intel began with a practical question: can a small shipper find a workable freight move without piecing the answer together across dozens of sources? It was Queenan Capital&apos;s first operating project and remains focused on making fragmented Great Lakes freight information easier to use.
               </p>
             </div>
-            <div style={{ display: 'grid', gap: '12px' }}>
-              <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
-                <span>Visit Waterline Intel</span>
-                <b>↗</b>
-              </a>
-              <a className="waterline-link" href="https://expenseintel.com" target="_blank" rel="noreferrer">
-                <span>Visit ExpenseIntel</span>
-                <b>↗</b>
-              </a>
-            </div>
+            <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
+              <span>Visit Waterline Intel</span>
+              <b>↗</b>
+            </a>
           </div>
         </section>
 
-        <section
-          id="expenseintel"
-          aria-labelledby="expenseintel-title"
-          style={{
-            padding: '68px 4.2vw 76px',
-            background: '#f7f4ee',
-            color: '#151515',
-            borderBottom: '1px solid #151515',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              gap: '24px',
-              paddingBottom: '18px',
-              borderBottom: '1px solid rgba(21,21,21,.25)',
-              color: '#6f2934',
-              fontSize: '.6rem',
-              fontWeight: 800,
-              letterSpacing: '.15em',
-              textTransform: 'uppercase',
-            }}
-          >
-            <span>Project / 02</span>
-            <span>Location Cost Intelligence</span>
+        <section id="expenseintel" className={expenseStyles.section} aria-labelledby="expenseintel-title">
+          <div className={expenseStyles.topline}>
+            <span>03B / CURRENT PROJECT</span>
+            <span className={expenseStyles.status}>Active development</span>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '6vw',
-              alignItems: 'end',
-              padding: '50px 0 42px',
-            }}
-          >
+          <div className={expenseStyles.hero}>
             <div>
-              <h2
-                id="expenseintel-title"
-                style={{
-                  margin: 0,
-                  fontSize: 'clamp(3.5rem, 7.4vw, 8.6rem)',
-                  lineHeight: '.84',
-                  letterSpacing: '-.06em',
-                  fontWeight: 700,
-                }}
-              >
-                ExpenseIntel
-              </h2>
-              <p
-                style={{
-                  maxWidth: '650px',
-                  margin: '30px 0 0',
-                  fontFamily: 'Georgia, "Times New Roman", serif',
-                  fontSize: 'clamp(1.45rem, 2.25vw, 2.5rem)',
-                  lineHeight: 1.12,
-                  letterSpacing: '-.025em',
-                }}
-              >
-                Know what a location will cost before you commit.
-              </p>
+              <h2 id="expenseintel-title" className={expenseStyles.name}>ExpenseIntel</h2>
+              <p className={expenseStyles.category}>Location operating-cost intelligence</p>
             </div>
 
             <div>
-              <p style={{ margin: 0, maxWidth: '720px', color: '#67615b', fontSize: '.9rem', lineHeight: 1.72 }}>
-                ExpenseIntel is designed to turn an address into a forward-looking operating-cost profile. The product brings recurring expenses such as utilities, property taxes, insurance, waste, and infrastructure into one decision so a buyer, tenant, or operator can compare locations before a lease, purchase, or occupancy decision is made.
+              <p className={expenseStyles.lead}>
+                ExpenseIntel is being built to evaluate the recurring cost of a physical location before a lease, purchase, or occupancy decision is made.
               </p>
+              <p className={expenseStyles.copy}>
+                The product starts with an address and combines the expense categories that are usually reviewed separately. The aim is a single operating view that shows what a location costs now, where those costs may move, and whether another address is economically stronger.
+              </p>
+            </div>
+          </div>
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                  marginTop: '30px',
-                  borderTop: '1px solid #151515',
-                  borderBottom: '1px solid rgba(21,21,21,.2)',
-                }}
-              >
-                {[
-                  ['01 / ESTIMATE', 'Current operating cost'],
-                  ['02 / FORECAST', 'Where costs may move'],
-                  ['03 / COMPARE', 'Location vs. location'],
-                ].map(([label, value]) => (
-                  <div key={label} style={{ padding: '18px 18px 20px 0', minHeight: '92px' }}>
-                    <span style={{ display: 'block', marginBottom: '10px', color: '#6f2934', fontSize: '.55rem', fontWeight: 800, letterSpacing: '.12em' }}>{label}</span>
-                    <strong style={{ fontSize: '.85rem', fontWeight: 600 }}>{value}</strong>
+          <div className={expenseStyles.grid}>
+            <div className={expenseStyles.panel}>
+              <span className={expenseStyles.eyebrow}>Operating thesis</span>
+              <p className={expenseStyles.thesis}>
+                Rent or purchase price is only one part of a location decision. Utilities, taxes, insurance, waste, and infrastructure can materially change the economics after the commitment is made.
+              </p>
+              <p className={expenseStyles.detail}>
+                ExpenseIntel is intended to put those recurring costs on the same page and normalize them into a decision-ready view rather than another general property-data dashboard.
+              </p>
+            </div>
+
+            <div className={expenseStyles.panel}>
+              <span className={expenseStyles.eyebrow}>What the product is designed to answer</span>
+              <div className={expenseStyles.questions}>
+                {expenseQuestions.map((question, index) => (
+                  <div className={expenseStyles.question} key={question}>
+                    <span>0{index + 1}</span>
+                    <strong>{question}</strong>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '28px',
-              alignItems: 'center',
-              paddingTop: '24px',
-              borderTop: '1px solid rgba(21,21,21,.25)',
-            }}
-          >
-            <p style={{ margin: 0, maxWidth: '720px', color: '#67615b', fontSize: '.78rem', lineHeight: 1.65 }}>
-              Built around a simple operating question: the rent is not the whole cost. The location is.
+          <div className={expenseStyles.specs}>
+            <div className={expenseStyles.specHead}>
+              <h3>Current product direction</h3>
+              <span>ExpenseIntel / 2026</span>
+            </div>
+            <div className={expenseStyles.specTable}>
+              {expenseSpecs.map(([label, value]) => (
+                <div className={expenseStyles.specRow} key={label}>
+                  <span>{label}</span>
+                  <strong>{value}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={expenseStyles.footer}>
+            <p className={expenseStyles.note}>
+              ExpenseIntel is an early-stage operating project of Queenan Capital. The current public version is a product preview; modeled outputs should not be treated as live utility quotes, tax determinations, insurance quotations, or professional advice.
             </p>
-            <a
-              href="https://expenseintel.com"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                minHeight: '68px',
-                padding: '0 20px',
-                border: '1px solid #151515',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '20px',
-                fontSize: '.71rem',
-                fontWeight: 800,
-                letterSpacing: '.08em',
-                textTransform: 'uppercase',
-              }}
-            >
-              <span>Explore ExpenseIntel</span>
-              <b style={{ fontSize: '1.45rem', fontWeight: 400 }}>↗</b>
+            <a className={expenseStyles.link} href="https://expenseintel.com" target="_blank" rel="noreferrer">
+              <span>Visit ExpenseIntel</span>
+              <b>↗</b>
             </a>
           </div>
         </section>
