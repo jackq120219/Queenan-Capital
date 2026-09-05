@@ -171,10 +171,10 @@ export default function Home() {
           <div className="waterline-bottom">
             <div className="waterline-description">
               <p className="waterline-lead">
-                Waterline Intel is a Great Lakes freight intelligence platform for finding, comparing, and planning freight opportunities.
+                Waterline Intel was the first project developed by Queenan Capital, built to make fragmented Great Lakes freight information easier to find, compare, and use.
               </p>
               <p>
-                Waterline Intel began with a practical question: can a small shipper find a workable freight move without piecing the answer together across dozens of sources? It was Queenan Capital&apos;s first operating project and remains focused on making fragmented Great Lakes freight information easier to use.
+                The project began with a simple operating problem: a small shipper trying to evaluate a freight move often has to piece together ports, routes, cargo, vessel information, and market context from disconnected sources. Waterline brings that information into one place so a potential move can be understood before time and money are committed.
               </p>
             </div>
             <a className="waterline-link" href="https://waterlineintel.com" target="_blank" rel="noreferrer">
@@ -198,10 +198,10 @@ export default function Home() {
 
             <div>
               <p className={expenseStyles.lead}>
-                ExpenseIntel is being built to evaluate the recurring cost of a physical location before a lease, purchase, or occupancy decision is made.
+                ExpenseIntel is Queenan Capital&apos;s second internally developed project, created to solve a different information problem: the true recurring cost of a location is difficult to understand before a commitment is made.
               </p>
               <p className={expenseStyles.copy}>
-                The product starts with an address and combines the expense categories that are usually reviewed separately. The aim is a single operating view that shows what a location costs now, where those costs may move, and whether another address is economically stronger.
+                A lease rate or purchase price does not show the full economics of occupying a property. ExpenseIntel is being built to bring utilities, property taxes, insurance, waste, infrastructure, and other recurring costs into one operating view, then show how those costs may change and how one location compares with another.
               </p>
             </div>
           </div>
