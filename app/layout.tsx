@@ -7,7 +7,7 @@ export const metadata = {
     default: 'Queenan Capital',
     template: '%s | Queenan Capital',
   },
-  description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on building, studying, and owning operating businesses for the long term.',
+  description: 'Queenan Capital LLC is an independent holding company based in Chicago. We study industries, pursue selective ownership, and build when a problem is worth solving.',
   openGraph: {
     title: 'Queenan Capital',
     description: 'Independent holding company. Chicago, Illinois.',
