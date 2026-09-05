@@ -86,8 +86,8 @@ export default function Home() {
             <div className="masthead-note">
               <span className="red-rule" aria-hidden="true" />
               <p>
-                Queenan Capital is a Chicago holding company founded in 2026 by Jack Queenan.
-                Waterline is its only current operating project.
+                Queenan Capital is being built deliberately around operating work, direct industry research,
+                and long-term ownership. Waterline is the first operating project under the company.
               </p>
             </div>
           </div>
