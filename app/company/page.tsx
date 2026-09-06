@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Queenan Capital LLC | Chicago Independent Holding Company',
   description: 'Queenan Capital LLC is an Illinois limited liability company based in Chicago and the parent company behind Waterline Intel and ExpenseIntel.',
   alternates: {
-    canonical: 'https://queenancapital.com/company',
+    canonical: 'https://www.queenancapital.com/company',
   },
   openGraph: {
     title: 'Queenan Capital LLC | Company Information',
     description: 'Official company information for Queenan Capital LLC, an independent holding company based in Chicago.',
-    url: 'https://queenancapital.com/company',
+    url: 'https://www.queenancapital.com/company',
     siteName: 'Queenan Capital',
     type: 'website',
   },
@@ -87,7 +87,7 @@ export default function CompanyPage() {
               <h2 style={{ margin: '0 0 12px', fontFamily: 'Georgia, Times New Roman, serif', fontSize: 34, fontWeight: 400 }}>Waterline Intel</h2>
               <p style={{ margin: 0, maxWidth: 520, lineHeight: 1.65, color: '#5f5953' }}>Great Lakes freight intelligence for route economics, market access, capacity signals, and shipment decisions.</p>
             </a>
-            <a href="https://expenseintel.com/" style={{ ...cardStyle, color: 'inherit', textDecoration: 'none', display: 'block' }}>
+            <a href="https://www.expenseintel.com/" style={{ ...cardStyle, color: 'inherit', textDecoration: 'none', display: 'block' }}>
               <h2 style={{ margin: '0 0 12px', fontFamily: 'Georgia, Times New Roman, serif', fontSize: 34, fontWeight: 400 }}>ExpenseIntel</h2>
               <p style={{ margin: 0, maxWidth: 520, lineHeight: 1.65, color: '#5f5953' }}>Decision intelligence for physical places, projects, real-world costs, constraints, and failure risk.</p>
             </a>
