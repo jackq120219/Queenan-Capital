@@ -88,6 +88,15 @@ export default function VentureOrbit() {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    if (!mount || pathname !== '/' || !window.location.hash) return;
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const timer = window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }, 120);
+    return () => window.clearTimeout(timer);
+  }, [mount, pathname]);
+
   const moveField = (event: React.PointerEvent<HTMLDivElement>) => {
     const stage = stageRef.current;
     if (!stage) return;
@@ -113,7 +122,7 @@ export default function VentureOrbit() {
   const active = ventures.find((venture) => venture.key === activeKey) || ventures[0];
 
   return createPortal(
-    <section className={styles.section} aria-labelledby="venture-orbit-title">
+    <section id="operating-field" className={styles.section} aria-labelledby="venture-orbit-title">
       <div className={styles.head}>
         <div>
           <div className={styles.kicker}>Operating field / 03 objects in motion</div>
@@ -209,7 +218,7 @@ export default function VentureOrbit() {
             ))}
           </div>
 
-          <article className={styles.inspector} aria-live="polite">
+          <article key={active.key} className={styles.inspector} aria-live="polite">
             <div className={styles.inspectorTop}>
               <div><span>Selected object</span><strong>{active.short}</strong></div>
               <small>{active.status}</small>
