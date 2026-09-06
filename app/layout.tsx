@@ -3,7 +3,9 @@ import './globals.css';
 import './vision.css';
 import './design-system.css';
 import './institutional-motion.css';
+import './hero-fixes.css';
 import InstitutionalMotion from './institutional-motion';
+import VentureOrbit from './venture-orbit';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.queenancapital.com'),
@@ -108,6 +110,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(queenanStructuredData) }}
         />
         <InstitutionalMotion>{children}</InstitutionalMotion>
+        <VentureOrbit />
       </body>
     </html>
   );
