@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Queenan Capital LLC | Chicago Independent Holding Company',
@@ -32,7 +33,7 @@ export default function CompanyPage() {
       }}
     >
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
-        <a
+        <Link
           href="/"
           style={{
             display: 'inline-block',
@@ -46,7 +47,7 @@ export default function CompanyPage() {
           }}
         >
           ← Queenan Capital
-        </a>
+        </Link>
 
         <section style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.2fr) minmax(280px,.8fr)', gap: '8vw', alignItems: 'end' }}>
           <div>
