@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   creator: 'Queenan Capital LLC',
   publisher: 'Queenan Capital LLC',
   category: 'business',
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    shortcut: '/icon.svg',
+  },
   alternates: {
     canonical: 'https://www.queenancapital.com/',
   },
@@ -85,6 +89,7 @@ const queenanStructuredData = {
       name: 'Queenan Capital',
       legalName: 'Queenan Capital LLC',
       url: 'https://www.queenancapital.com/',
+      logo: 'https://www.queenancapital.com/icon.svg',
       description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on industry research, selective ownership, and internally developed operating businesses.',
       foundingDate: '2026',
       foundingLocation: {
