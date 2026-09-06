@@ -67,10 +67,16 @@ const paths: Record<string, string> = {
   ownership: 'M500 326 C586 403 660 486 744 492',
 };
 
+const sectionTargets: Record<string, string> = {
+  waterline: 'waterline',
+  expenseintel: 'expenseintel',
+  ownership: 'owners',
+};
+
 export default function VentureOrbit() {
   const pathname = usePathname();
   const [mount, setMount] = useState<HTMLElement | null>(null);
-  const [activeKey, setActiveKey] = useState('waterline');
+  const [activeKey, setActiveKey] = useState<string | null>('waterline');
   const stageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -118,8 +124,17 @@ export default function VentureOrbit() {
     stage.style.setProperty('--glow-y', '50%');
   };
 
+  const jumpToVenture = (key: string) => {
+    const targetId = sectionTargets[key];
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    window.history.replaceState(null, '', `#${targetId}`);
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   if (pathname !== '/' || !mount) return null;
-  const active = ventures.find((venture) => venture.key === activeKey) || ventures[0];
+  const active = activeKey ? ventures.find((venture) => venture.key === activeKey) || null : null;
 
   return createPortal(
     <section id="operating-field" className={styles.section} aria-labelledby="venture-orbit-title">
@@ -186,10 +201,17 @@ export default function VentureOrbit() {
             <path className={`${styles.openPath} ${activeKey === 'ownership' ? styles.openActive : ''}`} d="M744 492 C873 436 946 418 1054 410" />
           </svg>
 
-          <div className={styles.core} aria-hidden="true">
-            <i className={styles.coreRing} />
-            <div><strong>QC</strong><span>gravity / not destination</span></div>
-          </div>
+          <button
+            type="button"
+            className={styles.core}
+            onClick={() => setActiveKey(null)}
+            aria-label="Clear selected venture and close detail panel"
+            title="Clear selection"
+            style={{ border: 0, background: 'transparent', padding: 0, cursor: 'pointer' }}
+          >
+            <i className={styles.coreRing} aria-hidden="true" />
+            <div><strong>QC</strong><span>{active ? 'click to clear' : 'gravity / not destination'}</span></div>
+          </button>
 
           {ventures.map((venture, index) => (
             <div className={`${styles.nodeShell} ${styles[`node${index + 1}`]}`} key={venture.key}>
@@ -197,8 +219,10 @@ export default function VentureOrbit() {
                 type="button"
                 className={`${styles.node} ${activeKey === venture.key ? styles.nodeActive : ''}`}
                 onClick={() => setActiveKey(venture.key)}
+                onDoubleClick={() => jumpToVenture(venture.key)}
                 aria-pressed={activeKey === venture.key}
-                aria-label={`Explore ${venture.name}`}
+                aria-label={`Explore ${venture.name}. Double click to jump to its section below.`}
+                title={`Click to explore · double click to jump to ${venture.name}`}
               >
                 <span className={styles.nodeIndex}>0{index + 1}</span>
                 <strong>{venture.short}</strong>
@@ -208,38 +232,74 @@ export default function VentureOrbit() {
             </div>
           ))}
 
-          <div className={`${styles.vectorLabels} ${styles[`vectors_${activeKey}`]}`} aria-hidden="true">
-            {active.vectors.map((vector, index) => (
-              <div className={`${styles.vector} ${styles[`vector${index + 1}`]}`} key={vector}>
-                <span>OPEN VECTOR 0{index + 1}</span>
-                <strong>{vector}</strong>
-                <i>?</i>
-              </div>
-            ))}
-          </div>
+          {active && (
+            <div className={`${styles.vectorLabels} ${styles[`vectors_${active.key}`]}`} aria-hidden="true">
+              {active.vectors.map((vector, index) => (
+                <div className={`${styles.vector} ${styles[`vector${index + 1}`]}`} key={vector}>
+                  <span>OPEN VECTOR 0{index + 1}</span>
+                  <strong>{vector}</strong>
+                  <i>?</i>
+                </div>
+              ))}
+            </div>
+          )}
 
-          <article key={active.key} className={styles.inspector} aria-live="polite">
-            <div className={styles.inspectorTop}>
-              <div><span>Selected object</span><strong>{active.short}</strong></div>
-              <small>{active.status}</small>
-            </div>
-            <h3>{active.name}</h3>
-            <p>{active.lead}</p>
-            <div className={styles.facts}>
-              <div><span>Type</span><strong>{active.type}</strong></div>
-              <div><span>Focus</span><strong>{active.focus}</strong></div>
-              <div><span>Horizon</span><strong>{active.horizon}</strong></div>
-            </div>
-            <div className={styles.actions}>
-              <a className={styles.primary} href={active.href} target={active.href.startsWith('http') ? '_blank' : undefined} rel={active.href.startsWith('http') ? 'noreferrer' : undefined}>{active.action} →</a>
-              <a href="#company">Operating logic</a>
-            </div>
-          </article>
+          {active && (
+            <article key={active.key} className={styles.inspector} aria-live="polite">
+              <div className={styles.inspectorTop}>
+                <div><span>Selected object</span><strong>{active.short}</strong></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <small>{active.status}</small>
+                  <button
+                    type="button"
+                    onClick={() => setActiveKey(null)}
+                    aria-label="Close venture details"
+                    title="Close"
+                    style={{
+                      width: 28,
+                      height: 28,
+                      border: '1px solid rgba(255,255,255,.24)',
+                      background: 'rgba(255,255,255,.025)',
+                      color: '#d8d0c7',
+                      cursor: 'pointer',
+                      fontSize: 16,
+                      lineHeight: 1,
+                    }}
+                  >×</button>
+                </div>
+              </div>
+              <h3>{active.name}</h3>
+              <p>{active.lead}</p>
+              <div className={styles.facts}>
+                <div><span>Type</span><strong>{active.type}</strong></div>
+                <div><span>Focus</span><strong>{active.focus}</strong></div>
+                <div><span>Horizon</span><strong>{active.horizon}</strong></div>
+              </div>
+              <div className={styles.actions}>
+                <a className={styles.primary} href={active.href} target={active.href.startsWith('http') ? '_blank' : undefined} rel={active.href.startsWith('http') ? 'noreferrer' : undefined}>{active.action} →</a>
+                <button
+                  type="button"
+                  onClick={() => jumpToVenture(active.key)}
+                  style={{
+                    border: '1px solid rgba(255,255,255,.28)',
+                    background: 'transparent',
+                    color: '#f0ebe3',
+                    padding: '9px 11px',
+                    fontSize: '.49rem',
+                    fontWeight: 800,
+                    letterSpacing: '.08em',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                  }}
+                >View section below ↓</button>
+              </div>
+            </article>
+          )}
 
           <div className={styles.legend}>
             <span><i className={styles.legendLive} /> Existing</span>
             <span><i className={styles.legendOpen} /> Open vector</span>
-            <span className={styles.legendHint}>Move your cursor through the field · click any object</span>
+            <span className={styles.legendHint}>Move through the field · click to inspect · double click to jump below</span>
           </div>
         </div>
       </div>
