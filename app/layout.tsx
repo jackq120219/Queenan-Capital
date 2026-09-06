@@ -6,7 +6,7 @@ import './institutional-motion.css';
 import InstitutionalMotion from './institutional-motion';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://queenancapital.com'),
+  metadataBase: new URL('https://www.queenancapital.com'),
   applicationName: 'Queenan Capital',
   title: {
     default: 'Queenan Capital | Independent Holding Company',
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     'Waterline Intel',
     'ExpenseIntel',
   ],
-  authors: [{ name: 'Queenan Capital LLC', url: 'https://queenancapital.com/' }],
+  authors: [{ name: 'Queenan Capital LLC', url: 'https://www.queenancapital.com/' }],
   creator: 'Queenan Capital LLC',
   publisher: 'Queenan Capital LLC',
   category: 'business',
   alternates: {
-    canonical: 'https://queenancapital.com/',
+    canonical: 'https://www.queenancapital.com/',
   },
   robots: {
     index: true,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Queenan Capital | Independent Holding Company',
     description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on research, selective ownership, and operating businesses.',
-    url: 'https://queenancapital.com/',
+    url: 'https://www.queenancapital.com/',
     siteName: 'Queenan Capital',
     locale: 'en_US',
     type: 'website',
@@ -69,20 +69,20 @@ const queenanStructuredData = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': 'https://queenancapital.com/#website',
-      url: 'https://queenancapital.com/',
+      '@id': 'https://www.queenancapital.com/#website',
+      url: 'https://www.queenancapital.com/',
       name: 'Queenan Capital',
       alternateName: ['Queenan Capital LLC', 'queenancapital.com'],
       publisher: {
-        '@id': 'https://queenancapital.com/#organization',
+        '@id': 'https://www.queenancapital.com/#organization',
       },
     },
     {
       '@type': 'Organization',
-      '@id': 'https://queenancapital.com/#organization',
+      '@id': 'https://www.queenancapital.com/#organization',
       name: 'Queenan Capital',
       legalName: 'Queenan Capital LLC',
-      url: 'https://queenancapital.com/',
+      url: 'https://www.queenancapital.com/',
       description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on industry research, selective ownership, and internally developed operating businesses.',
       foundingDate: '2026',
       foundingLocation: {
