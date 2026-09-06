@@ -89,7 +89,7 @@ export default function CompanyPage() {
             </a>
             <a href="https://www.expenseintel.com/" style={{ ...cardStyle, color: 'inherit', textDecoration: 'none', display: 'block' }}>
               <h2 style={{ margin: '0 0 12px', fontFamily: 'Georgia, Times New Roman, serif', fontSize: 34, fontWeight: 400 }}>ExpenseIntel</h2>
-              <p style={{ margin: 0, maxWidth: 520, lineHeight: 1.65, color: '#5f5953' }}>Decision intelligence for physical places, projects, real-world costs, constraints, and failure risk.</p>
+              <p style={{ margin: 0, maxWidth: 520, lineHeight: 1.65, color: '#5f5953' }}>Pre-commitment decision intelligence for meaningful purchases, quotes, locations, projects, true cost, timing, and hidden expense risk.</p>
             </a>
           </div>
         </section>
