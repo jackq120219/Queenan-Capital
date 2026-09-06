@@ -1,6 +1,8 @@
 import './globals.css';
 import './vision.css';
 import './design-system.css';
+import './institutional-motion.css';
+import InstitutionalMotion from './institutional-motion';
 
 export const metadata = {
   metadataBase: new URL('https://queenancapital.com'),
@@ -62,7 +64,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><InstitutionalMotion>{children}</InstitutionalMotion></body>
     </html>
   );
 }
