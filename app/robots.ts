@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://queenancapital.com/sitemap.xml',
+    sitemap: 'https://www.queenancapital.com/sitemap.xml',
   };
 }
