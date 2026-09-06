@@ -5,8 +5,8 @@ import { readFile } from 'node:fs/promises';
 const layout = await readFile(new URL('../app/layout.tsx', import.meta.url), 'utf8');
 const page = await readFile(new URL('../app/page.tsx', import.meta.url), 'utf8');
 
-test('production metadata stays on the Queenan Capital domain', () => {
-  assert.match(layout, /https:\/\/queenancapital\.com/);
+test('production metadata stays on the Queenan Capital canonical domain', () => {
+  assert.match(layout, /https:\/\/www\.queenancapital\.com/);
   assert.match(layout, /opengraph-image/);
 });
 
