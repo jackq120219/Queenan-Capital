@@ -1,0 +1,66 @@
+/* Homepage masthead corrections: preserve the editorial scale without letter collisions. */
+.masthead h1 {
+  font-size: clamp(4.8rem, 10.25vw, 10.9rem);
+  line-height: .9;
+  letter-spacing: -.058em;
+  padding: 4.2vh 0 3.2vh;
+}
+.masthead h1 span {
+  display: block;
+}
+.masthead h1 span + span {
+  margin-top: .055em;
+}
+.masthead h1 span:last-child {
+  margin-left: clamp(42px, 7.2vw, 124px);
+}
+.desktop-nav {
+  gap: clamp(18px, 1.8vw, 30px);
+}
+.masthead-bottom {
+  gap: clamp(36px, 5vw, 84px);
+}
+.masthead-line,
+.masthead-note p,
+.masthead-meta span {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+@media (max-width: 1280px) {
+  .masthead h1 {
+    font-size: clamp(4.7rem, 10vw, 8.8rem);
+    line-height: .92;
+  }
+  .header {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .masthead h1 {
+    font-size: clamp(4.2rem, 15vw, 7.2rem);
+    line-height: .93;
+    letter-spacing: -.05em;
+  }
+  .masthead h1 span:last-child {
+    margin-left: clamp(18px, 6vw, 48px);
+  }
+}
+
+@media (max-width: 620px) {
+  .masthead h1 {
+    font-size: clamp(3.5rem, 17.2vw, 5.6rem);
+    line-height: .95;
+    padding: 34px 0 28px;
+  }
+  .masthead h1 span + span {
+    margin-top: .08em;
+  }
+  .masthead h1 span:last-child {
+    margin-left: 0;
+  }
+  .masthead-meta {
+    align-items: flex-start;
+  }
+}
