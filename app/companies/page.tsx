@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Operating Companies | Queenan Capital',
+  title: { absolute: 'Operating Companies | Queenan Capital' },
   description:
     'Explore Queenan Capital operating companies and internally developed businesses, including Waterline Intel and ExpenseIntel.',
   alternates: { canonical: 'https://www.queenancapital.com/companies' },
