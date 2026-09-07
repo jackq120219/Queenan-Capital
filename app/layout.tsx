@@ -102,6 +102,29 @@ const queenanStructuredData = {
         addressRegion: 'IL',
         addressCountry: 'US',
       },
+      knowsAbout: [
+        'holding companies',
+        'industry research',
+        'Great Lakes freight intelligence',
+        'logistics decision support',
+        'pre-commitment decision intelligence',
+      ],
+      subOrganization: [
+        {
+          '@type': 'Organization',
+          '@id': 'https://waterlineintel.com/#organization',
+          name: 'Waterline Intel',
+          url: 'https://waterlineintel.com/',
+          description: 'Great Lakes freight intelligence and logistics decision-support platform.',
+        },
+        {
+          '@type': 'Organization',
+          '@id': 'https://www.expenseintel.com/#organization',
+          name: 'ExpenseIntel',
+          url: 'https://www.expenseintel.com/',
+          description: 'Pre-commitment decision intelligence for meaningful spending decisions.',
+        },
+      ],
     },
   ],
 };
