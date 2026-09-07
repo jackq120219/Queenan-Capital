@@ -1,0 +1,46 @@
+.rail-mark {
+  width: 58px;
+  height: 58px;
+  margin-top: 10px;
+  border-bottom: 0;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background: #0b0b0c;
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.05rem;
+  font-style: italic;
+  line-height: 1;
+  isolation: isolate;
+}
+
+.rail-mark::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 11px;
+  bottom: 11px;
+  width: 2px;
+  border-radius: 999px;
+  background: #8b1f31;
+  z-index: -1;
+}
+
+.rail-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .rail-mark {
+    width: 52px;
+    height: 52px;
+    margin-top: 13px;
+    font-size: 1.85rem;
+  }
+}
