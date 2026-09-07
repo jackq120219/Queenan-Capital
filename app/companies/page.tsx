@@ -20,6 +20,7 @@ const companies = [
   {
     name: 'ExpenseIntel',
     href: 'https://www.expenseintel.com/',
+    logo: '/expenseintel-mark.svg',
     category: 'Decision intelligence',
     description:
       'Pre-commitment decision intelligence for understanding price, true cost, recurring burden, downside, timing, alternatives, and recoverable value before a meaningful purchase or project.',
@@ -28,6 +29,7 @@ const companies = [
   {
     name: 'Waterline Intel',
     href: 'https://waterlineintel.com/',
+    logo: '/waterline-mark.svg',
     category: 'Freight intelligence',
     description:
       'Great Lakes freight intelligence for route economics, market access, capacity signals, shipment planning, operators, cargo research, and logistics decisions.',
@@ -47,6 +49,7 @@ const structuredData = {
       '@type': 'Organization',
       name: company.name,
       url: company.href,
+      logo: `https://www.queenancapital.com${company.logo}`,
       parentOrganization: {
         '@id': 'https://www.queenancapital.com/#organization',
       },
@@ -81,7 +84,10 @@ export default function CompaniesPage() {
               <span style={{ color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.12em' }}>0{index + 1}</span>
               <div>
                 <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 12 }}>{company.category}</div>
-                <h2 style={{ margin: '0 0 14px', fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(2rem,4vw,4.2rem)', fontWeight: 400, letterSpacing: '-.035em' }}>{company.name}</h2>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 14 }}>
+                  <img src={company.logo} alt={`${company.name} logo`} width={62} height={62} style={{ width: 62, height: 62, flex: '0 0 62px' }} />
+                  <h2 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(2rem,4vw,4.2rem)', fontWeight: 400, letterSpacing: '-.035em' }}>{company.name}</h2>
+                </div>
                 <p style={{ margin: 0, maxWidth: 720, color: '#5f5953', lineHeight: 1.7 }}>{company.description}</p>
               </div>
               <div style={{ alignSelf: 'end', borderTop: '1px solid rgba(21,21,21,.25)', paddingTop: 14 }}>
