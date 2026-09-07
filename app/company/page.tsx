@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Queenan Capital LLC | Chicago Independent Holding Company',
+  title: { absolute: 'Queenan Capital LLC | Chicago Independent Holding Company' },
   description: 'Queenan Capital LLC is an Illinois limited liability company based in Chicago and the parent company behind Waterline Intel and ExpenseIntel.',
   alternates: {
     canonical: 'https://www.queenancapital.com/company',
