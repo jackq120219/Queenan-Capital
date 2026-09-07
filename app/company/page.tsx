@@ -33,21 +33,20 @@ export default function CompanyPage() {
       }}
     >
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
-        <Link
-          href="/"
-          style={{
-            display: 'inline-block',
-            marginBottom: 64,
-            color: '#6f2934',
-            textDecoration: 'none',
-            fontSize: 12,
-            fontWeight: 800,
-            letterSpacing: '.12em',
-            textTransform: 'uppercase',
-          }}
-        >
-          ← Queenan Capital
-        </Link>
+        <div style={{ display: 'flex', gap: 24, marginBottom: 64, flexWrap: 'wrap' }}>
+          <Link
+            href="/"
+            style={{ color: '#6f2934', textDecoration: 'none', fontSize: 12, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase' }}
+          >
+            ← Queenan Capital
+          </Link>
+          <Link
+            href="/companies"
+            style={{ color: '#6f2934', textDecoration: 'none', fontSize: 12, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase' }}
+          >
+            Operating companies →
+          </Link>
+        </div>
 
         <section style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.2fr) minmax(280px,.8fr)', gap: '8vw', alignItems: 'end' }}>
           <div>
@@ -92,6 +91,7 @@ export default function CompanyPage() {
               <p style={{ margin: 0, maxWidth: 520, lineHeight: 1.65, color: '#5f5953' }}>Pre-commitment decision intelligence for meaningful purchases, quotes, locations, projects, true cost, timing, and hidden expense risk.</p>
             </a>
           </div>
+          <p style={{ marginTop: 30 }}><Link href="/companies" style={{ color: '#6f2934', fontWeight: 800 }}>View the operating companies page →</Link></p>
         </section>
       </div>
     </main>
