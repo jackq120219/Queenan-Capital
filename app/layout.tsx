@@ -4,6 +4,7 @@ import './vision.css';
 import './design-system.css';
 import './institutional-motion.css';
 import './hero-fixes.css';
+import './logo-fixes.css';
 import InstitutionalMotion from './institutional-motion';
 import VentureOrbit from './venture-orbit';
 
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
     'holding company',
     'Chicago holding company',
     'operating businesses',
-    'Waterline Intel',
     'ExpenseIntel',
+    'Waterline Intel',
   ],
   authors: [{ name: 'Queenan Capital LLC', url: 'https://www.queenancapital.com/' }],
   creator: 'Queenan Capital LLC',
@@ -112,17 +113,17 @@ const queenanStructuredData = {
       subOrganization: [
         {
           '@type': 'Organization',
-          '@id': 'https://waterlineintel.com/#organization',
-          name: 'Waterline Intel',
-          url: 'https://waterlineintel.com/',
-          description: 'Great Lakes freight intelligence and logistics decision-support platform.',
-        },
-        {
-          '@type': 'Organization',
           '@id': 'https://www.expenseintel.com/#organization',
           name: 'ExpenseIntel',
           url: 'https://www.expenseintel.com/',
           description: 'Pre-commitment decision intelligence for meaningful spending decisions.',
+        },
+        {
+          '@type': 'Organization',
+          '@id': 'https://waterlineintel.com/#organization',
+          name: 'Waterline Intel',
+          url: 'https://waterlineintel.com/',
+          description: 'Great Lakes freight intelligence and logistics decision-support platform.',
         },
       ],
     },
