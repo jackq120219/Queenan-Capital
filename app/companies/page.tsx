@@ -4,12 +4,12 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: { absolute: 'Operating Companies | Queenan Capital' },
   description:
-    'Explore Queenan Capital operating companies and internally developed businesses, including Waterline Intel and ExpenseIntel.',
+    'Explore Queenan Capital operating companies and internally developed businesses, including ExpenseIntel and Waterline Intel.',
   alternates: { canonical: 'https://www.queenancapital.com/companies' },
   openGraph: {
     title: 'Operating Companies | Queenan Capital',
     description:
-      'Waterline Intel and ExpenseIntel are operating businesses developed under Queenan Capital LLC.',
+      'ExpenseIntel and Waterline Intel are operating businesses developed under Queenan Capital LLC.',
     url: 'https://www.queenancapital.com/companies',
     siteName: 'Queenan Capital',
     type: 'website',
@@ -18,20 +18,20 @@ export const metadata: Metadata = {
 
 const companies = [
   {
-    name: 'Waterline Intel',
-    href: 'https://waterlineintel.com/',
-    category: 'Freight intelligence',
-    description:
-      'Great Lakes freight intelligence for route economics, market access, capacity signals, shipment planning, operators, cargo research, and logistics decisions.',
-    focus: 'Great Lakes logistics and freight decision support',
-  },
-  {
     name: 'ExpenseIntel',
     href: 'https://www.expenseintel.com/',
     category: 'Decision intelligence',
     description:
       'Pre-commitment decision intelligence for understanding price, true cost, recurring burden, downside, timing, alternatives, and recoverable value before a meaningful purchase or project.',
     focus: 'Consumer and business spending decisions',
+  },
+  {
+    name: 'Waterline Intel',
+    href: 'https://waterlineintel.com/',
+    category: 'Freight intelligence',
+    description:
+      'Great Lakes freight intelligence for route economics, market access, capacity signals, shipment planning, operators, cargo research, and logistics decisions.',
+    focus: 'Great Lakes logistics and freight decision support',
   },
 ];
 
@@ -95,7 +95,7 @@ export default function CompaniesPage() {
         <section style={{ marginTop: 88, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '7vw', borderTop: '1px solid #151515', paddingTop: 32 }}>
           <h2 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(2.2rem,4vw,4.6rem)', fontWeight: 400, letterSpacing: '-.04em' }}>One parent. Distinct operating problems.</h2>
           <div style={{ lineHeight: 1.75, color: '#5f5953' }}>
-            <p>Waterline Intel focuses on Great Lakes freight and logistics decisions. ExpenseIntel focuses on the economics and risk behind meaningful spending commitments.</p>
+            <p>ExpenseIntel focuses on the economics and risk behind meaningful spending commitments. Waterline Intel focuses on Great Lakes freight and logistics decisions.</p>
             <p>The businesses have separate products and audiences, while Queenan Capital provides the common ownership and operating context.</p>
             <p><Link href="/company" style={{ color: '#6f2934', fontWeight: 700 }}>Read official company information →</Link></p>
           </div>
