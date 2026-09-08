@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: { absolute: 'Operating Notes | Queenan Capital' },
   description: 'Selected product and operating milestones from Queenan Capital and its operating companies.',
   alternates: { canonical: 'https://www.queenancapital.com/operating-notes' },
+  openGraph: {
+    title: 'Operating Notes | Queenan Capital',
+    description: 'Selected product and operating milestones from Queenan Capital and its operating companies.',
+    url: 'https://www.queenancapital.com/operating-notes',
+    siteName: 'Queenan Capital',
+    type: 'website',
+  },
 };
 
 const notes = [
@@ -27,7 +34,7 @@ const notes = [
 
 export default function OperatingNotesPage() {
   return (
-    <main style={{ minHeight: '100vh', background: '#f7f4ee', color: '#151515', padding: '72px 6vw 104px', fontFamily: 'Arial, Helvetica, sans-serif' }}>
+    <main style={{ minHeight: '100vh', background: '#f7f4ee', color: '#151515', padding: '72px 6vw 104px', fontFamily: 'Arial, Helvetica, sans-serif', overflowX: 'hidden' }}>
       <div style={{ maxWidth: 1120, margin: '0 auto' }}>
         <nav style={{ display: 'flex', gap: 24, marginBottom: 66, flexWrap: 'wrap', fontSize: 12, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase' }}>
           <Link href="/" style={{ color: '#6f2934', textDecoration: 'none' }}>Queenan Capital</Link>
@@ -35,7 +42,7 @@ export default function OperatingNotesPage() {
           <Link href="/company" style={{ color: '#6f2934', textDecoration: 'none' }}>Company information</Link>
         </nav>
 
-        <header style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(280px,.72fr)', gap: '8vw', alignItems: 'end' }}>
+        <header style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '8vw', alignItems: 'end' }}>
           <div>
             <div style={{ color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 18 }}>September 2026 / Operating notes</div>
             <h1 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontWeight: 400, fontSize: 'clamp(3.4rem,7vw,7rem)', lineHeight: .94, letterSpacing: '-.05em' }}>What is actually being built.</h1>
@@ -47,9 +54,9 @@ export default function OperatingNotesPage() {
 
         <section style={{ marginTop: 82, borderTop: '1px solid #151515' }}>
           {notes.map((note, index) => (
-            <article key={note.company} style={{ display: 'grid', gridTemplateColumns: '80px minmax(160px,.45fr) minmax(0,1.2fr)', gap: 28, padding: '34px 0', borderBottom: '1px solid rgba(21,21,21,.24)' }}>
-              <span style={{ color: '#6f2934', fontSize: 11, fontWeight: 800 }}>0{index + 1}</span>
+            <article key={note.company} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 28, padding: '34px 0', borderBottom: '1px solid rgba(21,21,21,.24)' }}>
               <div>
+                <span style={{ display: 'block', color: '#6f2934', fontSize: 11, fontWeight: 800, marginBottom: 14 }}>0{index + 1}</span>
                 <div style={{ color: '#6f2934', fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase' }}>{note.company}</div>
                 <h2 style={{ margin: '12px 0 0', fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(1.7rem,3vw,3rem)', fontWeight: 400, lineHeight: 1.05 }}>{note.title}</h2>
               </div>
@@ -58,7 +65,7 @@ export default function OperatingNotesPage() {
           ))}
         </section>
 
-        <section style={{ marginTop: 72, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '7vw', borderTop: '1px solid #151515', paddingTop: 30 }}>
+        <section style={{ marginTop: 72, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '7vw', borderTop: '1px solid #151515', paddingTop: 30 }}>
           <h2 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(2rem,4vw,4rem)', fontWeight: 400 }}>The next threshold is evidence.</h2>
           <div style={{ color: '#5f5953', lineHeight: 1.75 }}>
             <p>Across the portfolio, the next phase is less about adding visible surface area and more about replacing modeled assumptions with supported inputs, written quotes, source records, and observed outcomes.</p>
