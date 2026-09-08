@@ -8,6 +8,7 @@ import './logo-fixes.css';
 import './maintenance.css';
 import InstitutionalMotion from './institutional-motion';
 import VentureOrbit from './venture-orbit';
+import PortfolioCurrent from './portfolio-current';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.queenancapital.com'),
@@ -151,6 +152,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         <InstitutionalMotion>{children}</InstitutionalMotion>
         <VentureOrbit />
+        <PortfolioCurrent />
       </body>
     </html>
   );
