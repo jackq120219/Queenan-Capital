@@ -36,6 +36,7 @@ export default function CompanyPage() {
         color: '#151515',
         padding: '72px 6vw 96px',
         fontFamily: 'Arial, Helvetica, sans-serif',
+        overflowX: 'hidden',
       }}
     >
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
@@ -45,7 +46,7 @@ export default function CompanyPage() {
           <Link href="/operating-notes" style={{ color: '#6f2934', textDecoration: 'none', fontSize: 12, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase' }}>Operating notes →</Link>
         </div>
 
-        <section style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.2fr) minmax(280px,.8fr)', gap: '8vw', alignItems: 'end' }}>
+        <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '8vw', alignItems: 'end' }}>
           <div>
             <div style={{ color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 20 }}>Official company information</div>
             <h1 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontWeight: 400, fontSize: 'clamp(3.4rem,7vw,7rem)', lineHeight: .94, letterSpacing: '-.05em' }}>Queenan Capital</h1>
@@ -55,14 +56,14 @@ export default function CompanyPage() {
           </p>
         </section>
 
-        <section style={{ marginTop: 72, display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 28 }}>
+        <section style={{ marginTop: 72, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 28 }}>
           <div style={cardStyle}>
-            <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 14 }}>Legal name</div>
-            <strong style={{ fontFamily: 'Georgia, Times New Roman, serif', fontSize: 24, fontWeight: 400 }}>Queenan Capital LLC</strong>
+            <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 14 }}>Operating name</div>
+            <strong style={{ fontFamily: 'Georgia, Times New Roman, serif', fontSize: 24, fontWeight: 400 }}>Queenan Capital</strong>
           </div>
           <div style={cardStyle}>
-            <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 14 }}>Jurisdiction / base</div>
-            <strong style={{ fontFamily: 'Georgia, Times New Roman, serif', fontSize: 24, fontWeight: 400 }}>Illinois / Chicago</strong>
+            <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 14 }}>Base</div>
+            <strong style={{ fontFamily: 'Georgia, Times New Roman, serif', fontSize: 24, fontWeight: 400 }}>Chicago, Illinois</strong>
           </div>
           <div style={cardStyle}>
             <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 14 }}>Established</div>
@@ -72,7 +73,7 @@ export default function CompanyPage() {
 
         <section style={{ marginTop: 88, borderTop: '1px solid #151515', paddingTop: 32 }}>
           <div style={{ color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 24 }}>Operating companies</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 28 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 28 }}>
             {operatingCompanies.map((company) => (
               <a key={company.name} href={company.href} style={{ ...cardStyle, color: 'inherit', textDecoration: 'none', display: 'block' }}>
                 <h2 style={{ margin: '0 0 12px', fontFamily: 'Georgia, Times New Roman, serif', fontSize: 32, fontWeight: 400 }}>{company.name}</h2>
@@ -83,7 +84,7 @@ export default function CompanyPage() {
           <p style={{ marginTop: 30 }}><Link href="/companies" style={{ color: '#6f2934', fontWeight: 800 }}>View the operating companies page →</Link></p>
         </section>
 
-        <section style={{ marginTop: 80, display: 'grid', gridTemplateColumns: 'minmax(0,.7fr) minmax(0,1.3fr)', gap: '7vw', borderTop: '1px solid #151515', paddingTop: 30 }}>
+        <section style={{ marginTop: 80, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '7vw', borderTop: '1px solid #151515', paddingTop: 30 }}>
           <h2 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(2.2rem,4vw,4.4rem)', fontWeight: 400, letterSpacing: '-.04em' }}>Operating discipline</h2>
           <div style={{ color: '#5f5953', lineHeight: 1.75 }}>
             <p><strong style={{ color: '#151515' }}>Study before building.</strong> Understand the market, source quality, economics, and failure modes first.</p>
