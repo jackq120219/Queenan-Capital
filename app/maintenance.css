@@ -1,0 +1,26 @@
+/* Restrained maintenance layer: polish without changing Queenan Capital's core visual language or copy. */
+html{scroll-padding-top:82px;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body{overflow-x:hidden}
+::selection{background:#6f2934;color:#f7f4ee}
+a,button,summary{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #8b3947;outline-offset:3px}
+img{max-width:100%}
+section[id]{scroll-margin-top:80px}
+
+/* Keep dense editorial sections readable on intermediate laptop widths. */
+@media (min-width:781px) and (max-width:1180px){
+  .page{min-width:0}
+  .desktop-nav{gap:clamp(12px,1.7vw,26px)}
+}
+
+/* Make touch targets dependable without visually enlarging desktop controls. */
+@media (max-width:780px){
+  .mobile-nav summary,.mobile-nav a,.header-contact{min-height:44px;display:flex;align-items:center}
+  section[id]{scroll-margin-top:70px}
+}
+
+/* Respect reduced-motion preferences across the site's decorative motion system. */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
