@@ -5,6 +5,7 @@ import './design-system.css';
 import './institutional-motion.css';
 import './hero-fixes.css';
 import './logo-fixes.css';
+import './maintenance.css';
 import InstitutionalMotion from './institutional-motion';
 import VentureOrbit from './venture-orbit';
 
@@ -24,6 +25,8 @@ export const metadata: Metadata = {
     'operating businesses',
     'ExpenseIntel',
     'Waterline Intel',
+    'Gage Grid',
+    'industrial infrastructure intelligence',
   ],
   authors: [{ name: 'Queenan Capital LLC', url: 'https://www.queenancapital.com/' }],
   creator: 'Queenan Capital LLC',
@@ -110,6 +113,8 @@ const queenanStructuredData = {
         'Great Lakes freight intelligence',
         'logistics decision support',
         'pre-commitment decision intelligence',
+        'industrial infrastructure intelligence',
+        'industrial site serviceability research',
       ],
       subOrganization: [
         {
@@ -125,6 +130,15 @@ const queenanStructuredData = {
           name: 'Waterline Intel',
           url: 'https://waterlineintel.com/',
           description: 'Great Lakes freight intelligence and logistics decision-support platform.',
+        },
+      ],
+      hasPart: [
+        {
+          '@type': 'CreativeWork',
+          name: 'Gage Grid',
+          url: 'https://gage-grid.vercel.app/',
+          description: 'A Queenan Capital research-stage project exploring industrial infrastructure capacity and site serviceability intelligence.',
+          keywords: ['research stage', 'industrial infrastructure', 'site capacity', 'serviceability'],
         },
       ],
     },
