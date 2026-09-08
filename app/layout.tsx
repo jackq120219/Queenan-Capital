@@ -16,10 +16,9 @@ export const metadata: Metadata = {
     default: 'Queenan Capital | Independent Holding Company',
     template: '%s | Queenan Capital',
   },
-  description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on industry research, selective ownership, and internally developed operating businesses.',
+  description: 'Queenan Capital is an independent holding company based in Chicago, focused on industry research, long-term ownership, and internally developed operating businesses.',
   keywords: [
     'Queenan Capital',
-    'Queenan Capital LLC',
     'holding company',
     'Chicago holding company',
     'operating businesses',
@@ -28,9 +27,9 @@ export const metadata: Metadata = {
     'Gage Grid',
     'industrial infrastructure intelligence',
   ],
-  authors: [{ name: 'Queenan Capital LLC', url: 'https://www.queenancapital.com/' }],
-  creator: 'Queenan Capital LLC',
-  publisher: 'Queenan Capital LLC',
+  authors: [{ name: 'Queenan Capital', url: 'https://www.queenancapital.com/' }],
+  creator: 'Queenan Capital',
+  publisher: 'Queenan Capital',
   category: 'business',
   icons: {
     icon: [{ url: '/queenan-favicon.png', type: 'image/png', sizes: '192x192' }],
@@ -53,7 +52,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Queenan Capital | Independent Holding Company',
-    description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on research, selective ownership, and operating businesses.',
+    description: 'Queenan Capital is an independent holding company based in Chicago, focused on research, long-term ownership, and operating businesses.',
     url: 'https://www.queenancapital.com/',
     siteName: 'Queenan Capital',
     locale: 'en_US',
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Queenan Capital | Independent Holding Company',
-    description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on research, selective ownership, and operating businesses.',
+    description: 'Queenan Capital is an independent holding company based in Chicago, focused on research, long-term ownership, and operating businesses.',
     images: ['/opengraph-image'],
   },
 };
@@ -83,7 +82,7 @@ const queenanStructuredData = {
       '@id': 'https://www.queenancapital.com/#website',
       url: 'https://www.queenancapital.com/',
       name: 'Queenan Capital',
-      alternateName: ['Queenan Capital LLC', 'queenancapital.com'],
+      alternateName: ['Queenan Capital', 'queenancapital.com'],
       publisher: {
         '@id': 'https://www.queenancapital.com/#organization',
       },
@@ -92,10 +91,9 @@ const queenanStructuredData = {
       '@type': 'Organization',
       '@id': 'https://www.queenancapital.com/#organization',
       name: 'Queenan Capital',
-      legalName: 'Queenan Capital LLC',
       url: 'https://www.queenancapital.com/',
       logo: 'https://www.queenancapital.com/queenan-favicon.png',
-      description: 'Queenan Capital LLC is an independent holding company based in Chicago, focused on industry research, selective ownership, and internally developed operating businesses.',
+      description: 'Queenan Capital is an independent holding company based in Chicago, focused on industry research, long-term ownership, and internally developed operating businesses.',
       foundingDate: '2026',
       foundingLocation: {
         '@type': 'Place',
@@ -131,14 +129,12 @@ const queenanStructuredData = {
           url: 'https://waterlineintel.com/',
           description: 'Great Lakes freight intelligence and logistics decision-support platform.',
         },
-      ],
-      hasPart: [
         {
-          '@type': 'CreativeWork',
+          '@type': 'Organization',
+          '@id': 'https://gage-grid.vercel.app/#organization',
           name: 'Gage Grid',
           url: 'https://gage-grid.vercel.app/',
-          description: 'A Queenan Capital research-stage project exploring industrial infrastructure capacity and site serviceability intelligence.',
-          keywords: ['research stage', 'industrial infrastructure', 'site capacity', 'serviceability'],
+          description: 'Industrial site infrastructure intelligence for project screening, site comparison, evidence quality, and diligence sequencing.',
         },
       ],
     },
