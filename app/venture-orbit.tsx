@@ -17,6 +17,7 @@ type Venture = {
   href: string;
   action: string;
   vectors: [string, string, string];
+  stage: 'operating' | 'research' | 'mandate';
 };
 
 const ventures: Venture[] = [
@@ -32,6 +33,7 @@ const ventures: Venture[] = [
     href: 'https://waterlineintel.com',
     action: 'Visit Waterline',
     vectors: ['Deeper freight data', 'Workflow intelligence', 'Adjacent physical markets'],
+    stage: 'operating',
   },
   {
     key: 'expenseintel',
@@ -45,6 +47,21 @@ const ventures: Venture[] = [
     href: 'https://expenseintel.com',
     action: 'Visit ExpenseIntel',
     vectors: ['Deeper evidence', 'Decision memory', 'New cost surfaces'],
+    stage: 'operating',
+  },
+  {
+    key: 'gagegrid',
+    short: 'GG',
+    name: 'Gage Grid',
+    status: 'Research / under development',
+    lead: 'A research-stage industrial infrastructure intelligence project exploring whether a site can actually support a proposed project across power, water, wastewater, gas and fiber before development capital is committed.',
+    type: 'Infrastructure intelligence',
+    focus: 'Site capacity + serviceability',
+    horizon: 'Research → pilot',
+    href: 'https://gage-grid.vercel.app',
+    action: 'Preview Gage Grid',
+    vectors: ['Source-backed utility data', 'Serviceability evidence', 'Pilot site coverage'],
+    stage: 'research',
   },
   {
     key: 'ownership',
@@ -58,12 +75,14 @@ const ventures: Venture[] = [
     href: 'mailto:contact@queenancapital.com?subject=Business%20Owner%20Inquiry',
     action: 'Start a conversation',
     vectors: ['Find the right business', 'Learn the operation', 'Compound patiently'],
+    stage: 'mandate',
   },
 ];
 
 const paths: Record<string, string> = {
   waterline: 'M500 326 C420 276 340 201 220 212',
   expenseintel: 'M500 326 C590 235 690 167 783 204',
+  gagegrid: 'M500 326 C430 392 350 468 270 510',
   ownership: 'M500 326 C586 403 660 486 744 492',
 };
 
@@ -140,13 +159,13 @@ export default function VentureOrbit() {
     <section id="operating-field" className={styles.section} aria-labelledby="venture-orbit-title">
       <div className={styles.head}>
         <div>
-          <div className={styles.kicker}>Operating field / 03 objects in motion</div>
-          <div className={styles.signal}><i /> Live map of current work + open direction</div>
+          <div className={styles.kicker}>Operating field / 04 objects in motion</div>
+          <div className={styles.signal}><i /> Live work + research + open direction</div>
         </div>
         <div>
           <h2 id="venture-orbit-title">The company is not a diagram. <em>It moves.</em></h2>
           <p>
-            Queenan Capital can build, study, or own. Follow a live node to see what exists now; the fading paths beyond it are deliberately unresolved. They show where a capability could compound next, not a promised roadmap.
+            Queenan Capital can build, study, or own. Follow a node to see what exists now, what is still being researched, and where an open mandate may lead. The fading paths beyond each node remain deliberately unresolved—not a promised roadmap.
           </p>
         </div>
       </div>
@@ -173,6 +192,11 @@ export default function VentureOrbit() {
                 <stop offset="0" stopColor="#b99298" stopOpacity=".45" />
                 <stop offset="1" stopColor="#b99298" stopOpacity="0" />
               </linearGradient>
+              <linearGradient id="qc-flow-research" x1="0" x2="1">
+                <stop offset="0" stopColor="#d6c7b8" stopOpacity=".12" />
+                <stop offset=".52" stopColor="#c99a66" stopOpacity=".9" />
+                <stop offset="1" stopColor="#d6c7b8" stopOpacity=".18" />
+              </linearGradient>
             </defs>
 
             <path className={styles.fieldLine} d="M-40 468 C185 334 302 475 480 322 S775 103 1040 221" />
@@ -181,9 +205,22 @@ export default function VentureOrbit() {
 
             {ventures.map((venture) => (
               <g key={venture.key} className={activeKey === venture.key ? styles.pathActive : styles.pathDormant}>
-                <path className={styles.livePath} d={paths[venture.key]} pathLength="100" />
-                <circle className={styles.particle} r="3.8">
-                  <animateMotion dur={venture.key === 'waterline' ? '5.8s' : venture.key === 'expenseintel' ? '6.6s' : '7.4s'} repeatCount="indefinite" path={paths[venture.key]} />
+                <path
+                  className={styles.livePath}
+                  d={paths[venture.key]}
+                  pathLength="100"
+                  style={venture.stage === 'research' ? { stroke: 'url(#qc-flow-research)', strokeDasharray: '5 5' } : undefined}
+                />
+                <circle
+                  className={styles.particle}
+                  r={venture.stage === 'research' ? '3.2' : '3.8'}
+                  style={venture.stage === 'research' ? { fill: '#d4a56f' } : undefined}
+                >
+                  <animateMotion
+                    dur={venture.key === 'waterline' ? '5.8s' : venture.key === 'expenseintel' ? '6.6s' : venture.key === 'gagegrid' ? '7s' : '7.4s'}
+                    repeatCount="indefinite"
+                    path={paths[venture.key]}
+                  />
                 </circle>
               </g>
             ))}
@@ -195,6 +232,10 @@ export default function VentureOrbit() {
             <path className={`${styles.openPath} ${activeKey === 'expenseintel' ? styles.openActive : ''}`} d="M783 204 C883 115 935 71 1048 33" />
             <path className={`${styles.openPath} ${activeKey === 'expenseintel' ? styles.openActive : ''}`} d="M783 204 C915 218 973 259 1060 302" />
             <path className={`${styles.openPath} ${activeKey === 'expenseintel' ? styles.openActive : ''}`} d="M783 204 C858 310 886 388 969 434" />
+
+            <path className={`${styles.openPath} ${activeKey === 'gagegrid' ? styles.openActive : ''}`} d="M270 510 C165 535 84 585 -46 617" />
+            <path className={`${styles.openPath} ${activeKey === 'gagegrid' ? styles.openActive : ''}`} d="M270 510 C210 587 185 632 154 699" />
+            <path className={`${styles.openPath} ${activeKey === 'gagegrid' ? styles.openActive : ''}`} d="M270 510 C145 461 67 431 -49 402" />
 
             <path className={`${styles.openPath} ${activeKey === 'ownership' ? styles.openActive : ''}`} d="M744 492 C820 530 904 572 1051 594" />
             <path className={`${styles.openPath} ${activeKey === 'ownership' ? styles.openActive : ''}`} d="M744 492 C733 566 725 619 708 689" />
@@ -213,26 +254,67 @@ export default function VentureOrbit() {
             <div><strong>QC</strong><span>{active ? 'click to clear' : 'gravity / not destination'}</span></div>
           </button>
 
-          {ventures.map((venture, index) => (
-            <div className={`${styles.nodeShell} ${styles[`node${index + 1}`]}`} key={venture.key}>
-              <button
-                type="button"
-                className={`${styles.node} ${activeKey === venture.key ? styles.nodeActive : ''}`}
-                onClick={() => setActiveKey(venture.key)}
-                onDoubleClick={() => jumpToVenture(venture.key)}
-                aria-pressed={activeKey === venture.key}
-                aria-label={`Explore ${venture.name}. Double click to jump to its section below.`}
-                title={`Click to explore · double click to jump to ${venture.name}`}
-              >
-                <span className={styles.nodeIndex}>0{index + 1}</span>
-                <strong>{venture.short}</strong>
-                <span className={styles.nodeName}>{venture.name}</span>
-                <small>{venture.status}</small>
-              </button>
-            </div>
-          ))}
+          {ventures.map((venture, index) => {
+            const researchNode = venture.stage === 'research';
+            const nodeShellStyle = researchNode
+              ? { left: '20%', top: '69%', animation: 'none' }
+              : undefined;
+            const nodeStyle = researchNode
+              ? {
+                  borderStyle: 'dashed' as const,
+                  borderColor: activeKey === venture.key ? '#e2bc8f' : 'rgba(226,188,143,.7)',
+                  background: activeKey === venture.key
+                    ? 'radial-gradient(circle at 38% 30%, #8f6442, #5c3d29 62%, #38261b)'
+                    : 'rgba(31,27,22,.88)',
+                  boxShadow: activeKey === venture.key ? '0 0 0 12px rgba(201,154,102,.07), 0 22px 60px rgba(0,0,0,.34), 0 0 46px rgba(201,154,102,.18)' : undefined,
+                }
+              : undefined;
 
-          {active && (
+            return (
+              <div
+                className={`${styles.nodeShell} ${!researchNode ? styles[`node${index + 1}`] : ''}`}
+                key={venture.key}
+                style={nodeShellStyle}
+              >
+                <button
+                  type="button"
+                  className={`${styles.node} ${activeKey === venture.key ? styles.nodeActive : ''}`}
+                  style={nodeStyle}
+                  onClick={() => setActiveKey(venture.key)}
+                  onDoubleClick={() => jumpToVenture(venture.key)}
+                  aria-pressed={activeKey === venture.key}
+                  aria-label={`Explore ${venture.name}${researchNode ? ', a research-stage project' : ''}.`}
+                  title={sectionTargets[venture.key] ? `Click to explore · double click to jump to ${venture.name}` : 'Click to explore this research-stage project'}
+                >
+                  <span className={styles.nodeIndex}>0{index + 1}</span>
+                  <strong>{venture.short}</strong>
+                  <span className={styles.nodeName}>{venture.name}</span>
+                  <small style={researchNode ? { color: '#d1a474' } : undefined}>{venture.status}</small>
+                  {researchNode && (
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        position: 'absolute',
+                        top: -12,
+                        right: -15,
+                        padding: '5px 7px',
+                        border: '1px solid rgba(226,188,143,.65)',
+                        background: '#181714',
+                        color: '#d8ad7b',
+                        fontSize: '.38rem',
+                        fontWeight: 800,
+                        letterSpacing: '.12em',
+                        textTransform: 'uppercase',
+                        transform: 'rotate(4deg)',
+                      }}
+                    >R&amp;D / coming soon</span>
+                  )}
+                </button>
+              </div>
+            );
+          })}
+
+          {active && active.key !== 'gagegrid' && (
             <div className={`${styles.vectorLabels} ${styles[`vectors_${active.key}`]}`} aria-hidden="true">
               {active.vectors.map((vector, index) => (
                 <div className={`${styles.vector} ${styles[`vector${index + 1}`]}`} key={vector}>
@@ -247,9 +329,9 @@ export default function VentureOrbit() {
           {active && (
             <article key={active.key} className={styles.inspector} aria-live="polite">
               <div className={styles.inspectorTop}>
-                <div><span>Selected object</span><strong>{active.short}</strong></div>
+                <div><span>{active.stage === 'research' ? 'Research object' : 'Selected object'}</span><strong>{active.short}</strong></div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <small>{active.status}</small>
+                  <small style={active.stage === 'research' ? { borderColor: 'rgba(226,188,143,.45)', color: '#d8ad7b' } : undefined}>{active.status}</small>
                   <button
                     type="button"
                     onClick={() => setActiveKey(null)}
@@ -270,6 +352,11 @@ export default function VentureOrbit() {
               </div>
               <h3>{active.name}</h3>
               <p>{active.lead}</p>
+              {active.stage === 'research' && (
+                <p style={{ marginTop: 12, color: '#d1a474' }}>
+                  Not presented as a mature operating business. Current work is focused on research, product testing, data standards, and pilot development.
+                </p>
+              )}
               <div className={styles.facts}>
                 <div><span>Type</span><strong>{active.type}</strong></div>
                 <div><span>Focus</span><strong>{active.focus}</strong></div>
@@ -277,36 +364,39 @@ export default function VentureOrbit() {
               </div>
               <div className={styles.actions}>
                 <a className={styles.primary} href={active.href} target={active.href.startsWith('http') ? '_blank' : undefined} rel={active.href.startsWith('http') ? 'noreferrer' : undefined}>{active.action} →</a>
-                <button
-                  type="button"
-                  onClick={() => jumpToVenture(active.key)}
-                  style={{
-                    border: '1px solid rgba(255,255,255,.28)',
-                    background: 'transparent',
-                    color: '#f0ebe3',
-                    padding: '9px 11px',
-                    fontSize: '.49rem',
-                    fontWeight: 800,
-                    letterSpacing: '.08em',
-                    textTransform: 'uppercase',
-                    cursor: 'pointer',
-                  }}
-                >View section below ↓</button>
+                {sectionTargets[active.key] && (
+                  <button
+                    type="button"
+                    onClick={() => jumpToVenture(active.key)}
+                    style={{
+                      border: '1px solid rgba(255,255,255,.28)',
+                      background: 'transparent',
+                      color: '#f0ebe3',
+                      padding: '9px 11px',
+                      fontSize: '.49rem',
+                      fontWeight: 800,
+                      letterSpacing: '.08em',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                    }}
+                  >View section below ↓</button>
+                )}
               </div>
             </article>
           )}
 
           <div className={styles.legend}>
             <span><i className={styles.legendLive} /> Existing</span>
+            <span><i style={{ background: '#c99a66', borderTop: '1px dashed #c99a66' }} /> Research-stage</span>
             <span><i className={styles.legendOpen} /> Open vector</span>
-            <span className={styles.legendHint}>Move through the field · click to inspect · double click to jump below</span>
+            <span className={styles.legendHint}>Move through the field · click to inspect</span>
           </div>
         </div>
       </div>
 
       <div className={styles.disclosure}>
-        <span>OPEN DIRECTION ≠ ANNOUNCED PROJECT</span>
-        <p>The unresolved paths are intentionally speculative. They describe capabilities Queenan Capital could deepen if the evidence and opportunity justify it.</p>
+        <span>STAGE LABELS MATTER</span>
+        <p>Operating projects, research-stage work, and open directions are intentionally separated. Gage Grid is currently under development; unresolved paths describe capabilities Queenan Capital could deepen if the evidence and opportunity justify it.</p>
       </div>
     </section>,
     mount,
