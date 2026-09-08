@@ -72,7 +72,7 @@ const structuredData = {
 
 export default function CompaniesPage() {
   return (
-    <main style={{ minHeight: '100vh', background: '#f7f4ee', color: '#151515', padding: '72px 6vw 104px', fontFamily: 'Arial, Helvetica, sans-serif' }}>
+    <main style={{ minHeight: '100vh', background: '#f7f4ee', color: '#151515', padding: '72px 6vw 104px', fontFamily: 'Arial, Helvetica, sans-serif', overflowX: 'hidden' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
         <nav style={{ display: 'flex', gap: 24, marginBottom: 68, fontSize: 12, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
@@ -81,7 +81,7 @@ export default function CompaniesPage() {
           <Link href="/operating-notes" style={{ color: '#6f2934', textDecoration: 'none' }}>Operating notes</Link>
         </nav>
 
-        <header style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.15fr) minmax(280px,.85fr)', gap: '8vw', alignItems: 'end' }}>
+        <header style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '8vw', alignItems: 'end' }}>
           <div>
             <div style={{ color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 20 }}>Queenan Capital portfolio</div>
             <h1 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontWeight: 400, fontSize: 'clamp(3.3rem,7vw,7.2rem)', lineHeight: .94, letterSpacing: '-.05em' }}>Distinct companies.<br />One operating discipline.</h1>
@@ -93,11 +93,11 @@ export default function CompaniesPage() {
 
         <section style={{ marginTop: 84, borderTop: '1px solid #151515' }}>
           {companies.map((company, index) => (
-            <a key={company.name} href={company.href} style={{ display: 'grid', gridTemplateColumns: '80px minmax(0,1fr) minmax(240px,.62fr)', gap: 28, padding: '34px 0', borderBottom: '1px solid rgba(21,21,21,.28)', color: 'inherit', textDecoration: 'none' }}>
-              <span style={{ color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.12em' }}>0{index + 1}</span>
+            <a key={company.name} href={company.href} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 28, padding: '34px 0', borderBottom: '1px solid rgba(21,21,21,.28)', color: 'inherit', textDecoration: 'none' }}>
               <div>
+                <span style={{ display: 'block', color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.12em', marginBottom: 12 }}>0{index + 1}</span>
                 <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 12 }}>{company.category}</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 14 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 14, flexWrap: 'wrap' }}>
                   <img src={company.logo} alt={`${company.name} logo`} width={62} height={62} style={{ width: 62, height: 62, flex: '0 0 62px' }} />
                   <h2 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(2rem,4vw,4.2rem)', fontWeight: 400, letterSpacing: '-.035em' }}>{company.name}</h2>
                 </div>
@@ -113,7 +113,7 @@ export default function CompaniesPage() {
           ))}
         </section>
 
-        <section style={{ marginTop: 88, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '7vw', borderTop: '1px solid #151515', paddingTop: 32 }}>
+        <section style={{ marginTop: 88, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '7vw', borderTop: '1px solid #151515', paddingTop: 32 }}>
           <h2 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(2.2rem,4vw,4.6rem)', fontWeight: 400, letterSpacing: '-.04em' }}>Study → Build → Own.</h2>
           <div style={{ lineHeight: 1.75, color: '#5f5953' }}>
             <p><strong style={{ color: '#151515' }}>Study:</strong> understand the industry, economics, data constraints, and decision failures before building.</p>
@@ -122,7 +122,7 @@ export default function CompaniesPage() {
           </div>
         </section>
 
-        <section style={{ marginTop: 72, display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 24, borderTop: '1px solid rgba(21,21,21,.28)', paddingTop: 28 }}>
+        <section style={{ marginTop: 72, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 24, borderTop: '1px solid rgba(21,21,21,.28)', paddingTop: 28 }}>
           <div><span style={{ color: '#6f2934', fontSize: 10, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase' }}>01 / Separate identities</span><p style={{ color: '#5f5953', lineHeight: 1.65 }}>Each company is designed around its own customer, workflow, data, and visual language rather than functioning as a reskinned portfolio template.</p></div>
           <div><span style={{ color: '#6f2934', fontSize: 10, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase' }}>02 / Evidence before claims</span><p style={{ color: '#5f5953', lineHeight: 1.65 }}>Models, public evidence, user inputs, and verified facts are kept distinct. A planning estimate is not presented as an executable quote or commitment.</p></div>
           <div><span style={{ color: '#6f2934', fontSize: 10, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase' }}>03 / Decision usefulness</span><p style={{ color: '#5f5953', lineHeight: 1.65 }}>Product depth is measured by whether a user can make a better next decision—not by the number of dashboards, features, or decorative metrics.</p></div>
