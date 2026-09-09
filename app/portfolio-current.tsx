@@ -25,9 +25,11 @@ export default function PortfolioCurrent() {
 
     const railName = document.querySelector<HTMLElement>('.rail-name');
     if (railName && /LLC/i.test(railName.textContent || '')) railName.textContent = 'QUEENAN CAPITAL';
-    document.querySelectorAll<HTMLAnchorElement>('.desktop-nav a,.mobile-nav a').forEach((link) => {
-      if ((link.textContent || '').trim() === 'Projects') link.textContent = 'Portfolio';
-    });
+    document.querySelectorAll<HTMLAnchorElement>('.desktop-nav a,.mobile-nav a').forEach((link) => { if ((link.textContent || '').trim() === 'Projects') link.textContent = 'Portfolio'; });
+    const aboutTitle = document.querySelector<HTMLElement>('.about-left h2');
+    if (aboutTitle && /LLC/i.test(aboutTitle.textContent || '')) aboutTitle.textContent = 'Queenan Capital.';
+    document.querySelectorAll<HTMLElement>('.about-data strong').forEach((el) => { if (/Queenan Capital LLC/i.test(el.textContent || '')) el.textContent = 'Queenan Capital'; });
+    document.querySelectorAll<HTMLElement>('footer span').forEach((el) => { if (/Queenan Capital LLC/i.test(el.textContent || '')) el.textContent = (el.textContent || '').replace(/Queenan Capital LLC/g, 'Queenan Capital'); });
     const about = document.querySelector<HTMLElement>('.about-lead');
     if (about && about.textContent?.includes('Waterline Intel and ExpenseIntel')) about.textContent = 'Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current operating field includes ExpenseIntel, Waterline Intel, and Gage Grid.';
     const notes = document.querySelector<HTMLElement>('.notes-copy p');
@@ -52,7 +54,7 @@ export default function PortfolioCurrent() {
       <div className="qc-current-grid">
         {ventures.map((venture) => <a className="qc-current-card" href={venture.href} target="_blank" rel="noreferrer" key={venture.code}><div className="qc-current-top"><span>{venture.code}</span><span>{venture.status}</span></div><h3>{venture.name}</h3><p>{venture.descriptor}</p><em>{venture.question}</em><b aria-hidden="true">↗</b></a>)}
       </div>
-      <div className="qc-current-foot"><p>Queenan Capital keeps each operating company distinct while applying the same standard: evidence before claims, useful decisions before feature count, and long-term operating discipline.</p><div className="qc-current-links"><a href="/companies">Company profiles</a><a href="/operating-notes">Operating notes</a></div></div>
+      <div className="qc-current-foot"><p>Queenan Capital keeps each operating company distinct while applying the same standard: evidence before claims, useful decisions before feature count, and long-term operating discipline.</p><div className="qc-current-links"><a href="/companies">Company profiles</a><a href="/research-standards">Research standards</a><a href="/operating-notes">Operating notes</a></div></div>
     </section>, mount,
   );
 }
