@@ -6,6 +6,7 @@ import './institutional-motion.css';
 import './hero-fixes.css';
 import './logo-fixes.css';
 import './maintenance.css';
+import './sep9-polish.css';
 import InstitutionalMotion from './institutional-motion';
 import VentureOrbit from './venture-orbit';
 import PortfolioCurrent from './portfolio-current';
@@ -148,7 +149,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(queenanStructuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(queanStructuredData) }}
         />
         <InstitutionalMotion>{children}</InstitutionalMotion>
         <VentureOrbit />
