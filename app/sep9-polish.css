@@ -1,6 +1,7 @@
 /* Sep 9 institutional polish — intentionally additive and restrained. */
 ::selection{background:rgba(118,22,28,.22);color:inherit}
 a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+html,body{max-width:100%;overflow-x:clip}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;
@@ -8,4 +9,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+}
+@media (max-width: 760px) {
+  a,button,summary{touch-action:manipulation}
+  nav a,nav button{min-height:40px}
 }
