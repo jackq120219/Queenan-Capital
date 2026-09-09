@@ -5,10 +5,85 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 const ventures = [
-  { code: 'EI', name: 'ExpenseIntel', descriptor: 'Pre-commitment decision intelligence', question: 'Should you spend the money?', href: 'https://expenseintel.com', status: 'Operating product' },
+  { code: 'EI', name: 'ExpenseIntel', descriptor: 'Pre-commitment decision intelligence', question: 'Should the money be committed, and what should be verified first?', href: 'https://www.expenseintel.com', status: 'Operating product' },
   { code: 'WI', name: 'Waterline Intel', descriptor: 'Great Lakes freight intelligence', question: 'Can this cargo move well?', href: 'https://waterlineintel.com', status: 'Operating product' },
   { code: 'GG', name: 'Gage Grid', descriptor: 'Industrial site infrastructure intelligence', question: 'Can this site carry the project?', href: 'https://gage-grid.vercel.app', status: 'Active development' },
 ];
+
+const expenseQuestions = [
+  'Is the price or quote actually supported?',
+  'What does the commitment really cost after the obvious number?',
+  'What still needs to be verified before money is committed?',
+];
+
+const expenseSpecs: Record<string, string> = {
+  'Primary inputs': 'Listing, quote, decision, price, property or project context',
+  'Cost layers': 'Price, true cost, terms, timing, alternatives, exposure, exit and evidence',
+  'Core outputs': 'Decision call, cost context, unresolved gaps and the next diligence action',
+  'Decision horizon': 'Before commitment, with Change Watch available after a baseline is saved',
+  'Current stage': 'Active development; source-backed evidence and modeled assumptions are kept distinct',
+};
+
+function syncLegacyHomepageCopy() {
+  const railName = document.querySelector<HTMLElement>('.rail-name');
+  if (railName && /LLC/i.test(railName.textContent || '')) railName.textContent = 'QUEENAN CAPITAL';
+
+  document.querySelectorAll<HTMLAnchorElement>('.desktop-nav a,.mobile-nav a').forEach((link) => {
+    if ((link.textContent || '').trim() === 'Projects') link.textContent = 'Portfolio';
+  });
+
+  const aboutTitle = document.querySelector<HTMLElement>('.about-left h2');
+  if (aboutTitle && /LLC/i.test(aboutTitle.textContent || '')) aboutTitle.textContent = 'Queenan Capital.';
+
+  document.querySelectorAll<HTMLElement>('.about-data strong').forEach((el) => {
+    if (/Queenan Capital LLC/i.test(el.textContent || '')) el.textContent = 'Queenan Capital';
+  });
+
+  document.querySelectorAll<HTMLElement>('footer span').forEach((el) => {
+    if (/Queenan Capital LLC/i.test(el.textContent || '')) el.textContent = (el.textContent || '').replace(/Queenan Capital LLC/g, 'Queenan Capital');
+  });
+
+  const about = document.querySelector<HTMLElement>('.about-lead');
+  if (about) about.textContent = 'Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current operating portfolio includes ExpenseIntel, Waterline Intel, and Gage Grid.';
+
+  const notes = document.querySelector<HTMLElement>('.notes-copy p');
+  if (notes) notes.textContent = 'Occasional notes from researching markets and building ExpenseIntel, Waterline Intel, and Gage Grid.';
+
+  const expense = document.getElementById('expenseintel');
+  if (!expense) return;
+
+  const title = expense.querySelector<HTMLElement>('#expenseintel-title');
+  const titleWrap = title?.parentElement;
+  const category = titleWrap?.querySelector<HTMLElement>('p');
+  if (category) category.textContent = 'Pre-commitment decision intelligence';
+
+  const hero = titleWrap?.parentElement;
+  const heroCopy = hero ? Array.from(hero.querySelectorAll<HTMLElement>(':scope > div:nth-child(2) p')) : [];
+  if (heroCopy[0]) heroCopy[0].textContent = 'ExpenseIntel is Queenan Capital’s second internally developed operating product, built to improve meaningful spending and project decisions before price becomes commitment.';
+  if (heroCopy[1]) heroCopy[1].textContent = 'Its Decision Passport connects price, true cost, terms and scope, timing, alternatives, exposure, exit conditions and evidence without pretending unknowns are facts.';
+
+  const thesis = expense.querySelector<HTMLElement>('[class*="thesis"]');
+  if (thesis) thesis.textContent = 'A purchase price or quote is only one part of a commitment. The useful decision comes from understanding the full burden, the failure points, the alternatives and what still has to be proven.';
+
+  const questionNodes = expense.querySelectorAll<HTMLElement>('[class*="questions"] strong');
+  questionNodes.forEach((node, index) => {
+    if (expenseQuestions[index]) node.textContent = expenseQuestions[index];
+  });
+
+  const evidenceHeading = expense.querySelector<HTMLElement>('#expense-data-title');
+  if (evidenceHeading) evidenceHeading.textContent = 'Decision inputs can move after the headline price.';
+  const evidenceCopy = evidenceHeading?.parentElement?.parentElement?.querySelector<HTMLElement>(':scope > p');
+  if (evidenceCopy) evidenceCopy.textContent = 'Electricity is one example of a source-backed input that can change the economics of a commitment over time. ExpenseIntel uses public evidence where it is relevant, but keeps broad market context separate from the exact price or terms of the decision in front of the user.';
+
+  expense.querySelectorAll<HTMLElement>('[class*="specRow"]').forEach((row) => {
+    const label = row.querySelector<HTMLElement>('span')?.textContent?.trim() || '';
+    const value = row.querySelector<HTMLElement>('strong');
+    if (value && expenseSpecs[label]) value.textContent = expenseSpecs[label];
+  });
+
+  const note = expense.querySelector<HTMLElement>('[class*="note"]');
+  if (note) note.textContent = 'ExpenseIntel is an early-stage operating product of Queenan Capital. Connected evidence, user-supplied facts, modeled assumptions and unresolved gaps are intentionally kept separate; outputs are decision support, not professional advice or executable quotes.';
+}
 
 export default function PortfolioCurrent() {
   const pathname = usePathname();
@@ -16,32 +91,26 @@ export default function PortfolioCurrent() {
 
   useEffect(() => {
     if (pathname !== '/') return;
+    syncLegacyHomepageCopy();
+
     const owners = document.getElementById('owners');
     if (!owners) return;
-    const node = document.createElement('div');
+    const existing = document.querySelector<HTMLElement>('[data-current-portfolio]');
+    const node = existing || document.createElement('div');
     node.dataset.currentPortfolio = '1';
-    owners.insertAdjacentElement('beforebegin', node);
+    if (!existing) owners.insertAdjacentElement('beforebegin', node);
     setMount(node);
 
-    const railName = document.querySelector<HTMLElement>('.rail-name');
-    if (railName && /LLC/i.test(railName.textContent || '')) railName.textContent = 'QUEENAN CAPITAL';
-    document.querySelectorAll<HTMLAnchorElement>('.desktop-nav a,.mobile-nav a').forEach((link) => { if ((link.textContent || '').trim() === 'Projects') link.textContent = 'Portfolio'; });
-    const aboutTitle = document.querySelector<HTMLElement>('.about-left h2');
-    if (aboutTitle && /LLC/i.test(aboutTitle.textContent || '')) aboutTitle.textContent = 'Queenan Capital.';
-    document.querySelectorAll<HTMLElement>('.about-data strong').forEach((el) => { if (/Queenan Capital LLC/i.test(el.textContent || '')) el.textContent = 'Queenan Capital'; });
-    document.querySelectorAll<HTMLElement>('footer span').forEach((el) => { if (/Queenan Capital LLC/i.test(el.textContent || '')) el.textContent = (el.textContent || '').replace(/Queenan Capital LLC/g, 'Queenan Capital'); });
-    const about = document.querySelector<HTMLElement>('.about-lead');
-    if (about && about.textContent?.includes('Waterline Intel and ExpenseIntel')) about.textContent = 'Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current operating field includes ExpenseIntel, Waterline Intel, and Gage Grid.';
-    const notes = document.querySelector<HTMLElement>('.notes-copy p');
-    if (notes && notes.textContent?.includes('Waterline Intel and ExpenseIntel')) notes.textContent = 'Occasional notes from researching markets and building ExpenseIntel, Waterline Intel, and Gage Grid.';
-
-    return () => { node.remove(); setMount(null); };
+    return () => {
+      if (!existing) node.remove();
+      setMount(null);
+    };
   }, [pathname]);
 
   if (!mount || pathname !== '/') return null;
 
   return createPortal(
-    <section className="qc-current-portfolio" aria-labelledby="qc-current-title">
+    <section id="portfolio" className="qc-current-portfolio" aria-labelledby="qc-current-title">
       <style>{`
         .qc-current-portfolio{padding:76px 4.2vw 82px;border-bottom:1px solid #151515;background:#f0ece5;color:#151515}
         .qc-current-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:8vw;align-items:end;margin-bottom:34px}.qc-current-kicker{font-size:.58rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#6f2934}.qc-current-head h2{margin:0;max-width:820px;font:400 clamp(2.3rem,4.2vw,5rem)/1 Georgia,'Times New Roman',serif;letter-spacing:-.045em}
