@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Research Standards',
@@ -18,7 +19,7 @@ const standards = [
 export default function ResearchStandardsPage() {
   return (
     <main style={{minHeight:'100vh',background:'#f3efe8',color:'#151515',padding:'72px 6vw 96px'}}>
-      <a href="/" style={{fontSize:12,fontWeight:800,letterSpacing:'.12em',textTransform:'uppercase',color:'#6f2934',textDecoration:'none'}}>← Queenan Capital</a>
+      <Link href="/" style={{fontSize:12,fontWeight:800,letterSpacing:'.12em',textTransform:'uppercase',color:'#6f2934',textDecoration:'none'}}>← Queenan Capital</Link>
       <section style={{maxWidth:1120,margin:'72px auto 0'}}>
         <div style={{fontSize:11,fontWeight:800,letterSpacing:'.14em',textTransform:'uppercase',color:'#6f2934',marginBottom:22}}>Portfolio research standards / 2026</div>
         <h1 style={{fontFamily:'Georgia, Times New Roman, serif',fontWeight:400,fontSize:'clamp(3rem,7vw,7rem)',lineHeight:.92,letterSpacing:'-.05em',margin:'0 0 34px'}}>Evidence before claims.</h1>
