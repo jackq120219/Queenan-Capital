@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import CurrentPortfolioServer from '../current-portfolio-server';
 import styles from './portfolio.module.css';
 
@@ -12,7 +13,7 @@ export default function PortfolioPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <a href="/">QUEENAN CAPITAL</a>
+        <Link href="/">QUEENAN CAPITAL</Link>
         <span>PORTFOLIO / 2026</span>
       </header>
       <section className={styles.intro}>
@@ -30,7 +31,7 @@ export default function PortfolioPage() {
           <article><b>04</b><h3>Long horizon</h3><p>Queenan Capital is built to study, operate, and improve businesses over time rather than optimize for a launch moment.</p></article>
         </div>
       </section>
-      <footer className={styles.footer}><span>Queenan Capital · Chicago, Illinois</span><a href="/">Return to company</a></footer>
+      <footer className={styles.footer}><span>Queenan Capital · Chicago, Illinois</span><Link href="/">Return to company</Link></footer>
     </main>
   );
 }
