@@ -40,7 +40,7 @@ export default function CurrentPortfolioServer() {
       </div>
       <div className={styles.table}>
         {portfolio.map((company) => (
-          <a className={styles.row} href={company.href} target="_blank" rel="noreferrer" key={company.code}>
+          <a className={styles.row} href={company.href} target="_blank" rel="noreferrer" key={company.code} aria-label={`${company.name} — ${company.category}`}>
             <div className={styles.code}>{company.code}</div>
             <div className={styles.company}><strong>{company.name}</strong><span>{company.category}</span></div>
             <div className={styles.question}>{company.question}</div>
