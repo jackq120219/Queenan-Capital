@@ -1,4 +1,5 @@
 import expenseStyles from './expense.module.css';
+import CurrentPortfolioServer from './current-portfolio-server';
 
 const disciplines = [
   {
@@ -23,17 +24,17 @@ const ownerCriteria = [
 ];
 
 const expenseQuestions = [
-  'What should this location cost to operate today?',
-  'Which recurring expenses are most likely to change?',
-  'How does the full cost compare with another address?',
+  'Is the price or quote supported by the evidence available?',
+  'What does the commitment really cost beyond the headline number?',
+  'What still needs to be verified before money becomes irreversible?',
 ];
 
 const expenseSpecs = [
-  ['Primary inputs', 'Property address, use, and size'],
-  ['Cost layers', 'Utilities, property tax, insurance, waste, and relevant infrastructure costs'],
-  ['Core outputs', 'Annual operating cost, cost per square foot, forecast movement, and risk drivers'],
-  ['Decision horizon', 'Current estimate with a 12–36 month forward view'],
-  ['Current stage', 'Active development; public product currently uses an illustrative preview model'],
+  ['Primary inputs', 'Listing, quote, description, price, property or project context'],
+  ['Decision layers', 'Price, true cost, terms, timing, alternatives, exposure, exit and evidence'],
+  ['Core outputs', 'Decision call, modeled burden, evidence gaps, comparison and next diligence action'],
+  ['Decision horizon', 'Before commitment, with comparison and Change Watch after a baseline is saved'],
+  ['Current stage', 'Operating product; live NHTSA, BLS and U.S. Census evidence is kept separate from modeled assumptions'],
 ];
 
 const electricityData = [
@@ -310,7 +311,7 @@ export default function Home() {
             <a href="#company">Company</a>
             <a href="#vision">Vision</a>
             <a href="#mission">Mission</a>
-            <a href="#waterline">Projects</a>
+            <a href="#portfolio">Portfolio</a>
             <a href="#owners">For Owners</a>
             <a href="#about">About</a>
           </nav>
@@ -321,7 +322,7 @@ export default function Home() {
               <a href="#company">Company</a>
               <a href="#vision">Vision</a>
               <a href="#mission">Mission</a>
-              <a href="#waterline">Projects</a>
+              <a href="#portfolio">Portfolio</a>
               <a href="#owners">For Owners</a>
               <a href="#about">About</a>
               <a href="mailto:contact@queenancapital.com">Contact</a>
@@ -357,7 +358,7 @@ export default function Home() {
 
           <div className="masthead-bottom">
             <p className="masthead-line">
-              Building and studying businesses with a long time horizon.
+              Building, studying, and holding businesses with a long time horizon.
             </p>
             <div className="masthead-note">
               <span className="red-rule" aria-hidden="true" />
@@ -484,15 +485,15 @@ export default function Home() {
           <div className={expenseStyles.hero}>
             <div>
               <h2 id="expenseintel-title" className={expenseStyles.name}>ExpenseIntel</h2>
-              <p className={expenseStyles.category}>Location operating-cost intelligence</p>
+              <p className={expenseStyles.category}>Pre-commitment decision intelligence</p>
             </div>
 
             <div>
               <p className={expenseStyles.lead}>
-                ExpenseIntel is Queenan Capital&apos;s second internally developed project, built around a simple problem: the true recurring cost of a location is difficult to understand before a commitment is made.
+                ExpenseIntel is Queenan Capital&apos;s pre-commitment decision product, built around a simple problem: the headline price rarely contains everything that matters before money becomes commitment.
               </p>
               <p className={expenseStyles.copy}>
-                It brings utilities, property taxes, insurance, waste, infrastructure, and other recurring costs into one operating view.
+                Its Decision Passport connects price, true cost, terms, timing, alternatives, exposure, exit conditions and evidence while keeping unknowns explicit.
               </p>
             </div>
           </div>
@@ -522,10 +523,10 @@ export default function Home() {
             <div className="expense-data-heading">
               <div>
                 <span className="expense-data-eyebrow">Public cost signal / source-backed data</span>
-                <h3 id="expense-data-title">The cost beneath a location can move materially.</h3>
+                <h3 id="expense-data-title">The evidence beneath a decision can materially change the answer.</h3>
               </div>
               <p>
-                Electricity is one example. The U.S. commercial average rose from 10.59¢ per kWh in 2020 to 13.41¢ in 2025. ExpenseIntel is built around the broader reality that recurring location costs move over time.
+                Electricity is one example of a source-backed input that can move over time. ExpenseIntel now also connects public vehicle identity, safety, market and property-location evidence where relevant, while keeping those sources separate from modeled fair value or advice.
               </p>
             </div>
 
@@ -610,7 +611,7 @@ export default function Home() {
 
           <div className={expenseStyles.footer}>
             <p className={expenseStyles.note}>
-              ExpenseIntel is an early-stage operating project of Queenan Capital. The current public version is a product preview; modeled outputs should not be treated as live utility quotes, tax determinations, insurance quotations, or professional advice.
+              ExpenseIntel is an operating product of Queenan Capital. User-supplied facts, connected public evidence, modeled assumptions and unresolved gaps are intentionally kept separate; outputs are decision support, not executable quotes or professional advice.
             </p>
             <a className={expenseStyles.link} href="https://expenseintel.com" target="_blank" rel="noreferrer">
               <span>Visit ExpenseIntel</span>
@@ -619,9 +620,11 @@ export default function Home() {
           </div>
         </section>
 
+        <CurrentPortfolioServer />
+
         <section id="owners" className="owners-section">
           <div className="owners-title">
-            <span>05 / FOR BUSINESS OWNERS</span>
+            <span>06 / FOR BUSINESS OWNERS</span>
             <h2>If you are thinking about a sale, we are open to a conversation.</h2>
           </div>
 
@@ -642,11 +645,11 @@ export default function Home() {
         </section>
 
         <section className="notes-section">
-          <div className="notes-label">06 / NOTES</div>
+          <div className="notes-label">07 / NOTES</div>
           <div className="notes-copy">
             <h2>Notes, when useful.</h2>
             <p>
-              Occasional notes from researching markets and building Waterline Intel and ExpenseIntel.
+              Occasional notes from researching markets and building Waterline Intel, ExpenseIntel, and Gage Grid.
             </p>
             <span className="notes-status">FIRST LETTER — FORTHCOMING</span>
           </div>
@@ -654,13 +657,13 @@ export default function Home() {
 
         <section id="about" className="about-section">
           <div className="about-left">
-            <span>07 / ABOUT</span>
-            <h2>Queenan Capital LLC.</h2>
+            <span>08 / ABOUT</span>
+            <h2>Queenan Capital.</h2>
           </div>
 
           <div className="about-right">
             <p className="about-lead">
-              Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current operating projects are Waterline Intel and ExpenseIntel.
+              Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current portfolio includes Waterline Intel, ExpenseIntel, and Gage Grid.
             </p>
             <div className="about-data">
               <div><span>Founded</span><strong>2026</strong></div>
