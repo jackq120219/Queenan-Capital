@@ -1,0 +1,84 @@
+name: Queenan Capital institutional refactor
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app/current-portfolio-server.tsx'
+      - 'app/current-portfolio-server.module.css'
+      - '.github/workflows/qc-institutional-refactor.yml'
+permissions:
+  contents: write
+jobs:
+  refactor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Make homepage source current
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('app/page.tsx')
+          s=p.read_text()
+          def must(old,new,count=None):
+              global s
+              n=s.count(old)
+              if n==0: raise SystemExit(f'missing expected text: {old[:80]}')
+              if count is not None and n!=count: raise SystemExit(f'expected {count} matches, found {n}: {old[:80]}')
+              s=s.replace(old,new)
+          if "import CurrentPortfolioServer from './current-portfolio-server';" not in s:
+              must("import expenseStyles from './expense.module.css';", "import expenseStyles from './expense.module.css';\nimport CurrentPortfolioServer from './current-portfolio-server';", 1)
+          must("'What should this location cost to operate today?'", "'Is the price or quote supported by the evidence available?'", 1)
+          must("'Which recurring expenses are most likely to change?'", "'What does the commitment really cost beyond the headline number?'", 1)
+          must("'How does the full cost compare with another address?'", "'What still needs to be verified before money becomes irreversible?'", 1)
+          must("['Primary inputs', 'Property address, use, and size']", "['Primary inputs', 'Listing, quote, description, price, property or project context']", 1)
+          must("['Cost layers', 'Utilities, property tax, insurance, waste, and relevant infrastructure costs']", "['Decision layers', 'Price, true cost, terms, timing, alternatives, exposure, exit and evidence']", 1)
+          must("['Core outputs', 'Annual operating cost, cost per square foot, forecast movement, and risk drivers']", "['Core outputs', 'Decision call, modeled burden, evidence gaps, comparison and next diligence action']", 1)
+          must("['Decision horizon', 'Current estimate with a 12–36 month forward view']", "['Decision horizon', 'Before commitment, with comparison and Change Watch after a baseline is saved']", 1)
+          must("['Current stage', 'Active development; public product currently uses an illustrative preview model']", "['Current stage', 'Operating product; live NHTSA, BLS and U.S. Census evidence is kept separate from modeled assumptions']", 1)
+          must('Location operating-cost intelligence','Pre-commitment decision intelligence',1)
+          must("ExpenseIntel is Queenan Capital&apos;s second internally developed project, built around a simple problem: the true recurring cost of a location is difficult to understand before a commitment is made.","ExpenseIntel is Queenan Capital&apos;s pre-commitment decision product, built around a simple problem: the headline price rarely contains everything that matters before money becomes commitment.",1)
+          must('It brings utilities, property taxes, insurance, waste, infrastructure, and other recurring costs into one operating view.','Its Decision Passport connects price, true cost, terms, timing, alternatives, exposure, exit conditions and evidence while keeping unknowns explicit.',1)
+          must('The cost beneath a location can move materially.','The evidence beneath a decision can materially change the answer.',1)
+          must('Electricity is one example. The U.S. commercial average rose from 10.59¢ per kWh in 2020 to 13.41¢ in 2025. ExpenseIntel is built around the broader reality that recurring location costs move over time.','Electricity is one example of a source-backed input that can move over time. ExpenseIntel now also connects public vehicle identity, safety, market and property-location evidence where relevant, while keeping those sources separate from modeled fair value or advice.',1)
+          must('ExpenseIntel is an early-stage operating project of Queenan Capital. The current public version is a product preview; modeled outputs should not be treated as live utility quotes, tax determinations, insurance quotations, or professional advice.','ExpenseIntel is an operating product of Queenan Capital. User-supplied facts, connected public evidence, modeled assumptions and unresolved gaps are intentionally kept separate; outputs are decision support, not executable quotes or professional advice.',1)
+          must('Occasional notes from researching markets and building Waterline Intel and ExpenseIntel.','Occasional notes from researching markets and building Waterline Intel, ExpenseIntel, and Gage Grid.',1)
+          must('Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current operating projects are Waterline Intel and ExpenseIntel.','Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current portfolio includes Waterline Intel, ExpenseIntel, and Gage Grid.',1)
+          must('Queenan Capital LLC.</h2>','Queenan Capital.</h2>',1)
+          must('<a href="#waterline">Projects</a>','<a href="#portfolio">Portfolio</a>',2)
+          if '<CurrentPortfolioServer />' not in s:
+              needle='        <section id="owners" className="owners-section">'
+              if needle not in s: raise SystemExit('owners insertion point missing')
+              s=s.replace(needle,'        <CurrentPortfolioServer />\n\n'+needle,1)
+          must('05 / FOR BUSINESS OWNERS','06 / FOR BUSINESS OWNERS',1)
+          must('06 / NOTES','07 / NOTES',1)
+          must('07 / ABOUT','08 / ABOUT',1)
+          must('Building and studying businesses with a long time horizon.','Building, studying, and holding businesses with a long time horizon.',1)
+          p.write_text(s)
+
+          layout=Path('app/layout.tsx')
+          l=layout.read_text()
+          l=l.replace("import PortfolioCurrent from './portfolio-current';\n",'')
+          l=l.replace('        <PortfolioCurrent />\n','')
+          layout.write_text(l)
+
+          old=Path('app/portfolio-current.tsx')
+          if old.exists(): old.unlink()
+          wf=Path('.github/workflows/qc-institutional-refactor.yml')
+          if wf.exists(): wf.unlink()
+          PY
+      - name: Verify source coherence
+        run: |
+          grep -q 'CurrentPortfolioServer' app/page.tsx
+          grep -q 'Pre-commitment decision intelligence' app/page.tsx
+          grep -q 'Gage Grid' app/page.tsx
+          ! grep -q 'PortfolioCurrent' app/layout.tsx
+          ! test -e app/portfolio-current.tsx
+      - name: Commit refactor
+        run: |
+          git config user.name 'Queenan Capital Build'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A
+          git commit -m 'refactor: make portfolio and company identity server-rendered'
+          git push
