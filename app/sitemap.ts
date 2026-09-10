@@ -18,6 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: 'https://www.queenancapital.com/portfolio',
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
       url: 'https://www.queenancapital.com/research-standards',
       changeFrequency: 'monthly',
       priority: 0.8,
