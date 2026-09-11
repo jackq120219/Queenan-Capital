@@ -6,3 +6,7 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .desktop-nav{gap:clamp(18px,2.1vw,30px)}
 .desktop-nav a,.header-contact{line-height:1.25}
 .header-contact{min-height:40px;display:inline-flex;align-items:center;justify-content:center}
+.masthead{min-height:min(900px,calc(100vh - 78px));padding-bottom:54px}
+.masthead h1{max-width:1500px;letter-spacing:-.062em}
+.masthead-line{max-width:720px;line-height:1.13}
+.masthead-note p{max-width:420px}
