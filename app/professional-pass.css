@@ -10,3 +10,6 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .masthead h1{max-width:1500px;letter-spacing:-.062em}
 .masthead-line{max-width:720px;line-height:1.13}
 .masthead-note p{max-width:420px}
+.company-section,.notes-section{padding-top:clamp(82px,8vw,116px);padding-bottom:clamp(88px,8vw,124px)}
+.section-index{margin-bottom:clamp(38px,4vw,58px)}
+.company-intro{padding-bottom:clamp(54px,6vw,78px)}
