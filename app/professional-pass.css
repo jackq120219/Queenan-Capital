@@ -13,3 +13,7 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .company-section,.notes-section{padding-top:clamp(82px,8vw,116px);padding-bottom:clamp(88px,8vw,124px)}
 .section-index{margin-bottom:clamp(38px,4vw,58px)}
 .company-intro{padding-bottom:clamp(54px,6vw,78px)}
+.discipline{min-height:150px;transition:background .18s ease}
+.discipline:hover{background:rgba(111,41,52,.035)}
+.discipline h3{letter-spacing:-.045em}
+.discipline p{max-width:580px;line-height:1.72}
