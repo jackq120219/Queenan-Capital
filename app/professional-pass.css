@@ -24,3 +24,6 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .owners-title h2{margin-top:52px;line-height:.97}
 .owners-lead{max-width:590px;line-height:1.76}
 .criteria div{min-height:60px}
+.notes-copy{max-width:960px}
+.notes-copy h2{line-height:.98}
+.notes-copy p{max-width:760px;line-height:1.78}
