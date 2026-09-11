@@ -27,3 +27,7 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .notes-copy{max-width:960px}
 .notes-copy h2{line-height:.98}
 .notes-copy p{max-width:760px;line-height:1.78}
+.rail{box-shadow:1px 0 0 rgba(255,255,255,.04)}
+.rail-mark{font-size:1.65rem}
+.rail-name{color:rgba(255,255,255,.5)}
+.rail-year{color:rgba(255,255,255,.36)}
