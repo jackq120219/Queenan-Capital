@@ -31,3 +31,8 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .rail-mark{font-size:1.65rem}
 .rail-name{color:rgba(255,255,255,.5)}
 .rail-year{color:rgba(255,255,255,.36)}
+@media(max-width:800px){
+  .header{padding-inline:22px;gap:14px}.header-name{font-size:.64rem}.mobile-nav>div{width:min(280px,calc(100vw - 44px));box-shadow:var(--qc-shadow)}
+  .masthead{padding-inline:22px}.masthead h1{font-size:clamp(3.9rem,18vw,7rem);line-height:.84}.masthead h1 span:last-child{margin-left:0}
+  .company-section,.waterline-section,.notes-section{padding-inline:22px}.discipline{gap:18px}.waterline-word{white-space:normal;overflow-wrap:anywhere}
+}
