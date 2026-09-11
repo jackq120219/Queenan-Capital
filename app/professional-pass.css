@@ -20,3 +20,7 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .waterline-section{min-height:620px;padding-top:42px;padding-bottom:54px}
 .waterline-description>p:last-child{max-width:520px;line-height:1.72}
 .waterline-link{min-height:68px;padding-inline:22px;border-color:rgba(255,255,255,.44)}
+.owners-title,.owners-body{padding-top:clamp(72px,7vw,96px);padding-bottom:clamp(76px,7vw,100px)}
+.owners-title h2{margin-top:52px;line-height:.97}
+.owners-lead{max-width:590px;line-height:1.76}
+.criteria div{min-height:60px}
