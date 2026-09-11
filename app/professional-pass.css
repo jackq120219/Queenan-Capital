@@ -1,0 +1,4 @@
+/* Professional refinement pass — Sep 11 2026 */
+:root{--qc-radius:2px;--qc-shadow:0 12px 34px rgba(21,21,21,.08);--qc-max:1440px}
+body{font-feature-settings:"kern" 1,"liga" 1}
+.header,.masthead,.company-section,.waterline-section,.notes-section,.owners-section{scroll-margin-top:90px}
