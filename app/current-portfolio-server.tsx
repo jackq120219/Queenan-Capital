@@ -29,7 +29,7 @@ const portfolio = [
     category: 'Industrial infrastructure intelligence',
     question: 'Can this site carry the project before capital is committed?',
     evidence: 'Power · water · wastewater · gas · fiber · USGS · EPA',
-    stage: 'Operating product',
+    stage: 'Operating pilot',
     stageNote: 'An operating pilot for project-first industrial site screening. Pilot capacity records are simulated; live public evidence is labeled separately and utility verification is required before an executable decision.',
     surface: 'Project screen · reverse rank · shortlist compare · capacity registry · change detection',
     href: 'https://gage-grid.vercel.app/',
@@ -39,7 +39,7 @@ const portfolio = [
 export default function CurrentPortfolioServer() {
   return (
     <section id="portfolio" className={styles.section} aria-labelledby="portfolio-title">
-      <div className={styles.kicker}>05 / CURRENT PORTFOLIO</div>
+      <div className={styles.kicker}>04 / CURRENT PORTFOLIO</div>
       <div className={styles.head}>
         <h2 id="portfolio-title">Different markets. One operating discipline.</h2>
         <p>Queenan Capital builds products around decisions where fragmented information, changing conditions, or weak evidence can make capital allocation harder than it should be.</p>
