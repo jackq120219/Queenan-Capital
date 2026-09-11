@@ -38,6 +38,14 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .rail-year{color:rgba(255,255,255,.36)}
 :where(a,button,summary):focus-visible{outline:2px solid var(--red);outline-offset:4px}
 @media(hover:hover){a,button,summary{transition:opacity .16s ease,background .16s ease,color .16s ease,border-color .16s ease}}
+
+/* Institutional consolidation: the portfolio is the operating-company surface. */
+#waterline,#expenseintel,.notes-section{display:none!important}
+.desktop-nav{gap:clamp(22px,2.4vw,36px)}
+.owners-title>span,.about-left>span{font-size:0}
+.owners-title>span::before{content:"05 / FOR BUSINESS OWNERS";font-size:.6rem;letter-spacing:.13em}
+.about-left>span::before{content:"06 / ABOUT";font-size:.6rem;letter-spacing:.13em}
+
 @media(max-width:800px){
   .header{padding-inline:22px;gap:14px}.header-name{font-size:.64rem}.mobile-nav>div{width:min(280px,calc(100vw - 44px));box-shadow:var(--qc-shadow)}
   .masthead{padding-inline:22px}.masthead h1{font-size:clamp(3.9rem,18vw,7rem);line-height:.84}.masthead h1 span:last-child{margin-left:0}
