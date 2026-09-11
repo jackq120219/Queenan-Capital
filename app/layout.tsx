@@ -7,6 +7,7 @@ import './hero-fixes.css';
 import './logo-fixes.css';
 import './maintenance.css';
 import './sep9-polish.css';
+import './professional-pass.css';
 import InstitutionalMotion from './institutional-motion';
 import VentureOrbit from './venture-orbit';
 
