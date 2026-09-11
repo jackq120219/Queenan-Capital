@@ -2,3 +2,7 @@
 :root{--qc-radius:2px;--qc-shadow:0 12px 34px rgba(21,21,21,.08);--qc-max:1440px}
 body{font-feature-settings:"kern" 1,"liga" 1}
 .header,.masthead,.company-section,.waterline-section,.notes-section,.owners-section{scroll-margin-top:90px}
+.header{min-height:78px;height:auto;padding-top:14px;padding-bottom:14px;box-shadow:0 1px 0 rgba(21,21,21,.05)}
+.desktop-nav{gap:clamp(18px,2.1vw,30px)}
+.desktop-nav a,.header-contact{line-height:1.25}
+.header-contact{min-height:40px;display:inline-flex;align-items:center;justify-content:center}
