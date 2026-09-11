@@ -17,3 +17,6 @@ body{font-feature-settings:"kern" 1,"liga" 1}
 .discipline:hover{background:rgba(111,41,52,.035)}
 .discipline h3{letter-spacing:-.045em}
 .discipline p{max-width:580px;line-height:1.72}
+.waterline-section{min-height:620px;padding-top:42px;padding-bottom:54px}
+.waterline-description>p:last-child{max-width:520px;line-height:1.72}
+.waterline-link{min-height:68px;padding-inline:22px;border-color:rgba(255,255,255,.44)}
