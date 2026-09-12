@@ -10,6 +10,7 @@ import './sep9-polish.css';
 import './professional-pass.css';
 import InstitutionalMotion from './institutional-motion';
 import VentureOrbit from './venture-orbit';
+import PortfolioCommandCenter from './portfolio-command-center';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.queenancapital.com'),
@@ -149,9 +150,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(queenanStructuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(queanStructuredData) }}
         />
         <InstitutionalMotion>{children}</InstitutionalMotion>
+        <PortfolioCommandCenter />
         <VentureOrbit />
       </body>
     </html>
