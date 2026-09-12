@@ -150,7 +150,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(queanStructuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(queenanStructuredData) }}
         />
         <InstitutionalMotion>{children}</InstitutionalMotion>
         <PortfolioCommandCenter />
