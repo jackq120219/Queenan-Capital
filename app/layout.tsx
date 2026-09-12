@@ -11,6 +11,7 @@ import './professional-pass.css';
 import InstitutionalMotion from './institutional-motion';
 import VentureOrbit from './venture-orbit';
 import PortfolioCommandCenter from './portfolio-command-center';
+import PortfolioQualityLayer from './portfolio-quality-layer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.queenancapital.com'),
@@ -155,6 +156,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <InstitutionalMotion>{children}</InstitutionalMotion>
         <PortfolioCommandCenter />
         <VentureOrbit />
+        <PortfolioQualityLayer />
       </body>
     </html>
   );
