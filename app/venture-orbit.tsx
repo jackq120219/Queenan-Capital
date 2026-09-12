@@ -19,6 +19,7 @@ type Venture = {
   stage: 'operating' | 'pilot' | 'mandate';
   image?: string;
   micro?: [string, string, string];
+  useNow: [string, string, string];
 };
 
 const ventures: Venture[] = [
@@ -32,10 +33,11 @@ const ventures: Venture[] = [
     focus: 'Great Lakes freight',
     horizon: 'Build + expand',
     href: 'https://waterlineintel.com',
-    action: 'Visit Waterline',
+    action: 'Open Waterline',
     stage: 'operating',
     image: '/orbit-waterline.svg',
     micro: ['Freight', 'Intelligence', 'Real impact'],
+    useNow: ['Plan a Great Lakes move', 'Compare freight quotes', 'Stress-test disruptions'],
   },
   {
     key: 'expenseintel',
@@ -47,10 +49,11 @@ const ventures: Venture[] = [
     focus: 'Cost + evidence',
     horizon: 'Build + deepen data',
     href: 'https://expenseintel.com',
-    action: 'Visit ExpenseIntel',
+    action: 'Open ExpenseIntel',
     stage: 'operating',
     image: '/orbit-expense.svg',
     micro: ['Procurement', 'Discipline', 'Higher margins'],
+    useNow: ['Build a Decision Passport', 'Compare three quotes', 'Find the highest-value negotiation lever'],
   },
   {
     key: 'gagegrid',
@@ -66,6 +69,7 @@ const ventures: Venture[] = [
     stage: 'pilot',
     image: '/orbit-gage.svg',
     micro: ['Infrastructure', 'Visibility', 'Lasting value'],
+    useNow: ['Screen infrastructure fit', 'Rank candidate sites', 'Sequence diligence spend'],
   },
   {
     key: 'ownership',
@@ -79,6 +83,7 @@ const ventures: Venture[] = [
     href: 'mailto:contact@queenancapital.com?subject=Business%20Owner%20Inquiry',
     action: 'Start a conversation',
     stage: 'mandate',
+    useNow: ['Test transition readiness', 'Share an owner situation', 'Start a confidential conversation'],
   },
 ];
 
@@ -235,6 +240,11 @@ export default function VentureOrbit() {
                 <div><span>Type</span><strong>{active.type}</strong></div>
                 <div><span>Focus</span><strong>{active.focus}</strong></div>
                 <div><span>Horizon</span><strong>{active.horizon}</strong></div>
+              </div>
+              <div className={styles.facts} style={{ marginTop: 10 }}>
+                {active.useNow.map((item, index) => (
+                  <div key={item}><span>Use now 0{index + 1}</span><strong>{item}</strong></div>
+                ))}
               </div>
               <div className={styles.actions}>
                 <a className={styles.primary} href={active.href} target={active.href.startsWith('http') ? '_blank' : undefined} rel={active.href.startsWith('http') ? 'noreferrer' : undefined}>{active.action} →</a>
