@@ -421,3 +421,26 @@
   .scan{display:none}
   .sphere,.sphereSurface,.sphereEtch,.sphereRim,.sphereName,.tray{transition:none!important}
 }
+
+
+/* focal contrast + cleaner idle state */
+.coreSphere .sphereSurface{
+  border-color:rgba(239,230,216,.66);
+  background:
+    radial-gradient(circle at var(--light-x) var(--light-y),rgba(255,255,255,.95) 0 2%,rgba(255,255,255,.36) 8%,transparent 24%),
+    radial-gradient(circle at 40% 34%,rgba(255,255,255,.30),transparent 26%),
+    radial-gradient(circle at 50% 48%,#f0e7d9 0%,#d9ccba 54%,#9e8c75 78%,#342b23 100%);
+  box-shadow:
+    inset -28px -32px 46px rgba(59,45,30,.24),
+    inset 18px 16px 32px rgba(255,255,255,.34),
+    0 30px 72px rgba(0,0,0,.48),
+    0 0 36px rgba(207,174,113,.10);
+}
+.coreSphere .sphereEtch{
+  border-color:rgba(72,58,42,.14);
+  box-shadow:0 0 0 15px rgba(72,58,42,.045),0 0 0 34px rgba(72,58,42,.018);
+}
+.coreSphere .sphereRim{border-color:rgba(213,177,115,.48);opacity:.9}
+.coreSphere .coreMark{color:#191611;text-shadow:none}
+.tray{opacity:0;pointer-events:none}
+.trayOpen{opacity:1;pointer-events:auto}
