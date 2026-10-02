@@ -339,7 +339,8 @@ export default function VentureOrbit() {
         <div className={styles.gestureHint} aria-hidden="true">move · hover · click</div>
 
         <article className={styles.tray + " " + (active ? styles.trayOpen : "")} aria-live="polite">
-          {active ? (\n            <>
+          {active ? (
+            <>
               <div className={styles.trayCode}>{active.short}</div>
               <div className={styles.trayCopy}>
                 <span>{active.status}</span>
