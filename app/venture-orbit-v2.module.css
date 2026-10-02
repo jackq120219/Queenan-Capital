@@ -71,3 +71,21 @@
 .ownershipSatellite{width:118px;height:118px;border-color:rgba(239,229,216,.28);background:radial-gradient(circle at 40% 30%,rgba(255,255,255,.025),rgba(18,19,17,.92) 68%)}
 .ownershipSatellite strong{font-size:1.05rem}
 .ownershipSatellite span{margin-top:6px;font-size:.48rem}
+
+/* 2026-10-02 force true circular venture cards */
+.cluster{width:188px!important;height:188px!important}
+.node{
+  left:10px!important;right:auto!important;top:10px!important;bottom:auto!important;
+  width:168px!important;height:168px!important;
+  border-radius:50%!important;
+  aspect-ratio:1/1!important;
+  overflow:visible!important;
+}
+.node:before,.node:after{border-radius:50%!important}
+.waterline .node,.expense .node,.gage .node{border-radius:50%!important}
+.ownershipSatellite{
+  width:118px!important;height:118px!important;
+  min-width:118px!important;min-height:118px!important;
+  border-radius:50%!important;
+  aspect-ratio:1/1!important;
+}
