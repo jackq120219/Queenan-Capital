@@ -89,3 +89,69 @@
   border-radius:50%!important;
   aspect-ratio:1/1!important;
 }
+
+/* 2026-10-02 definitive circle fix:
+   the clickable buttons are visually transparent; every visible frame is drawn
+   by a circular pseudo-element, so no square button border can render. */
+.node{
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+.node::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  border-radius:50%!important;
+  border:1px solid rgba(242,232,219,.58)!important;
+  background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.035),rgba(18,19,17,.95) 62%)!important;
+  box-shadow:0 0 0 10px rgba(255,255,255,.018)!important;
+  pointer-events:none!important;
+}
+.node::after{
+  content:""!important;
+  position:absolute!important;
+  inset:12px!important;
+  border-radius:50%!important;
+  border:1px solid rgba(255,255,255,.055)!important;
+  pointer-events:none!important;
+}
+.node strong,.nodeName,.status{position:relative;z-index:2}
+.nodeIndex{z-index:2}
+.node:hover,.node:focus-visible,.nodeActive{
+  box-shadow:none!important;
+  border-color:transparent!important;
+}
+.node:hover::before,.node:focus-visible::before,.nodeActive::before{
+  border-color:#d7b984!important;
+  box-shadow:0 0 0 10px rgba(201,154,102,.05),0 22px 56px rgba(0,0,0,.34)!important;
+}
+
+.ownershipSatellite{
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.ownershipSatellite::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  border-radius:50%!important;
+  border:1px solid rgba(239,229,216,.28)!important;
+  background:radial-gradient(circle at 40% 30%,rgba(255,255,255,.025),rgba(18,19,17,.92) 68%)!important;
+  box-shadow:0 0 0 8px rgba(255,255,255,.012)!important;
+  pointer-events:none!important;
+}
+.ownershipSatellite strong,.ownershipSatellite span,.ownershipSatellite small{
+  position:relative;
+  z-index:2;
+}
+.ownershipSatellite:hover,.ownershipSatellite:focus-visible{
+  border-color:transparent!important;
+  box-shadow:none!important;
+}
+.ownershipSatellite:hover::before,.ownershipSatellite:focus-visible::before{
+  border-color:rgba(201,154,102,.62)!important;
+}
