@@ -178,7 +178,7 @@ export default function VentureOrbit() {
           </svg>
 
           <button type="button" className={styles.core} onClick={() => setActiveKey(null)} aria-label="Clear selected company">
-            <div><strong>QC</strong><span>gravity / not destination</span></div>
+            <div><strong>QC</strong><span>Queenan Capital</span><small>Operating company</small></div>
           </button>
 
           {companyVentures.map((venture, index) => (
