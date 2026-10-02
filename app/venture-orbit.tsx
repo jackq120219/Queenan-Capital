@@ -1,120 +1,112 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import { usePathname } from "next/navigation";
-import styles from "./venture-orbit-v2.module.css";
-
-type VentureKey = "waterline" | "expenseintel" | "gagegrid" | "ownership";
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { usePathname } from 'next/navigation';
+import styles from './venture-orbit.module.css';
 
 type Venture = {
-  key: VentureKey;
+  key: string;
   short: string;
   name: string;
   status: string;
-  note: string;
+  lead: string;
+  type: string;
+  focus: string;
+  horizon: string;
   href: string;
   action: string;
-  x: number;
-  y: number;
-  size: number;
-  depth: number;
-  phase: number;
+  vectors: [string, string, string];
+  stage: 'operating' | 'research' | 'mandate';
 };
 
 const ventures: Venture[] = [
   {
-    key: "waterline",
-    short: "WI",
-    name: "Waterline Intel",
-    status: "Operating project",
-    note: "Great Lakes freight intelligence for planning and operating real movements.",
-    href: "https://waterlineintel.com",
-    action: "Open Waterline",
-    x: 20,
-    y: 32,
-    size: 192,
-    depth: 1,
-    phase: 0.15,
+    key: 'waterline',
+    short: 'WI',
+    name: 'Waterline Intel',
+    status: 'Operating project',
+    lead: 'Great Lakes freight intelligence built to make fragmented port, route, cargo and vessel information easier to find and use before a shipment is committed.',
+    type: 'Logistics intelligence',
+    focus: 'Great Lakes freight',
+    horizon: 'Build + expand',
+    href: 'https://waterlineintel.com',
+    action: 'Visit Waterline',
+    vectors: ['Deeper freight data', 'Workflow intelligence', 'Adjacent physical markets'],
+    stage: 'operating',
   },
   {
-    key: "expenseintel",
-    short: "EI",
-    name: "ExpenseIntel",
-    status: "Operating project",
-    note: "Pre-commitment decision intelligence for meaningful spending decisions.",
-    href: "https://expenseintel.com",
-    action: "Open ExpenseIntel",
-    x: 80,
-    y: 30,
-    size: 174,
-    depth: 0.86,
-    phase: 1.55,
+    key: 'expenseintel',
+    short: 'EI',
+    name: 'ExpenseIntel',
+    status: 'Operating project',
+    lead: 'Pre-commitment cost and decision intelligence for meaningful purchases, quotes, properties, projects and other decisions where the sticker price is not enough.',
+    type: 'Decision intelligence',
+    focus: 'Cost + evidence',
+    horizon: 'Build + deepen data',
+    href: 'https://expenseintel.com',
+    action: 'Visit ExpenseIntel',
+    vectors: ['Deeper evidence', 'Decision memory', 'New cost surfaces'],
+    stage: 'operating',
   },
   {
-    key: "gagegrid",
-    short: "GG",
-    name: "Gage Grid",
-    status: "Operating pilot",
-    note: "Infrastructure intelligence for screening whether sites can support real projects.",
-    href: "https://gage-grid.vercel.app",
-    action: "Open Gage Grid",
-     x: 28,
-    y: 73,
-    size: 162,
-    depth: 0.74,
-    phase: 3.05,
+    key: 'gagegrid',
+    short: 'GG',
+    name: 'Gage Grid',
+    status: 'Research / under development',
+    lead: 'A research-stage industrial infrastructure intelligence project exploring whether a site can actually support a proposed project across power, water, wastewater, gas and fiber before development capital is committed.',
+    type: 'Infrastructure intelligence',
+    focus: 'Site capacity + serviceability',
+    horizon: 'Research → pilot',
+    href: 'https://gage-grid.vercel.app',
+    action: 'Preview Gage Grid',
+    vectors: ['Source-backed utility data', 'Serviceability evidence', 'Pilot site coverage'],
+    stage: 'research',
   },
   {
-    key: "ownership",
-    short: "OWN",
-    name: "Long-term ownership",
-    status: "Open mandate",
-    note: "Selective ownership of understandable businesses worth holding for years.",
-    href: "mailto:contact@queenancapital.com?subject=Business%20Owner%20Inquiry",
-    action: "Start a conversation",
-     x: 76,
-    y: 72,
-    size: 150,
-    depth: 0.62,
-    phase: 4.5,
+    key: 'ownership',
+    short: 'OWN',
+    name: 'Long-term ownership',
+    status: 'Open mandate',
+    lead: 'Queenan Capital is interested in understandable small businesses with useful products or services, repeat customers and a reason to own them for years rather than quarters.',
+    type: 'Selective acquisition',
+    focus: 'Operating businesses',
+    horizon: 'Long-term ownership',
+    href: 'mailto:contact@queenancapital.com?subject=Business%20Owner%20Inquiry',
+    action: 'Start a conversation',
+    vectors: ['Find the right business', 'Learn the operation', 'Compound patiently'],
+    stage: 'mandate',
   },
 ];
 
-const core = {
-  key: "core",
-  x: 50,
-  y: 51,
-  size: 238,
-  depth: 0.48,
-  phase: 2.2,
+const paths: Record<string, string> = {
+  waterline: 'M500 326 C420 276 340 201 220 212',
+  expenseintel: 'M500 326 C590 235 690 167 783 204',
+  gagegrid: 'M500 326 C430 392 350 468 270 510',
+  ownership: 'M500 326 C586 403 660 486 744 492',
+};
+
+const sectionTargets: Record<string, string> = {
+  waterline: 'waterline',
+  expenseintel: 'expenseintel',
+  ownership: 'owners',
 };
 
 export default function VentureOrbit() {
   const pathname = usePathname();
   const [mount, setMount] = useState<HTMLElement | null>(null);
-  const [activeKey, setActiveKey] = useState<VentureKey | null>(null);
-  const [hoverKey, setHoverKey] = useState<VentureKey | null>(null);
-
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const [activeKey, setActiveKey] = useState<string | null>('waterline');
   const stageRef = useRef<HTMLDivElement | null>(null);
-  const sphereRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const pathRefs = useRef<Record<string, SVGPathElement | null>>({});
-  const targetPointer = useRef({ x: 0, y: 0 });
-  const smoothPointer = useRef({ x: 0, y: 0 });
-  const visibleRef = useRef(true);
 
   useEffect(() => {
-    if (pathname !== "/") return;
-    const masthead = document.querySelector(".masthead");
+    if (pathname !== '/') return;
+    const masthead = document.querySelector('.masthead');
     if (!masthead) return;
-
-    const existing = document.querySelector<HTMLElement>("[data-venture-orbit-mount]");
-    const node = existing || document.createElement("div");
-    node.dataset.ventureOrbitMount = "1";
-    if (!existing) masthead.insertAdjacentElement("afterend", node);
+    const existing = document.querySelector<HTMLElement>('[data-venture-orbit-mount]');
+    const node = existing || document.createElement('div');
+    node.dataset.ventureOrbitMount = '1';
+    if (!existing) masthead.insertAdjacentElement('afterend', node);
     setMount(node);
-
     return () => {
       if (!existing) node.remove();
       setMount(null);
@@ -122,243 +114,289 @@ export default function VentureOrbit() {
   }, [pathname]);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { visibleRef.current = entry.isIntersecting; },
-      { rootMargin: "20% 0px 20% 0px" },
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, [mount]);
+    if (!mount || pathname !== '/' || !window.location.hash) return;
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const timer = window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }, 120);
+    return () => window.clearTimeout(timer);
+  }, [mount, pathname]);
 
-  useEffect(() => {
-    if (!mount) return;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let frame = 0;
-
-    const updatePath = (venture: Venture, px: number, py: number) => {
-      const path = pathRefs.current[venture.key];
-      const glow = pathRefs.current[venture.key + "-glow"];
-      if (!path) return;
-
-      const sx = 500;
-      const sy = 357;
-      const ex = venture.x * 10;
-      const ey = venture.y * 7;
-      const dx = ex - sx;
-      const dy = ey - sy;
-      const bend = venture.key === "waterline" || venture.key === "ownership" ? -1 : 1;
-      const c1x = sx + dx * 0.34 + py * 22 * bend;
-      const c1y = sy + dy * 0.28 - px * 18 * bend;
-      const c2x = sx + dx * 0.72 - py * 30 * bend;
-      const c2y = sy + dy * 0.78 + px * 24 * bend;
-      const d = "M " + sx.toFixed(1) + " " + sy.toFixed(1)
-        + " C " + c1x.toFixed(1) + " " + c1y.toFixed(1)
-        + " " + c2x.toFixed(1) + " " + c2y.toFixed(1)
-        + " " + ex.toFixed(1) + " " + ey.toFixed(1);
-      path.setAttribute("d", d);
-      glow?.setAttribute("d", d);
-    };
-
-    const tick = (time: number) => {
-      if (visibleRef.current) {
-        const stage = stageRef.current;
-        const section = sectionRef.current;
-        const p = smoothPointer.current;
-        const target = targetPointer.current;
-        const easing = reducedMotion ? 0.18 : 0.058;
-
-        p.x += (target.x - p.x) * easing;
-        p.y += (target.y - p.y) * easing;
-
-        let scrollDrift = 0;
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const viewport = Math.max(1, window.innerHeight);
-          const center = rect.top + rect.height / 2;
-          scrollDrift = Math.max(-1, Math.min(1, (viewport / 2 - center) / viewport));
-        }
-
-        [core, ...ventures].forEach((item, index) => {
-          const el = sphereRefs.current[item.key];
-          if (!el) return;
-          const idle = reducedMotion ? 0 : 1;
-          const idleX = Math.sin(time * 0.00034 + item.phase) * (4 + item.depth * 5) * idle;
-          const idleY = Math.cos(time * 0.00027 + item.phase * 1.35) * (3 + item.depth * 4) * idle;
-          const px = p.x * 22 * item.depth;
-          const py = p.y * 16 * item.depth + scrollDrift * 10 * item.depth;
-          const rotX = (-p.y * 6 + Math.sin(time * 0.00021 + index) * 1.2 * idle) * item.depth;
-          const rotY = (p.x * 8 + Math.cos(time * 0.00019 + index) * 1.5 * idle) * item.depth;
-
-          el.style.setProperty("--tx", (px + idleX).toFixed(2) + "px");
-          el.style.setProperty("--ty", (py + idleY).toFixed(2) + "px");
-          el.style.setProperty("--rx", rotX.toFixed(2) + "deg");
-          el.style.setProperty("--ry", rotY.toFixed(2) + "deg");
-          el.style.setProperty("--light-x", (50 + p.x * 25).toFixed(1) + "%");
-          el.style.setProperty("--light-y", (31 + p.y * 20).toFixed(1) + "%");
-        });
-
-        ventures.forEach((venture) => updatePath(venture, p.x, p.y));
-
-        if (stage) {
-          stage.style.setProperty("--cursor-x", (50 + p.x * 34).toFixed(1) + "%");
-          stage.style.setProperty("--cursor-y", (50 + p.y * 28).toFixed(1) + "%");
-        }
-      }
-      frame = window.requestAnimationFrame(tick);
-    };
-
-    frame = window.requestAnimationFrame(tick);
-    return () => window.cancelAnimationFrame(frame);
-  }, [mount]);
-
-  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    targetPointer.current.x = ((event.clientX - rect.left) / Math.max(1, rect.width) - 0.5) * 2;
-    targetPointer.current.y = ((event.clientY - rect.top) / Math.max(1, rect.height) - 0.5) * 2;
+  const moveField = (event: React.PointerEvent<HTMLDivElement>) => {
+    const stage = stageRef.current;
+    if (!stage) return;
+    const rect = stage.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    stage.style.setProperty('--field-x', `${(x * 14).toFixed(2)}px`);
+    stage.style.setProperty('--field-y', `${(y * 10).toFixed(2)}px`);
+    stage.style.setProperty('--glow-x', `${((x + 0.5) * 100).toFixed(1)}%`);
+    stage.style.setProperty('--glow-y', `${((y + 0.5) * 100).toFixed(1)}%`);
   };
 
-  const resetPointer = () => {
-    targetPointer.current = { x: 0, y: 0 };
+  const resetField = () => {
+    const stage = stageRef.current;
+    if (!stage) return;
+    stage.style.setProperty('--field-x', '0px');
+    stage.style.setProperty('--field-y', '0px');
+    stage.style.setProperty('--glow-x', '50%');
+    stage.style.setProperty('--glow-y', '50%');
   };
 
-  if (pathname !== "/" || !mount) return null;
+  const jumpToVenture = (key: string) => {
+    const targetId = sectionTargets[key];
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    window.history.replaceState(null, '', `#${targetId}`);
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
-  const active = activeKey
-    ? ventures.find((venture) => venture.key === activeKey) || null
-    : null;
+  if (pathname !== '/' || !mount) return null;
+  const active = activeKey ? ventures.find((venture) => venture.key === activeKey) || null : null;
 
   return createPortal(
-    <section ref={sectionRef} id="operating-field" className={styles.section} aria-label="Queenan Capital operating field">
-      <div
-        ref={stageRef}
-        className={styles.stage}
-        onPointerMove={handlePointerMove}
-        onPointerLeave={resetPointer}
-      >
-        <div className={styles.grid} aria-hidden="true" />
-        <div className={styles.softField} aria-hidden="true" />
-        <div className={styles.scan} aria-hidden="true" />
-        <div className={styles.cornerTicks} aria-hidden="true"><i /><i /><i /><i /></div>
-
-        <svg className={styles.links} viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="qc-live-line" x1="0" x2="1">
-              <stop offset="0" stopColor="#7c6240" stopOpacity=".10" />
-              <stop offset=".52" stopColor="#d6b77c" stopOpacity=".72" />
-              <stop offset="1" stopColor="#7c6240" stopOpacity=".10" />
-            </linearGradient>
-            <filter id="qc-soft-glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2.2" />
-            </filter>
-          </defs>
-          {ventures.map((venture) => (
-            <g key={venture.key}>
-              <path
-                ref={(node) => { pathRefs.current[venture.key + "-glow"] = node; }}
-                className={styles.linkGlow}
-                d="M500 357 C500 357 500 357 500 357"
-              />
-              <path
-                ref={(node) => { pathRefs.current[venture.key] = node; }}
-                className={
-                  hoverKey === venture.key || activeKey === venture.key
-                    ? styles.linkActive
-                    : styles.link
-                }
-                d="M500 357 C500 357 500 357 500 357"
-              />
-            </g>
-          ))}
-          <path className={styles.balanceLine} d="M110 352 C325 281 667 281 892 350" />
-          <path className={styles.balanceLineAlt} d="M145 470 C360 535 666 535 855 472" />
-        </svg>
-
-        <div className={styles.axis} aria-hidden="true">
-          <span className={styles.axisH} />
-          <span className={styles.axisV} />
+    <section id="operating-field" className={styles.section} aria-labelledby="venture-orbit-title">
+      <div className={styles.head}>
+        <div>
+          <div className={styles.kicker}>Operating field / 04 objects in motion</div>
+          <div className={styles.signal}><i /> Live work + research + open direction</div>
         </div>
+        <div>
+          <h2 id="venture-orbit-title">The company is not a diagram. <em>It moves.</em></h2>
+          <p>
+            Queenan Capital can build, study, or own. Follow a node to see what exists now, what is still being researched, and where an open mandate may lead. The fading paths beyond each node remain deliberately unresolved—not a promised roadmap.
+          </p>
+        </div>
+      </div>
 
-        <button
-          ref={(node) => { sphereRefs.current.core = node; }}
-          type="button"
-          className={styles.sphere + " " + styles.coreSphere}
-          style={{
-            left: String(core.x) + "%",
-            top: String(core.y) + "%",
-            width: String(core.size) + "px",
-            height: String(core.size) + "px",
-          }}
-          onClick={() => setActiveKey(null)}
-          aria-label="Queenan Capital"
+      <div className={styles.fieldShell}>
+        <div
+          ref={stageRef}
+          className={styles.stage}
+          onPointerMove={moveField}
+          onPointerLeave={resetField}
+          aria-label="Interactive Queenan Capital operating field"
         >
-          <span className={styles.sphereSurface} />
-          <span className={styles.sphereEtch} />
-          <span className={styles.sphereRim} />
-          <span className={styles.coreMark}>QC</span>
-        </button>
+          <div className={styles.ambient} aria-hidden="true" />
+          <div className={styles.coordinates} aria-hidden="true"><span>41.8781° N</span><span>2026 / FORWARD</span></div>
 
-        {ventures.map((venture) => (
+          <svg className={styles.flow} viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="qc-flow-live" x1="0" x2="1">
+                <stop offset="0" stopColor="#efe7da" stopOpacity=".18" />
+                <stop offset=".48" stopColor="#8a3947" stopOpacity=".9" />
+                <stop offset="1" stopColor="#efe7da" stopOpacity=".28" />
+              </linearGradient>
+              <linearGradient id="qc-flow-open" x1="0" x2="1">
+                <stop offset="0" stopColor="#b99298" stopOpacity=".45" />
+                <stop offset="1" stopColor="#b99298" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="qc-flow-research" x1="0" x2="1">
+                <stop offset="0" stopColor="#d6c7b8" stopOpacity=".12" />
+                <stop offset=".52" stopColor="#c99a66" stopOpacity=".9" />
+                <stop offset="1" stopColor="#d6c7b8" stopOpacity=".18" />
+              </linearGradient>
+            </defs>
+
+            <path className={styles.fieldLine} d="M-40 468 C185 334 302 475 480 322 S775 103 1040 221" />
+            <path className={styles.fieldLine} d="M-80 174 C197 299 305 92 497 327 S781 572 1070 408" />
+            <path className={styles.fieldLineSoft} d="M62 624 C262 509 371 552 504 329 S790 25 981 64" />
+
+            {ventures.map((venture) => (
+              <g key={venture.key} className={activeKey === venture.key ? styles.pathActive : styles.pathDormant}>
+                <path
+                  className={styles.livePath}
+                  d={paths[venture.key]}
+                  pathLength="100"
+                  style={venture.stage === 'research' ? { stroke: 'url(#qc-flow-research)', strokeDasharray: '5 5' } : undefined}
+                />
+                <circle
+                  className={styles.particle}
+                  r={venture.stage === 'research' ? '3.2' : '3.8'}
+                  style={venture.stage === 'research' ? { fill: '#d4a56f' } : undefined}
+                >
+                  <animateMotion
+                    dur={venture.key === 'waterline' ? '5.8s' : venture.key === 'expenseintel' ? '6.6s' : venture.key === 'gagegrid' ? '7s' : '7.4s'}
+                    repeatCount="indefinite"
+                    path={paths[venture.key]}
+                  />
+                </circle>
+              </g>
+            ))}
+
+            <path className={`${styles.openPath} ${activeKey === 'waterline' ? styles.openActive : ''}`} d="M220 212 C120 160 55 113 -45 77" />
+            <path className={`${styles.openPath} ${activeKey === 'waterline' ? styles.openActive : ''}`} d="M220 212 C130 264 55 321 -50 360" />
+            <path className={`${styles.openPath} ${activeKey === 'waterline' ? styles.openActive : ''}`} d="M220 212 C174 339 170 507 84 690" />
+
+            <path className={`${styles.openPath} ${activeKey === 'expenseintel' ? styles.openActive : ''}`} d="M783 204 C883 115 935 71 1048 33" />
+            <path className={`${styles.openPath} ${activeKey === 'expenseintel' ? styles.openActive : ''}`} d="M783 204 C915 218 973 259 1060 302" />
+            <path className={`${styles.openPath} ${activeKey === 'expenseintel' ? styles.openActive : ''}`} d="M783 204 C858 310 886 388 969 434" />
+
+            <path className={`${styles.openPath} ${activeKey === 'gagegrid' ? styles.openActive : ''}`} d="M270 510 C165 535 84 585 -46 617" />
+            <path className={`${styles.openPath} ${activeKey === 'gagegrid' ? styles.openActive : ''}`} d="M270 510 C210 587 185 632 154 699" />
+            <path className={`${styles.openPath} ${activeKey === 'gagegrid' ? styles.openActive : ''}`} d="M270 510 C145 461 67 431 -49 402" />
+
+            <path className={`${styles.openPath} ${activeKey === 'ownership' ? styles.openActive : ''}`} d="M744 492 C820 530 904 572 1051 594" />
+            <path className={`${styles.openPath} ${activeKey === 'ownership' ? styles.openActive : ''}`} d="M744 492 C733 566 725 619 708 689" />
+            <path className={`${styles.openPath} ${activeKey === 'ownership' ? styles.openActive : ''}`} d="M744 492 C873 436 946 418 1054 410" />
+          </svg>
+
           <button
-            key={venture.key}
-            ref={(node) => { sphereRefs.current[venture.key] = node; }}
             type="button"
-            className={[
-              styles.sphere,
-              styles[venture.key],
-              activeKey === venture.key ? styles.active : "",
-              hoverKey === venture.key ? styles.hovered : "",
-            ].filter(Boolean).join(" ")}
-            style={{
-              left: String(venture.x) + "%",
-              top: String(venture.y) + "%",
-              width: String(venture.size) + "px",
-              height: String(venture.size) + "px",
-            }}
-            onMouseEnter={() => setHoverKey(venture.key)}
-            onMouseLeave={() => setHoverKey(null)}
-            onFocus={() => setHoverKey(venture.key)}
-            onBlur={() => setHoverKey(null)}
-            onClick={() => setActiveKey((current) => current === venture.key ? null : venture.key)}
-            aria-pressed={activeKey === venture.key}
-            aria-label={venture.name}
+            className={styles.core}
+            onClick={() => setActiveKey(null)}
+            aria-label="Clear selected venture and close detail panel"
+            title="Clear selection"
+            style={{ border: 0, background: 'transparent', padding: 0, cursor: 'pointer' }}
           >
-            <span className={styles.sphereSurface} />
-            <span className={styles.sphereEtch} />
-            <span className={styles.sphereRim} />
-            <span className={styles.sphereCode}>{venture.short}</span>
-            <span className={styles.sphereName}>{venture.name}</span>
+            <i className={styles.coreRing} aria-hidden="true" />
+            <div><strong>QC</strong><span>{active ? 'click to clear' : 'gravity / not destination'}</span></div>
           </button>
-        ))}
 
-        <div className={styles.fieldMark} aria-hidden="true">
-          <span>QC / 01</span><i /><span>2026</span>
-        </div>
+          {ventures.map((venture, index) => {
+            const researchNode = venture.stage === 'research';
+            const nodeShellStyle = researchNode
+              ? { left: '20%', top: '69%', animation: 'none' }
+              : undefined;
+            const nodeStyle = researchNode
+              ? {
+                  borderStyle: 'dashed' as const,
+                  borderColor: activeKey === venture.key ? '#e2bc8f' : 'rgba(226,188,143,.7)',
+                  background: activeKey === venture.key
+                    ? 'radial-gradient(circle at 38% 30%, #8f6442, #5c3d29 62%, #38261b)'
+                    : 'rgba(31,27,22,.88)',
+                  boxShadow: activeKey === venture.key ? '0 0 0 12px rgba(201,154,102,.07), 0 22px 60px rgba(0,0,0,.34), 0 0 46px rgba(201,154,102,.18)' : undefined,
+                }
+              : undefined;
 
-        <div className={styles.gestureHint} aria-hidden="true">move · hover · click</div>
-
-        <article className={styles.tray + " " + (active ? styles.trayOpen : "")} aria-live="polite">
-          {active ? (
-            <>
-              <div className={styles.trayCode}>{active.short}</div>
-              <div className={styles.trayCopy}>
-                <span>{active.status}</span>
-                <strong>{active.name}</strong>
-                <p>{active.note}</p>
-              </div>
-              <a
-                href={active.href}
-                target={active.href.startsWith("http") ? "_blank" : undefined}
-                rel={active.href.startsWith("http") ? "noreferrer" : undefined}
+            return (
+              <div
+                className={`${styles.nodeShell} ${!researchNode ? styles[`node${index + 1}`] : ''}`}
+                key={venture.key}
+                style={nodeShellStyle}
               >
-                {active.action} <b>↗</b>
-              </a>
-            </>
-          ) : (
-            <div className={styles.trayIdle}><i /><span>select a sphere</span></div>
+                <button
+                  type="button"
+                  className={`${styles.node} ${activeKey === venture.key ? styles.nodeActive : ''}`}
+                  style={nodeStyle}
+                  onClick={() => setActiveKey(venture.key)}
+                  onDoubleClick={() => jumpToVenture(venture.key)}
+                  aria-pressed={activeKey === venture.key}
+                  aria-label={`Explore ${venture.name}${researchNode ? ', a research-stage project' : ''}.`}
+                  title={sectionTargets[venture.key] ? `Click to explore · double click to jump to ${venture.name}` : 'Click to explore this research-stage project'}
+                >
+                  <span className={styles.nodeIndex}>0{index + 1}</span>
+                  <strong>{venture.short}</strong>
+                  <span className={styles.nodeName}>{venture.name}</span>
+                  <small style={researchNode ? { color: '#d1a474' } : undefined}>{venture.status}</small>
+                  {researchNode && (
+                    <span
+                      aria-hidden="true"
+                      style={{
+                        position: 'absolute',
+                        top: -12,
+                        right: -15,
+                        padding: '5px 7px',
+                        border: '1px solid rgba(226,188,143,.65)',
+                        background: '#181714',
+                        color: '#d8ad7b',
+                        fontSize: '.38rem',
+                        fontWeight: 800,
+                        letterSpacing: '.12em',
+                        textTransform: 'uppercase',
+                        transform: 'rotate(4deg)',
+                      }}
+                    >R&amp;D / coming soon</span>
+                  )}
+                </button>
+              </div>
+            );
+          })}
+
+          {active && active.key !== 'gagegrid' && (
+            <div className={`${styles.vectorLabels} ${styles[`vectors_${active.key}`]}`} aria-hidden="true">
+              {active.vectors.map((vector, index) => (
+                <div className={`${styles.vector} ${styles[`vector${index + 1}`]}`} key={vector}>
+                  <span>OPEN VECTOR 0{index + 1}</span>
+                  <strong>{vector}</strong>
+                  <i>?</i>
+                </div>
+              ))}
+            </div>
           )}
-        </article>
+
+          {active && (
+            <article key={active.key} className={styles.inspector} aria-live="polite">
+              <div className={styles.inspectorTop}>
+                <div><span>{active.stage === 'research' ? 'Research object' : 'Selected object'}</span><strong>{active.short}</strong></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <small style={active.stage === 'research' ? { borderColor: 'rgba(226,188,143,.45)', color: '#d8ad7b' } : undefined}>{active.status}</small>
+                  <button
+                    type="button"
+                    onClick={() => setActiveKey(null)}
+                    aria-label="Close venture details"
+                    title="Close"
+                    style={{
+                      width: 28,
+                      height: 28,
+                      border: '1px solid rgba(255,255,255,.24)',
+                      background: 'rgba(255,255,255,.025)',
+                      color: '#d8d0c7',
+                      cursor: 'pointer',
+                      fontSize: 16,
+                      lineHeight: 1,
+                    }}
+                  >×</button>
+                </div>
+              </div>
+              <h3>{active.name}</h3>
+              <p>{active.lead}</p>
+              {active.stage === 'research' && (
+                <p style={{ marginTop: 12, color: '#d1a474' }}>
+                  Not presented as a mature operating business. Current work is focused on research, product testing, data standards, and pilot development.
+                </p>
+              )}
+              <div className={styles.facts}>
+                <div><span>Type</span><strong>{active.type}</strong></div>
+                <div><span>Focus</span><strong>{active.focus}</strong></div>
+                <div><span>Horizon</span><strong>{active.horizon}</strong></div>
+              </div>
+              <div className={styles.actions}>
+                <a className={styles.primary} href={active.href} target={active.href.startsWith('http') ? '_blank' : undefined} rel={active.href.startsWith('http') ? 'noreferrer' : undefined}>{active.action} →</a>
+                {sectionTargets[active.key] && (
+                  <button
+                    type="button"
+                    onClick={() => jumpToVenture(active.key)}
+                    style={{
+                      border: '1px solid rgba(255,255,255,.28)',
+                      background: 'transparent',
+                      color: '#f0ebe3',
+                      padding: '9px 11px',
+                      fontSize: '.49rem',
+                      fontWeight: 800,
+                      letterSpacing: '.08em',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                    }}
+                  >View section below ↓</button>
+                )}
+              </div>
+            </article>
+          )}
+
+          <div className={styles.legend}>
+            <span><i className={styles.legendLive} /> Existing</span>
+            <span><i style={{ background: '#c99a66', borderTop: '1px dashed #c99a66' }} /> Research-stage</span>
+            <span><i className={styles.legendOpen} /> Open vector</span>
+            <span className={styles.legendHint}>Move through the field · click to inspect</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.disclosure}>
+        <span>STAGE LABELS MATTER</span>
+        <p>Operating projects, research-stage work, and open directions are intentionally separated. Gage Grid is currently under development; unresolved paths describe capabilities Queenan Capital could deepen if the evidence and opportunity justify it.</p>
       </div>
     </section>,
     mount,
