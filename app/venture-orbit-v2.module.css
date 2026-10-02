@@ -52,3 +52,22 @@
   .gage{left:4%;bottom:8%}
   .ownershipSatellite{right:8%;bottom:13%}
 }
+
+/* 2026-10-02 orbit refinement */
+.core{width:172px;height:172px}
+.core:before{inset:17px;background:#f1e9dc}
+.core:after{inset:3px;box-shadow:0 0 0 12px rgba(201,154,102,.024)}
+.core strong{font-size:2.45rem;letter-spacing:-.035em}
+.core span{margin-top:8px;font-size:.44rem;letter-spacing:.17em;color:#49453f}
+.core small{position:relative;z-index:2;display:block;margin-top:7px;font:700 .32rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:#8a8177}
+.node{width:168px;height:168px;padding:22px;border-color:rgba(242,232,219,.42);background:radial-gradient(circle at 40% 30%,rgba(255,255,255,.04),rgba(17,18,16,.96) 66%)}
+.node:before{inset:-10px}.node:after{inset:11px}
+.nodeIndex{top:24px;left:38px}
+.node strong{font-size:2.05rem}
+.nodeName{margin-top:9px;font-size:.62rem}
+.status{margin-top:8px;font-size:.38rem;letter-spacing:.15em}
+.cluster{width:188px;height:188px}
+.waterline .node,.expense .node,.gage .node{left:10px;top:10px}
+.ownershipSatellite{width:118px;height:118px;border-color:rgba(239,229,216,.28);background:radial-gradient(circle at 40% 30%,rgba(255,255,255,.025),rgba(18,19,17,.92) 68%)}
+.ownershipSatellite strong{font-size:1.05rem}
+.ownershipSatellite span{margin-top:6px;font-size:.48rem}
