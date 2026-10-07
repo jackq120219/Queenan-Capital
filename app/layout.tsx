@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import './vision.css';
 import './design-system.css';
@@ -157,6 +158,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <PortfolioCommandCenter />
         <VentureOrbit />
         <PortfolioQualityLayer />
+        <Analytics />
       </body>
     </html>
   );
