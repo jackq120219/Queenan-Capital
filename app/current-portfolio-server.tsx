@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './current-portfolio-server.module.css';
 
 const portfolio = [
@@ -62,8 +63,15 @@ export default function CurrentPortfolioServer() {
             <summary className={styles.row} aria-label={`${company.name} — expand project details`}>
               <div className={styles.code}>{company.code}</div>
               <div className={styles.company}>
-                <strong>{company.name}</strong>
-                <span>{company.category}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  {company.code === 'WI' ? (
+                    <Image src="/waterline-mark.svg" alt="" width={34} height={34} style={{ flexShrink: 0 }} />
+                  ) : null}
+                  <div>
+                    <strong>{company.name}</strong>
+                    <span>{company.category}</span>
+                  </div>
+                </div>
               </div>
               <div className={styles.question}>{company.question}</div>
               <div className={styles.evidence}>
