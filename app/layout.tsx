@@ -1,163 +1,43 @@
 import type { Metadata } from 'next';
-import './globals.css';
-import './vision.css';
-import './design-system.css';
-import './institutional-motion.css';
-import './hero-fixes.css';
-import './logo-fixes.css';
-import './maintenance.css';
-import './sep9-polish.css';
-import './professional-pass.css';
-import InstitutionalMotion from './institutional-motion';
-import VentureOrbit from './venture-orbit';
-import PortfolioCommandCenter from './portfolio-command-center';
-import PortfolioQualityLayer from './portfolio-quality-layer';
+import './site-refresh.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.queenancapital.com'),
-  applicationName: 'Queenan Capital',
-  title: {
-    default: 'Queenan Capital | Independent Holding Company',
-    template: '%s | Queenan Capital',
-  },
-  description: 'Queenan Capital is an independent holding company based in Chicago, focused on industry research, long-term ownership, and internally developed operating businesses.',
-  keywords: [
-    'Queenan Capital',
-    'holding company',
-    'Chicago holding company',
-    'operating businesses',
-    'ExpenseIntel',
-    'Waterline Intel',
-    'Gage Grid',
-    'industrial infrastructure intelligence',
-  ],
-  authors: [{ name: 'Queenan Capital', url: 'https://www.queenancapital.com/' }],
-  creator: 'Queenan Capital',
-  publisher: 'Queenan Capital',
-  category: 'business',
-  icons: {
-    icon: [{ url: '/queenan-favicon.png', type: 'image/png', sizes: '192x192' }],
-    shortcut: '/queenan-favicon.png',
-    apple: '/queenan-favicon.png',
-  },
-  alternates: {
-    canonical: 'https://www.queenancapital.com/',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
+  title: { default: 'Queenan Capital | Building for the Long Term', template: '%s | Queenan Capital' },
+  description: 'Queenan Capital is an independent Chicago holding company developing freight intelligence, internal engineering, quantitative research and financial technology initiatives.',
+  keywords: ['Queenan Capital', 'independent holding company', 'Waterline Intel', 'COEUS', 'Queenan Alpha', 'financial intelligence', 'long-term ownership'],
+  alternates: { canonical: 'https://www.queenancapital.com/' },
+  icons: { icon: '/queenan-favicon.png', apple: '/queenan-favicon.png' },
   openGraph: {
-    title: 'Queenan Capital | Independent Holding Company',
-    description: 'Queenan Capital is an independent holding company based in Chicago, focused on research, long-term ownership, and operating businesses.',
+    title: 'Queenan Capital | Building for the Long Term',
+    description: 'A long-term company combining operating businesses, proprietary intelligence and disciplined capital allocation.',
     url: 'https://www.queenancapital.com/',
     siteName: 'Queenan Capital',
-    locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: '/opengraph-image',
-        width: 1200,
-        height: 630,
-        alt: 'Queenan Capital',
-      },
-    ],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Queenan Capital' }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Queenan Capital | Independent Holding Company',
-    description: 'Queenan Capital is an independent holding company based in Chicago, focused on research, long-term ownership, and operating businesses.',
-    images: ['/opengraph-image'],
-  },
+  twitter: { card: 'summary_large_image', images: ['/opengraph-image'] },
 };
-
-const queenanStructuredData = {
+const structured = {
   '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebSite',
-      '@id': 'https://www.queenancapital.com/#website',
-      url: 'https://www.queenancapital.com/',
-      name: 'Queenan Capital',
-      alternateName: ['Queenan Capital', 'queenancapital.com'],
-      publisher: {
-        '@id': 'https://www.queenancapital.com/#organization',
-      },
-    },
-    {
-      '@type': 'Organization',
-      '@id': 'https://www.queenancapital.com/#organization',
-      name: 'Queenan Capital',
-      url: 'https://www.queenancapital.com/',
-      logo: 'https://www.queenancapital.com/queenan-favicon.png',
-      description: 'Queenan Capital is an independent holding company based in Chicago, focused on industry research, long-term ownership, and internally developed operating businesses.',
-      foundingDate: '2026',
-      foundingLocation: {
-        '@type': 'Place',
-        name: 'Chicago, Illinois, United States',
-      },
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Chicago',
-        addressRegion: 'IL',
-        addressCountry: 'US',
-      },
-      knowsAbout: [
-        'holding companies',
-        'industry research',
-        'Great Lakes freight intelligence',
-        'logistics decision support',
-        'pre-commitment decision intelligence',
-        'industrial infrastructure intelligence',
-        'industrial site serviceability research',
-      ],
-      subOrganization: [
-        {
-          '@type': 'Organization',
-          '@id': 'https://www.expenseintel.com/#organization',
-          name: 'ExpenseIntel',
-          url: 'https://www.expenseintel.com/',
-          description: 'Pre-commitment decision intelligence for meaningful spending decisions.',
-        },
-        {
-          '@type': 'Organization',
-          '@id': 'https://waterlineintel.com/#organization',
-          name: 'Waterline Intel',
-          url: 'https://waterlineintel.com/',
-          description: 'Great Lakes freight intelligence and logistics decision-support platform.',
-        },
-        {
-          '@type': 'Organization',
-          '@id': 'https://gage-grid.vercel.app/#organization',
-          name: 'Gage Grid',
-          url: 'https://gage-grid.vercel.app/',
-          description: 'Industrial site infrastructure intelligence for project screening, site comparison, evidence quality, and diligence sequencing.',
-        },
-      ],
-    },
-  ],
+  '@type': 'Organization',
+  '@id': 'https://www.queenancapital.com/#organization',
+  name: 'Queenan Capital LLC',
+  url: 'https://www.queenancapital.com/',
+  foundingDate: '2026-10-08',
+  address: { '@type': 'PostalAddress', addressLocality: 'Chicago', addressRegion: 'IL', addressCountry: 'US' },
+  description: 'Independent holding company developing commercial intelligence and technology capabilities.',
+  subOrganization: [{
+    '@type': 'Organization',
+    name: 'Waterline Intel',
+    url: 'https://waterlineintel.com/',
+    description: 'Freight intelligence and logistics decision support.',
+  }],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(queenanStructuredData) }}
-        />
-        <InstitutionalMotion>{children}</InstitutionalMotion>
-        <PortfolioCommandCenter />
-        <VentureOrbit />
-        <PortfolioQualityLayer />
-      </body>
-    </html>
-  );
+  return <html lang="en"><body>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured) }} />
+    {children}
+  </body></html>;
 }
