@@ -28,12 +28,12 @@ const notes = [
   {
     company: 'COEUS',
     title: 'Improving internal technical capability',
-    body: 'COEUS is a research and engineering platform in development. Reliable task execution and verification are the next milestones, not capabilities we claim are complete.',
+    body: 'COEUS is an evolving AI software workspace joining local models, research, knowledge tools and supervised coding workflows. Our engineering priority is more dependable task execution and verification.',
   },
   {
     company: 'Research initiatives',
     title: 'Queenan Alpha and Project Endeavour',
-    body: 'Quantitative market research and early API product exploration are being evaluated. Neither is presented as a profitable, independently operating financial technology company.',
+    body: 'Queenan Alpha is developing quantitative research software for market data, model testing and risk evaluation. Endeavour is exploring focused APIs and developer-facing data tools.'
   },
 ];
 
