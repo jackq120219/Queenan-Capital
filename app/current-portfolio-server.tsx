@@ -2,47 +2,58 @@ import styles from './current-portfolio-server.module.css';
 
 const portfolio = [
   {
-    code: 'EI',
-    name: 'ExpenseIntel',
-    category: 'Pre-commitment decision intelligence',
-    question: 'Should this money be committed, and what still has to be verified?',
-    evidence: 'Decision Passport · NHTSA · BLS · U.S. Census',
-    stage: 'Operating product',
-    stageNote: 'Built for pre-commitment decisions where price, recurring burden, evidence, terms, timing and alternatives need to be separated before capital becomes hard to reverse.',
-    surface: 'Decision Passport · modeled burden · evidence gaps · comparison · Change Watch',
-    href: 'https://www.expenseintel.com/',
-  },
-  {
     code: 'WI',
     name: 'Waterline Intel',
-    category: 'Great Lakes freight intelligence',
-    question: 'Can this cargo move well, through which route, and with what operating constraints?',
-    evidence: 'Movement · capacity · route intelligence',
+    category: 'Freight intelligence',
+    question: 'How can shippers understand and evaluate freight decisions more confidently?',
+    evidence: 'Routes · market context · quotes',
     stage: 'Operating product',
-    stageNote: 'Built around Great Lakes freight decisions: route economics, shipment feasibility, market access, capacity signals and the operating constraints that can change execution.',
-    surface: 'Cargo screening · route planning · vessel context · shipment workspace · market signals',
+    stageNote: 'Waterline focuses on Great Lakes freight decisions, gathering market evidence and offering decision-support tools. Commercial adoption and pricing remain active priorities.',
+    surface: 'Route intelligence · vessel context · quote evaluation · freight research',
     href: 'https://waterlineintel.com/',
   },
   {
-    code: 'GG',
-    name: 'Gage Grid',
-    category: 'Industrial infrastructure intelligence',
-    question: 'Can this site carry the project before capital is committed?',
-    evidence: 'Power · water · wastewater · gas · fiber · USGS · EPA',
-    stage: 'Operating pilot',
-    stageNote: 'An operating pilot for project-first industrial site screening. Pilot capacity records are simulated; live public evidence is labeled separately and utility verification is required before an executable decision.',
-    surface: 'Project screen · reverse rank · shortlist compare · capacity registry · change detection',
-    href: 'https://gage-grid.vercel.app/',
+    code: 'CO',
+    name: 'COEUS',
+    category: 'Internal intelligence and engineering',
+    question: 'Can technical research and software missions be made more reliable and repeatable?',
+    evidence: 'Local models · tool testing · source review',
+    stage: 'In development',
+    stageNote: 'COEUS is an internal platform under active development, not a separately commercialized product. Research, supervised engineering, and mission execution are being tested.',
+    surface: 'Local intelligence · technical workflows · mission control · verification',
+    href: null,
+  },
+  {
+    code: 'QA',
+    name: 'Queenan Alpha',
+    category: 'Quantitative research',
+    question: 'Do any market hypotheses survive independent tests and realistic trading costs?',
+    evidence: 'Backtests · model evaluation · risk',
+    stage: 'Experimental',
+    stageNote: 'This is an experimental research program. Its forecasting and trading methods have not demonstrated a dependable, profitable edge.',
+    surface: 'Model tests · market signals · execution-cost analysis',
+    href: null,
+  },
+  {
+    code: 'EN',
+    name: 'Project Endeavour',
+    category: 'API and data-product exploration',
+    question: 'Where can a focused API solve a commercially valuable problem?',
+    evidence: 'Opportunity research · prototypes',
+    stage: 'Early exploration',
+    stageNote: 'Endeavour investigates potential data and API products. It is not presented as an established fintech company or revenue-generating operation.',
+    surface: 'API product research · early experiments · potential distribution',
+    href: null,
   },
 ];
 
 export default function CurrentPortfolioServer() {
   return (
     <section id="portfolio" className={styles.section} aria-labelledby="portfolio-title">
-      <div className={styles.kicker}>04 / CURRENT PORTFOLIO</div>
+      <div className={styles.kicker}>04 / CURRENT INITIATIVES</div>
       <div className={styles.head}>
-        <h2 id="portfolio-title">Different markets. One operating discipline.</h2>
-        <p>Queenan Capital builds products around decisions where fragmented information, changing conditions, or weak evidence can make capital allocation harder than it should be.</p>
+        <h2 id="portfolio-title">Current work. One operating discipline.</h2>
+        <p>Our commercial work and internal research are at different stages. We distinguish live products from experiments and future opportunities.</p>
       </div>
 
       <div className={styles.table}>
@@ -72,7 +83,7 @@ export default function CurrentPortfolioServer() {
                 <p>{company.surface}</p>
               </div>
               <div className={styles.detailAction}>
-                <a href={company.href} target="_blank" rel="noreferrer">Open {company.name} <span aria-hidden="true">↗</span></a>
+                {company.href ? <a href={company.href} target="_blank" rel="noreferrer">Open {company.name} <span aria-hidden="true">↗</span></a> : <span>Internal work — no public product page</span>}
               </div>
             </div>
           </details>
@@ -80,7 +91,7 @@ export default function CurrentPortfolioServer() {
       </div>
 
       <div className={styles.foot}>
-        <p><b>Portfolio standard.</b> Source-backed evidence stays separate from modeled assumptions, products stay focused on a specific decision, and development follows usefulness rather than feature count.</p>
+        <p><b>Operating standard.</b> Source-backed evidence stays separate from modeled assumptions, products stay focused on a specific decision, and development follows usefulness rather than feature count.</p>
         <div><a href="/companies">Company profiles</a><a href="/research-standards">Research standards</a><a href="/operating-notes">Operating notes</a></div>
       </div>
     </section>

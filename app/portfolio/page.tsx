@@ -5,7 +5,7 @@ import styles from './portfolio.module.css';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
-  description: 'The current Queenan Capital portfolio: ExpenseIntel, Waterline Intel, and Gage Grid, with each company focused on a distinct operating decision.',
+  description: 'Current Queenan Capital initiatives include Waterline Intel, COEUS, Queenan Alpha, and Project Endeavour at different stages of work.',
   alternates: { canonical: 'https://www.queenancapital.com/portfolio' },
 };
 
@@ -17,9 +17,9 @@ export default function PortfolioPage() {
         <span>PORTFOLIO / 2026</span>
       </header>
       <section className={styles.intro}>
-        <div>OPERATING COMPANIES</div>
+        <div>CURRENT INITIATIVES</div>
         <h1>Build carefully.<br />Keep the thesis clear.</h1>
-        <p>The portfolio is intentionally small. Each company should answer a distinct question, keep evidence separate from assumptions, and become more useful before it becomes more complicated.</p>
+        <p>The portfolio is intentionally small. Each initiative should answer a distinct question, keep evidence separate from assumptions, and become more useful before it becomes more complicated.</p>
       </section>
       <CurrentPortfolioServer />
       <section className={styles.discipline} aria-labelledby="discipline-title">

@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Operating Companies | Queenan Capital' },
+  title: { absolute: 'Current Initiatives | Queenan Capital' },
   description:
-    'Explore Queenan Capital operating companies and internally developed businesses: ExpenseIntel, Waterline Intel, and Gage Grid.',
+    'Explore Waterline Intel, COEUS, Queenan Alpha and Project Endeavour, including their actual development stages.',
   alternates: { canonical: 'https://www.queenancapital.com/companies' },
   openGraph: {
     title: 'Operating Companies | Queenan Capital',
     description:
-      'ExpenseIntel, Waterline Intel, and Gage Grid are distinct operating businesses developed under Queenan Capital.',
+      'Waterline Intel is a commercial product; COEUS, Queenan Alpha and Project Endeavour remain internal research and development initiatives.',
     url: 'https://www.queenancapital.com/companies',
     siteName: 'Queenan Capital',
     type: 'website',
@@ -18,62 +18,46 @@ export const metadata: Metadata = {
 
 const companies = [
   {
-    name: 'ExpenseIntel',
-    href: 'https://www.expenseintel.com/',
-    logo: '/expenseintel-mark.svg',
-    category: 'Pre-commitment decision intelligence',
-    description:
-      'A decision system for understanding price, true cost, recurring burden, downside, timing, alternatives, evidence, and negotiation leverage before a meaningful purchase or project.',
-    focus: 'Consumer and business spending decisions',
-    operatingQuestion: 'Should the money be committed, and how can the terms be improved first?',
-  },
-  {
     name: 'Waterline Intel',
     href: 'https://waterlineintel.com/',
     logo: '/waterline-mark.svg',
-    category: 'Great Lakes freight intelligence',
-    description:
-      'Freight decision intelligence for route economics, market access, cargo opportunity signals, shipment feasibility, corridor conditions, RFQ preparation, and logistics execution support.',
-    focus: 'Great Lakes logistics and freight decisions',
-    operatingQuestion: 'Can this cargo move well, what route fits, and what must the market confirm?',
+    category: 'Commercial product · Freight intelligence',
+    description: 'Freight intelligence and logistics decision support, initially focused on Great Lakes shipping and the information needed to evaluate routes, rates and operational constraints.',
+    focus: 'Turning complex freight information into useful decisions',
+    operatingQuestion: 'What does a shipper need to know before committing to a move?',
   },
   {
-    name: 'Gage Grid',
-    href: 'https://gage-grid.vercel.app/',
-    logo: '/gage-grid-mark.svg',
-    category: 'Industrial site infrastructure intelligence',
-    description:
-      'Project-first industrial site screening across power, water, wastewater, gas, fiber, timing, redundancy, evidence quality, and diligence sequencing before site capital hardens.',
-    focus: 'Industrial siting and infrastructure diligence',
-    operatingQuestion: 'Can this site carry the project, what breaks first, and what must be proven next?',
+    name: 'COEUS',
+    href: null,
+    logo: null,
+    category: 'Internal platform · In development',
+    description: 'A local intelligence and engineering platform under development to support research, analysis, supervised technical missions and shared capabilities across Queenan Capital.',
+    focus: 'Reliable internal research and software engineering',
+    operatingQuestion: 'How can useful research and technical work become more repeatable?',
+  },
+  {
+    name: 'Queenan Alpha',
+    href: null,
+    logo: null,
+    category: 'Quantitative research · Experimental',
+    description: 'Research infrastructure evaluating market hypotheses, model accuracy, risk controls and execution costs. No reliable profitable trading edge is claimed.',
+    focus: 'Testing hypotheses rather than assuming a market advantage',
+    operatingQuestion: 'Do the results hold up after honest evaluation and realistic costs?',
+  },
+  {
+    name: 'Project Endeavour',
+    href: null,
+    logo: null,
+    category: 'API development · Early exploration',
+    description: 'An early effort researching narrowly useful data and API products. It remains an exploratory initiative, not a separately established fintech business.',
+    focus: 'Finding a focused, commercially meaningful data-product opportunity',
+    operatingQuestion: 'Which information problem would customers actually pay to solve?',
   },
 ];
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Queenan Capital operating companies',
-  url: 'https://www.queenancapital.com/companies',
-  itemListElement: companies.map((company, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    item: {
-      '@type': 'Organization',
-      name: company.name,
-      url: company.href,
-      logo: `https://www.queenancapital.com${company.logo}`,
-      parentOrganization: {
-        '@id': 'https://www.queenancapital.com/#organization',
-      },
-      description: company.description,
-    },
-  })),
-};
 
 export default function CompaniesPage() {
   return (
     <main style={{ minHeight: '100vh', background: '#f7f4ee', color: '#151515', padding: '72px 6vw 104px', fontFamily: 'Arial, Helvetica, sans-serif', overflowX: 'hidden' }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
         <nav style={{ display: 'flex', gap: 24, marginBottom: 68, fontSize: 12, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
           <Link href="/" style={{ color: '#6f2934', textDecoration: 'none' }}>Queenan Capital</Link>
@@ -83,25 +67,26 @@ export default function CompaniesPage() {
 
         <header style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '8vw', alignItems: 'end' }}>
           <div>
-            <div style={{ color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 20 }}>Queenan Capital portfolio</div>
-            <h1 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontWeight: 400, fontSize: 'clamp(3.3rem,7vw,7.2rem)', lineHeight: .94, letterSpacing: '-.05em' }}>Distinct companies.<br />One operating discipline.</h1>
+            <div style={{ color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 20 }}>Queenan Capital / current initiatives</div>
+            <h1 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontWeight: 400, fontSize: 'clamp(3.3rem,7vw,7.2rem)', lineHeight: .94, letterSpacing: '-.05em' }}>Distinct initiatives.<br />One operating discipline.</h1>
           </div>
           <p style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(1.15rem,2vw,1.75rem)', lineHeight: 1.45 }}>
-            Queenan Capital studies industries, builds focused operating tools where a decision problem is worth solving, and develops those products with a long-term ownership mindset.
+            Queenan Capital operates and researches initiatives at different stages. We distinguish live products from technical development and early commercial exploration.
           </p>
         </header>
 
         <section style={{ marginTop: 84, borderTop: '1px solid #151515' }}>
           {companies.map((company, index) => (
-            <a key={company.name} href={company.href} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 28, padding: '34px 0', borderBottom: '1px solid rgba(21,21,21,.28)', color: 'inherit', textDecoration: 'none' }}>
+            <article key={company.name} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 28, padding: '34px 0', borderBottom: '1px solid rgba(21,21,21,.28)', color: 'inherit', textDecoration: 'none' }}>
               <div>
                 <span style={{ display: 'block', color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.12em', marginBottom: 12 }}>0{index + 1}</span>
                 <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 12 }}>{company.category}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 14, flexWrap: 'wrap' }}>
-                  <img src={company.logo} alt={`${company.name} logo`} width={62} height={62} style={{ width: 62, height: 62, flex: '0 0 62px' }} />
+                  {company.logo ? <img src={company.logo} alt={`${company.name} logo`} width={62} height={62} style={{ width: 62, height: 62, flex: '0 0 62px' }} /> : null}
                   <h2 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(2rem,4vw,4.2rem)', fontWeight: 400, letterSpacing: '-.035em' }}>{company.name}</h2>
                 </div>
                 <p style={{ margin: 0, maxWidth: 720, color: '#5f5953', lineHeight: 1.7 }}>{company.description}</p>
+                {company.href ? <a href={company.href} target="_blank" rel="noreferrer" style={{ display: 'inline-block', marginTop: 18, fontSize: 13, fontWeight: 700, color: '#6f2934', borderBottom: '1px solid #6f2934', paddingBottom: 4 }}>Visit {company.name} →</a> : null}
               </div>
               <div style={{ alignSelf: 'end', borderTop: '1px solid rgba(21,21,21,.25)', paddingTop: 14 }}>
                 <span style={{ display: 'block', fontSize: 10, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 8 }}>Primary focus</span>
@@ -109,7 +94,7 @@ export default function CompaniesPage() {
                 <span style={{ display: 'block', marginTop: 16, fontSize: 10, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 7 }}>Core question</span>
                 <p style={{ margin: 0, color: '#5f5953', lineHeight: 1.55, fontSize: 13 }}>{company.operatingQuestion}</p>
               </div>
-            </a>
+            </article>
           ))}
         </section>
 

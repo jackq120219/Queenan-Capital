@@ -10,8 +10,6 @@ import './sep9-polish.css';
 import './professional-pass.css';
 import InstitutionalMotion from './institutional-motion';
 import VentureOrbit from './venture-orbit';
-import PortfolioCommandCenter from './portfolio-command-center';
-import PortfolioQualityLayer from './portfolio-quality-layer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.queenancapital.com'),
@@ -26,10 +24,12 @@ export const metadata: Metadata = {
     'holding company',
     'Chicago holding company',
     'operating businesses',
-    'ExpenseIntel',
     'Waterline Intel',
-    'Gage Grid',
-    'industrial infrastructure intelligence',
+    'COEUS',
+    'Queenan Alpha',
+    'Project Endeavour',
+    'freight intelligence',
+    'engineering research',
   ],
   authors: [{ name: 'Queenan Capital', url: 'https://www.queenancapital.com/' }],
   creator: 'Queenan Capital',
@@ -98,7 +98,7 @@ const queenanStructuredData = {
       url: 'https://www.queenancapital.com/',
       logo: 'https://www.queenancapital.com/queenan-favicon.png',
       description: 'Queenan Capital is an independent holding company based in Chicago, focused on industry research, long-term ownership, and internally developed operating businesses.',
-      foundingDate: '2026',
+      foundingDate: '2026-10-08',
       foundingLocation: {
         '@type': 'Place',
         name: 'Chicago, Illinois, United States',
@@ -114,31 +114,17 @@ const queenanStructuredData = {
         'industry research',
         'Great Lakes freight intelligence',
         'logistics decision support',
-        'pre-commitment decision intelligence',
-        'industrial infrastructure intelligence',
-        'industrial site serviceability research',
+        'software engineering research',
+        'quantitative market research',
+        'API product exploration',
       ],
       subOrganization: [
-        {
-          '@type': 'Organization',
-          '@id': 'https://www.expenseintel.com/#organization',
-          name: 'ExpenseIntel',
-          url: 'https://www.expenseintel.com/',
-          description: 'Pre-commitment decision intelligence for meaningful spending decisions.',
-        },
         {
           '@type': 'Organization',
           '@id': 'https://waterlineintel.com/#organization',
           name: 'Waterline Intel',
           url: 'https://waterlineintel.com/',
-          description: 'Great Lakes freight intelligence and logistics decision-support platform.',
-        },
-        {
-          '@type': 'Organization',
-          '@id': 'https://gage-grid.vercel.app/#organization',
-          name: 'Gage Grid',
-          url: 'https://gage-grid.vercel.app/',
-          description: 'Industrial site infrastructure intelligence for project screening, site comparison, evidence quality, and diligence sequencing.',
+          description: 'Freight intelligence and logistics decision-support product.',
         },
       ],
     },
@@ -154,9 +140,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(queenanStructuredData) }}
         />
         <InstitutionalMotion>{children}</InstitutionalMotion>
-        <PortfolioCommandCenter />
         <VentureOrbit />
-        <PortfolioQualityLayer />
       </body>
     </html>
   );
