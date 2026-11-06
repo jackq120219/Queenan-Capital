@@ -38,9 +38,9 @@ const ventures: Venture[] = [
     short: 'CO',
     name: 'COEUS',
     status: 'In development',
-    lead: 'An internal research and engineering platform being developed to help organize technical missions, analyze evidence, and support supervised software work.',
-    type: 'Internal capability',
-    focus: 'Research + engineering',
+    lead: 'An AI software workspace bringing together local models, knowledge tools, grounded research, and supervised engineering workflows to make technical work more capable and repeatable.',
+    type: 'AI software platform',
+    focus: 'Local AI + engineering',
     horizon: 'Build + verify',
     href: '/companies',
     action: 'About COEUS',
@@ -51,9 +51,9 @@ const ventures: Venture[] = [
     short: 'QA',
     name: 'Queenan Alpha',
     status: 'Experimental',
-    lead: 'An experimental quantitative research effort assessing market data, predictive models, trading costs, and whether any measurable edge exists.',
-    type: 'Quantitative research',
-    focus: 'Models + evaluation',
+    lead: 'A quantitative software research system combining market-data infrastructure, signal analysis, predictive models, backtesting, and risk-aware execution tooling.',
+    type: 'Quantitative software',
+    focus: 'Data + model systems',
     horizon: 'Research + test',
     href: '/companies',
     action: 'About Queenan Alpha',
@@ -133,12 +133,12 @@ export default function VentureOrbit() {
       <div className={styles.head}>
         <div>
           <div className={styles.kicker}>Operating field / Queenan Capital</div>
-          <div className={styles.signal}><i /> One operating product · Two research initiatives</div>
+          <div className={styles.signal}><i /> One operating product · Two software research systems</div>
         </div>
         <div>
           <h2 id="venture-orbit-title">Built to move. <em>Built to compound.</em></h2>
           <p>
-            Queenan Capital builds operating systems around decisions that matter, then follows the evidence into deeper products, durable businesses, and long-term ownership.
+            Queenan Capital develops software and intelligence systems around decisions that matter, building shared technical capabilities alongside products and long-term ownership.
           </p>
         </div>
       </div>
@@ -239,7 +239,7 @@ export default function VentureOrbit() {
 
       <div className={styles.disclosure}>
         <span>OPERATING DISCIPLINE</span>
-        <p>Waterline Intel is our commercial product; COEUS and Queenan Alpha are development and research efforts. Long-term ownership remains a future mandate. Project Endeavour, our early API work, is described in the initiatives overview.</p>
+        <p>Waterline Intel is our commercial product. COEUS, Queenan Alpha and Project Endeavour extend our software, data and research capabilities at different stages of development.</p>
       </div>
     </section>,
     mount,
