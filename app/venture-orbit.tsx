@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import styles from './venture-orbit-v2.module.css';
 
 type Venture = {
-  key: 'waterline' | 'expenseintel' | 'gagegrid' | 'ownership';
+  key: 'waterline' | 'coeus' | 'alpha' | 'ownership';
   short: string;
   name: string;
   status: string;
@@ -16,7 +16,7 @@ type Venture = {
   horizon: string;
   href: string;
   action: string;
-  stage: 'operating' | 'mandate';
+  stage: 'operating' | 'development' | 'mandate';
 };
 
 const ventures: Venture[] = [
@@ -34,30 +34,30 @@ const ventures: Venture[] = [
     stage: 'operating',
   },
   {
-    key: 'expenseintel',
-    short: 'EI',
-    name: 'ExpenseIntel',
-    status: 'Operating project',
-    lead: 'Pre-commitment decision intelligence for purchases, quotes, properties, projects, and other decisions where the sticker price is not enough.',
-    type: 'Decision intelligence',
-    focus: 'Cost + evidence',
-    horizon: 'Build + deepen data',
-    href: 'https://expenseintel.com',
-    action: 'Visit ExpenseIntel',
-    stage: 'operating',
+    key: 'coeus',
+    short: 'CO',
+    name: 'COEUS',
+    status: 'In development',
+    lead: 'An internal research and engineering platform being developed to help organize technical missions, analyze evidence, and support supervised software work.',
+    type: 'Internal capability',
+    focus: 'Research + engineering',
+    horizon: 'Build + verify',
+    href: '/companies',
+    action: 'About COEUS',
+    stage: 'development',
   },
   {
-    key: 'gagegrid',
-    short: 'GG',
-    name: 'Gage Grid',
-    status: 'Operating product',
-    lead: 'Industrial infrastructure intelligence for screening whether a site can support a proposed project across power, water, wastewater, gas, and fiber before development capital is committed.',
-    type: 'Infrastructure intelligence',
-    focus: 'Site capacity + serviceability',
-    horizon: 'Build + expand coverage',
-    href: 'https://gage-grid.vercel.app',
-    action: 'Open Gage Grid',
-    stage: 'operating',
+    key: 'alpha',
+    short: 'QA',
+    name: 'Queenan Alpha',
+    status: 'Experimental',
+    lead: 'An experimental quantitative research effort assessing market data, predictive models, trading costs, and whether any measurable edge exists.',
+    type: 'Quantitative research',
+    focus: 'Models + evaluation',
+    horizon: 'Research + test',
+    href: '/companies',
+    action: 'About Queenan Alpha',
+    stage: 'development',
   },
   {
     key: 'ownership',
@@ -79,8 +79,8 @@ const ownership = ventures.find((venture) => venture.key === 'ownership')!;
 
 const paths: Record<string, string> = {
   waterline: 'M500 326 C420 268 334 191 229 188',
-  expenseintel: 'M500 326 C596 245 675 184 790 186',
-  gagegrid: 'M500 326 C420 401 344 503 243 521',
+  coeus: 'M500 326 C596 245 675 184 790 186',
+  alpha: 'M500 326 C420 401 344 503 243 521',
 };
 
 export default function VentureOrbit() {
@@ -133,7 +133,7 @@ export default function VentureOrbit() {
       <div className={styles.head}>
         <div>
           <div className={styles.kicker}>Operating field / Queenan Capital</div>
-          <div className={styles.signal}><i /> Three operating products + one ownership mandate</div>
+          <div className={styles.signal}><i /> One operating product · Two research initiatives</div>
         </div>
         <div>
           <h2 id="venture-orbit-title">Built to move. <em>Built to compound.</em></h2>
@@ -149,7 +149,7 @@ export default function VentureOrbit() {
           className={styles.stage}
           onPointerMove={moveField}
           onPointerLeave={resetField}
-          aria-label="Interactive Queenan Capital operating company field"
+          aria-label="Interactive Queenan Capital initiatives"
         >
           <div className={styles.coordinates} aria-hidden="true"><span>Chicago / operating field</span><span>2026 / forward</span></div>
 
@@ -169,7 +169,7 @@ export default function VentureOrbit() {
               <g key={venture.key} className={activeKey === venture.key ? styles.pathActive : styles.pathDormant}>
                 <path className={styles.livePath} d={paths[venture.key]} pathLength="100" />
                 <circle className={styles.particle} r="3.4">
-                  <animateMotion dur={venture.key === 'waterline' ? '6s' : venture.key === 'expenseintel' ? '6.8s' : '7.5s'} repeatCount="indefinite" path={paths[venture.key]} />
+                  <animateMotion dur={venture.key === 'waterline' ? '6s' : venture.key === 'coeus' ? '6.8s' : '7.5s'} repeatCount="indefinite" path={paths[venture.key]} />
                 </circle>
               </g>
             ))}
@@ -178,11 +178,11 @@ export default function VentureOrbit() {
           </svg>
 
           <button type="button" className={styles.core} onClick={() => setActiveKey(null)} aria-label="Clear selected company">
-            <div><strong>QC</strong><span>Queenan Capital</span><small>Operating company</small></div>
+            <div><strong>QC</strong><span>Queenan Capital</span><small>Holding company</small></div>
           </button>
 
           {companyVentures.map((venture, index) => (
-            <div key={venture.key} className={`${styles.cluster} ${styles[venture.key === 'waterline' ? 'waterline' : venture.key === 'expenseintel' ? 'expense' : 'gage']}`}>
+            <div key={venture.key} className={`${styles.cluster} ${styles[venture.key === 'waterline' ? 'waterline' : venture.key === 'coeus' ? 'expense' : 'gage']}`}>
               <button
                 type="button"
                 className={`${styles.node} ${activeKey === venture.key ? styles.nodeActive : ''}`}
@@ -213,7 +213,7 @@ export default function VentureOrbit() {
           {active && (
             <article className={styles.inspector} aria-live="polite">
               <div className={styles.inspectorTop}>
-                <span className={styles.eyebrow}>{active.stage === 'mandate' ? 'Ownership mandate' : 'Operating product'}</span>
+                <span className={styles.eyebrow}>{active.stage === 'mandate' ? 'Ownership mandate' : active.stage === 'development' ? 'Research and development' : 'Operating product'}</span>
                 <button type="button" onClick={() => setActiveKey(null)} aria-label="Close details">×</button>
               </div>
               <h3>{active.name}</h3>
@@ -230,7 +230,7 @@ export default function VentureOrbit() {
           )}
 
           <div className={styles.legend} aria-hidden="true">
-            <span><i className={styles.legendLive} /> Operating company</span>
+            <span><i className={styles.legendLive} /> Current initiative</span>
             <span><i className={styles.legendCapital} /> Capital connection</span>
             <span><i className={styles.legendOpen} /> Ownership path / open tail</span>
           </div>
@@ -239,7 +239,7 @@ export default function VentureOrbit() {
 
       <div className={styles.disclosure}>
         <span>OPERATING DISCIPLINE</span>
-        <p>Waterline Intel, ExpenseIntel, and Gage Grid are presented as active operating products. Long-term ownership remains an open mandate rather than a fourth software product.</p>
+        <p>Waterline Intel is our commercial product; COEUS and Queenan Alpha are development and research efforts. Long-term ownership remains a future mandate. Project Endeavour, our early API work, is described in the initiatives overview.</p>
       </div>
     </section>,
     mount,
