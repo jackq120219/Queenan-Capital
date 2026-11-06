@@ -1,4 +1,3 @@
-import expenseStyles from './expense.module.css';
 import CurrentPortfolioServer from './current-portfolio-server';
 
 const disciplines = [
@@ -21,29 +20,6 @@ const ownerCriteria = [
   'A business model we can understand',
   'A useful product or service',
   'A reason to own it for years',
-];
-
-const expenseQuestions = [
-  'Is the price or quote supported by the evidence available?',
-  'What does the commitment really cost beyond the headline number?',
-  'What still needs to be verified before money becomes irreversible?',
-];
-
-const expenseSpecs = [
-  ['Primary inputs', 'Listing, quote, description, price, property or project context'],
-  ['Decision layers', 'Price, true cost, terms, timing, alternatives, exposure, exit and evidence'],
-  ['Core outputs', 'Decision call, modeled burden, evidence gaps, comparison and next diligence action'],
-  ['Decision horizon', 'Before commitment, with comparison and Change Watch after a baseline is saved'],
-  ['Current stage', 'Operating product; live NHTSA, BLS and U.S. Census evidence is kept separate from modeled assumptions'],
-];
-
-const electricityData = [
-  ['2020', 10.59, 6.67],
-  ['2021', 11.22, 7.18],
-  ['2022', 12.41, 8.32],
-  ['2023', 12.59, 8.04],
-  ['2024', 12.75, 8.13],
-  ['2025', 13.41, 8.62],
 ];
 
 export default function Home() {
@@ -476,150 +452,6 @@ export default function Home() {
           </figure>
         </section>
 
-        <section id="expenseintel" className={expenseStyles.section} aria-labelledby="expenseintel-title">
-          <div className={expenseStyles.topline}>
-            <span>04B / OPERATING PROJECT</span>
-            <span className={expenseStyles.status}>Active development</span>
-          </div>
-
-          <div className={expenseStyles.hero}>
-            <div>
-              <h2 id="expenseintel-title" className={expenseStyles.name}>ExpenseIntel</h2>
-              <p className={expenseStyles.category}>Pre-commitment decision intelligence</p>
-            </div>
-
-            <div>
-              <p className={expenseStyles.lead}>
-                ExpenseIntel is Queenan Capital&apos;s pre-commitment decision product, built around a simple problem: the headline price rarely contains everything that matters before money becomes commitment.
-              </p>
-              <p className={expenseStyles.copy}>
-                Its Decision Passport connects price, true cost, terms, timing, alternatives, exposure, exit conditions and evidence while keeping unknowns explicit.
-              </p>
-            </div>
-          </div>
-
-          <div className={expenseStyles.grid}>
-            <div className={expenseStyles.panel}>
-              <span className={expenseStyles.eyebrow}>Operating thesis</span>
-              <p className={expenseStyles.thesis}>
-                Rent or purchase price is only one part of a location decision. Recurring costs can materially change the economics after the commitment is made.
-              </p>
-            </div>
-
-            <div className={expenseStyles.panel}>
-              <span className={expenseStyles.eyebrow}>What the product is designed to answer</span>
-              <div className={expenseStyles.questions}>
-                {expenseQuestions.map((question, index) => (
-                  <div className={expenseStyles.question} key={question}>
-                    <span>0{index + 1}</span>
-                    <strong>{question}</strong>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <section className="expense-public-data" aria-labelledby="expense-data-title">
-            <div className="expense-data-heading">
-              <div>
-                <span className="expense-data-eyebrow">Public cost signal / source-backed data</span>
-                <h3 id="expense-data-title">The evidence beneath a decision can materially change the answer.</h3>
-              </div>
-              <p>
-                Electricity is one example of a source-backed input that can move over time. ExpenseIntel now also connects public vehicle identity, safety, market and property-location evidence where relevant, while keeping those sources separate from modeled fair value or advice.
-              </p>
-            </div>
-
-            <div className="expense-data-grid">
-              <div className="expense-chart-card">
-                <div className="expense-chart-meta">
-                  <span>U.S. average electricity price</span>
-                  <span>Cents per kilowatthour</span>
-                </div>
-                <svg viewBox="0 0 720 290" role="img" aria-label="Line chart showing U.S. commercial and industrial electricity prices from 2020 through 2025">
-                  <line className="grid-line" x1="60" y1="50" x2="660" y2="50" />
-                  <line className="grid-line" x1="60" y1="150" x2="660" y2="150" />
-                  <line className="grid-line" x1="60" y1="250" x2="660" y2="250" />
-                  <text className="axis-text" x="16" y="54">15¢</text>
-                  <text className="axis-text" x="16" y="154">10¢</text>
-                  <text className="axis-text" x="24" y="254">5¢</text>
-
-                  <polyline className="commercial-line" points="60,138.2 180,125.6 300,101.8 420,98.2 540,95 660,81.8" />
-                  <polyline className="industrial-line" points="60,216.6 180,206.4 300,183.6 420,189.2 540,187.4 660,177.6" />
-
-                  {electricityData.map(([year], index) => {
-                    const x = 60 + index * 120;
-                    return <text className="axis-text" key={year} x={x} y="278" textAnchor="middle">{year}</text>;
-                  })}
-
-                  <circle className="commercial-dot" cx="60" cy="138.2" r="5" />
-                  <circle className="commercial-dot" cx="180" cy="125.6" r="5" />
-                  <circle className="commercial-dot" cx="300" cy="101.8" r="5" />
-                  <circle className="commercial-dot" cx="420" cy="98.2" r="5" />
-                  <circle className="commercial-dot" cx="540" cy="95" r="5" />
-                  <circle className="commercial-dot" cx="660" cy="81.8" r="5" />
-
-                  <circle className="industrial-dot" cx="60" cy="216.6" r="4.5" />
-                  <circle className="industrial-dot" cx="180" cy="206.4" r="4.5" />
-                  <circle className="industrial-dot" cx="300" cy="183.6" r="4.5" />
-                  <circle className="industrial-dot" cx="420" cy="189.2" r="4.5" />
-                  <circle className="industrial-dot" cx="540" cy="187.4" r="4.5" />
-                  <circle className="industrial-dot" cx="660" cy="177.6" r="4.5" />
-                </svg>
-                <div className="expense-chart-legend">
-                  <span><i />Commercial</span>
-                  <span><i />Industrial</span>
-                </div>
-              </div>
-
-              <div className="expense-data-stats" aria-label="Electricity price summary statistics">
-                <div className="expense-data-stat">
-                  <strong>+26.6%</strong>
-                  <span>U.S. commercial average, 2020–2025.</span>
-                </div>
-                <div className="expense-data-stat">
-                  <strong>13.41¢</strong>
-                  <span>2025 U.S. commercial average per kWh.</span>
-                </div>
-                <div className="expense-data-stat">
-                  <strong>8.62¢</strong>
-                  <span>2025 U.S. industrial average per kWh.</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="expense-data-source">
-              <span>Public market context, not an ExpenseIntel quote or forecast for a specific property.</span>
-              <a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_03" target="_blank" rel="noreferrer">Source: U.S. EIA, Electric Power Monthly, Table 5.3</a>
-            </div>
-          </section>
-
-          <div className={expenseStyles.specs}>
-            <div className={expenseStyles.specHead}>
-              <h3>Current product direction</h3>
-              <span>ExpenseIntel / 2026</span>
-            </div>
-            <div className={expenseStyles.specTable}>
-              {expenseSpecs.map(([label, value]) => (
-                <div className={expenseStyles.specRow} key={label}>
-                  <span>{label}</span>
-                  <strong>{value}</strong>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className={expenseStyles.footer}>
-            <p className={expenseStyles.note}>
-              ExpenseIntel is an operating product of Queenan Capital. User-supplied facts, connected public evidence, modeled assumptions and unresolved gaps are intentionally kept separate; outputs are decision support, not executable quotes or professional advice.
-            </p>
-            <a className={expenseStyles.link} href="https://expenseintel.com" target="_blank" rel="noreferrer">
-              <span>Visit ExpenseIntel</span>
-              <b aria-hidden="true">→</b>
-            </a>
-          </div>
-        </section>
-
         <CurrentPortfolioServer />
 
         <section id="owners" className="owners-section">
@@ -647,11 +479,11 @@ export default function Home() {
         <section className="notes-section">
           <div className="notes-label">07 / NOTES</div>
           <div className="notes-copy">
-            <h2>Notes, when useful.</h2>
+            <h2>Building for the long term.</h2>
             <p>
-              Occasional notes from researching markets and building Waterline Intel, ExpenseIntel, and Gage Grid.
+              Our first letter explains the company's purpose, investment discipline, and the work ahead.
             </p>
-            <span className="notes-status">FIRST LETTER — FORTHCOMING</span>
+            <a className="notes-status" href="/letters/building-for-the-long-term" style={{display:"inline-block",color:"inherit",textDecoration:"underline",textUnderlineOffset:6}}>READ OUR FIRST LETTER →</a>
           </div>
         </section>
 
@@ -663,7 +495,7 @@ export default function Home() {
 
           <div className="about-right">
             <p className="about-lead">
-              Queenan Capital was founded in Chicago in 2026 by Jack Queenan. Its current portfolio includes Waterline Intel, ExpenseIntel, and Gage Grid.
+              Queenan Capital was founded in Chicago in 2026. Waterline Intel is its active commercial product, alongside developing research and engineering initiatives including COEUS, Queenan Alpha, and Project Endeavour.
             </p>
             <div className="about-data">
               <div><span>Founded</span><strong>2026</strong></div>
