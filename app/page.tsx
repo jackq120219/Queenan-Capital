@@ -288,7 +288,7 @@ export default function Home() {
             <a href="#vision">Vision</a>
             <a href="#mission">Mission</a>
             <a href="#portfolio">Portfolio</a>
-            <a href="#owners">For Owners</a>
+            <a href="/letters/building-for-the-long-term">First Letter</a>
             <a href="#about">About</a>
           </nav>
           <a className="header-contact" href="mailto:contact@queenancapital.com">Contact</a>
@@ -299,7 +299,7 @@ export default function Home() {
               <a href="#vision">Vision</a>
               <a href="#mission">Mission</a>
               <a href="#portfolio">Portfolio</a>
-              <a href="#owners">For Owners</a>
+              <a href="/letters/building-for-the-long-term">First Letter</a>
               <a href="#about">About</a>
               <a href="mailto:contact@queenancapital.com">Contact</a>
             </div>
