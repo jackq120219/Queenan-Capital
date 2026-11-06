@@ -15,34 +15,34 @@ const portfolio = [
   {
     code: 'CO',
     name: 'COEUS',
-    category: 'Internal intelligence and engineering',
-    question: 'Can technical research and software missions be made more reliable and repeatable?',
-    evidence: 'Local models · tool testing · source review',
+    category: 'AI software and engineering',
+    question: 'How can AI tools make research and software development more capable and repeatable?',
+    evidence: 'Local AI · knowledge workflows · code verification',
     stage: 'In development',
-    stageNote: 'COEUS is an internal platform under active development, not a separately commercialized product. Research, supervised engineering, and mission execution are being tested.',
-    surface: 'Local intelligence · technical workflows · mission control · verification',
+    stageNote: 'COEUS is our internal AI software workspace under active development, connecting local models, research tools, knowledge systems and supervised engineering workflows. Reliability and task execution remain active engineering goals.',
+    surface: 'Local AI · research workspace · engineering missions · verification',
     href: null,
   },
   {
     code: 'QA',
     name: 'Queenan Alpha',
-    category: 'Quantitative research',
-    question: 'Do any market hypotheses survive independent tests and realistic trading costs?',
-    evidence: 'Backtests · model evaluation · risk',
+    category: 'Quantitative software',
+    question: 'How can market data and predictive models be evaluated in a rigorous software pipeline?',
+    evidence: 'Market data · backtests · model evaluation',
     stage: 'Experimental',
-    stageNote: 'This is an experimental research program. Its forecasting and trading methods have not demonstrated a dependable, profitable edge.',
-    surface: 'Model tests · market signals · execution-cost analysis',
+    stageNote: 'Queenan Alpha develops market-data pipelines, predictive-model experiments, backtesting, fee-aware evaluation and risk-controlled execution components. Strategies are refined and assessed through ongoing research.',
+    surface: 'Signal engineering · model testing · strategy backtests · risk tooling',
     href: null,
   },
   {
     code: 'EN',
     name: 'Project Endeavour',
-    category: 'API and data-product exploration',
+    category: 'API software and data products',
     question: 'Where can a focused API solve a commercially valuable problem?',
     evidence: 'Opportunity research · prototypes',
     stage: 'Early exploration',
-    stageNote: 'Endeavour investigates potential data and API products. It is not presented as an established fintech company or revenue-generating operation.',
-    surface: 'API product research · early experiments · potential distribution',
+    stageNote: 'Endeavour is early-stage development and market research into focused APIs and developer-facing data products, with product and commercial validation still underway.',
+    surface: 'API prototypes · data packaging · developer workflows · distribution research',
     href: null,
   },
 ];
@@ -53,7 +53,7 @@ export default function CurrentPortfolioServer() {
       <div className={styles.kicker}>04 / CURRENT INITIATIVES</div>
       <div className={styles.head}>
         <h2 id="portfolio-title">Current work. One operating discipline.</h2>
-        <p>Our commercial work and internal research are at different stages. We distinguish live products from experiments and future opportunities.</p>
+        <p>We build software and data systems around real operating problems. Each initiative is shown at its current stage, from commercial delivery to internal engineering and research.</p>
       </div>
 
       <div className={styles.table}>

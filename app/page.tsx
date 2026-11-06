@@ -334,11 +334,11 @@ export default function Home() {
 
           <div className="masthead-bottom">
             <p className="masthead-line">
-              Building, studying, and holding businesses with a long time horizon.
+              Building software, intelligence systems, and businesses for the long term.
             </p>
             <div className="masthead-note">
               <span className="red-rule" aria-hidden="true" />
-              <p>Queenan Capital combines direct industry research, operating work, and long-term ownership.</p>
+              <p>Our current work combines software engineering, applied data research and practical products with a long-term ownership philosophy.</p>
             </div>
           </div>
         </section>
@@ -495,7 +495,7 @@ export default function Home() {
 
           <div className="about-right">
             <p className="about-lead">
-              Queenan Capital was founded in Chicago in 2026. Waterline Intel is its active commercial product, alongside developing research and engineering initiatives including COEUS, Queenan Alpha, and Project Endeavour.
+              Founded in Chicago in 2026, Queenan Capital is building useful software and data systems. Waterline Intel is our commercial product; COEUS, Queenan Alpha and Project Endeavour advance our research, engineering and API capabilities.
             </p>
             <div className="about-data">
               <div><span>Founded</span><strong>2026</strong></div>

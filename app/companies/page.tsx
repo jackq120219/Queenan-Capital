@@ -4,12 +4,12 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: { absolute: 'Current Initiatives | Queenan Capital' },
   description:
-    'Explore Waterline Intel, COEUS, Queenan Alpha and Project Endeavour, including their actual development stages.',
+    'Explore the software, intelligence and data systems behind Waterline Intel, COEUS, Queenan Alpha and Project Endeavour.',
   alternates: { canonical: 'https://www.queenancapital.com/companies' },
   openGraph: {
     title: 'Operating Companies | Queenan Capital',
     description:
-      'Waterline Intel is a commercial product; COEUS, Queenan Alpha and Project Endeavour remain internal research and development initiatives.',
+      'Waterline Intel is our commercial product; COEUS, Queenan Alpha and Project Endeavour develop software, data infrastructure and applied research.',
     url: 'https://www.queenancapital.com/companies',
     siteName: 'Queenan Capital',
     type: 'website',
@@ -30,34 +30,34 @@ const companies = [
     name: 'COEUS',
     href: null,
     logo: null,
-    category: 'Internal platform · In development',
-    description: 'A local intelligence and engineering platform under development to support research, analysis, supervised technical missions and shared capabilities across Queenan Capital.',
-    focus: 'Reliable internal research and software engineering',
-    operatingQuestion: 'How can useful research and technical work become more repeatable?',
+    category: 'AI software platform · In development',
+    description: 'An internal AI software and engineering platform combining local models, research tools, knowledge workflows and supervised coding missions. Designed to help our teams investigate, build and verify technical work.',
+    focus: 'AI-assisted research, software engineering and workflow automation',
+    operatingQuestion: 'How can connected tools turn research and code into reliable, repeatable workflows?',
   },
   {
     name: 'Queenan Alpha',
     href: null,
     logo: null,
-    category: 'Quantitative research · Experimental',
-    description: 'Research infrastructure evaluating market hypotheses, model accuracy, risk controls and execution costs. No reliable profitable trading edge is claimed.',
-    focus: 'Testing hypotheses rather than assuming a market advantage',
-    operatingQuestion: 'Do the results hold up after honest evaluation and realistic costs?',
+    category: 'Quantitative software · Experimental',
+    description: 'A quantitative software research system developing market-data pipelines, predictive-model experiments, signal analysis, backtesting and fee-aware risk controls.',
+    focus: 'Market-data engineering, model evaluation and trading-system software',
+    operatingQuestion: 'How can software turn market signals into measurable, rigorously tested strategies?',
   },
   {
     name: 'Project Endeavour',
     href: null,
     logo: null,
     category: 'API development · Early exploration',
-    description: 'An early effort researching narrowly useful data and API products. It remains an exploratory initiative, not a separately established fintech business.',
-    focus: 'Finding a focused, commercially meaningful data-product opportunity',
+    description: 'An early-stage software initiative exploring focused APIs, developer-facing data tools and information products for commercially important workflows.',
+    focus: 'Useful APIs and developer-focused data infrastructure',
     operatingQuestion: 'Which information problem would customers actually pay to solve?',
   },
 ];
 
 export default function CompaniesPage() {
   return (
-    <main style={{ minHeight: '100vh', background: '#f7f4ee', color: '#151515', padding: '72px 6vw 104px', fontFamily: 'Arial, Helvetica, sans-serif', overflowX: 'hidden' }}>
+    <main className="initiatives-page" style={{ minHeight: '100vh', background: '#f7f4ee', color: '#151515', padding: '72px 6vw 104px', fontFamily: 'Arial, Helvetica, sans-serif', overflowX: 'hidden' }}>
       <div style={{ maxWidth: 1180, margin: '0 auto' }}>
         <nav style={{ display: 'flex', gap: 24, marginBottom: 68, fontSize: 12, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase', flexWrap: 'wrap' }}>
           <Link href="/" style={{ color: '#6f2934', textDecoration: 'none' }}>Queenan Capital</Link>
@@ -71,13 +71,13 @@ export default function CompaniesPage() {
             <h1 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontWeight: 400, fontSize: 'clamp(3.3rem,7vw,7.2rem)', lineHeight: .94, letterSpacing: '-.05em' }}>Distinct initiatives.<br />One operating discipline.</h1>
           </div>
           <p style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(1.15rem,2vw,1.75rem)', lineHeight: 1.45 }}>
-            Queenan Capital operates and researches initiatives at different stages. We distinguish live products from technical development and early commercial exploration.
+            Queenan Capital builds practical software, data systems and intelligence tools. Our commercial products and developing technologies each have a distinct role.
           </p>
         </header>
 
         <section style={{ marginTop: 84, borderTop: '1px solid #151515' }}>
           {companies.map((company, index) => (
-            <article key={company.name} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 28, padding: '34px 0', borderBottom: '1px solid rgba(21,21,21,.28)', color: 'inherit', textDecoration: 'none' }}>
+            <article key={company.name} className="initiative-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 28, padding: '34px 0', borderBottom: '1px solid rgba(21,21,21,.28)', color: 'inherit', textDecoration: 'none' }}>
               <div>
                 <span style={{ display: 'block', color: '#6f2934', fontSize: 11, fontWeight: 800, letterSpacing: '.12em', marginBottom: 12 }}>0{index + 1}</span>
                 <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.12em', textTransform: 'uppercase', color: '#6f2934', marginBottom: 12 }}>{company.category}</div>
