@@ -23,9 +23,9 @@ const cardStyle: React.CSSProperties = {
 
 const operatingCompanies = [
   { name: 'Waterline Intel', href: 'https://waterlineintel.com/', copy: 'Commercial freight intelligence and logistics decision support.' },
-  { name: 'COEUS', href: null, copy: 'An internal research and engineering platform currently in development.' },
-  { name: 'Queenan Alpha', href: null, copy: 'Experimental quantitative research; no proven profitable trading edge is claimed.' },
-  { name: 'Project Endeavour', href: null, copy: 'Early API and information-product exploration, not an established fintech company.' },
+  { name: 'COEUS', href: null, copy: 'An AI software and engineering workspace for research, local models and supervised technical workflows.' },
+  { name: 'Queenan Alpha', href: null, copy: 'Quantitative software developing market-data pipelines, predictive models and backtesting tools.' },
+  { name: 'Project Endeavour', href: null, copy: 'Early-stage API and data-product software research.' },
 ];
 
 export default function CompanyPage() {
@@ -53,7 +53,7 @@ export default function CompanyPage() {
             <h1 style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontWeight: 400, fontSize: 'clamp(3.4rem,7vw,7rem)', lineHeight: .94, letterSpacing: '-.05em' }}>Queenan Capital</h1>
           </div>
           <p style={{ margin: 0, fontFamily: 'Georgia, Times New Roman, serif', fontSize: 'clamp(1.25rem,2vw,1.8rem)', lineHeight: 1.45 }}>
-            Queenan Capital is an independent holding company based in Chicago. It is developing commercial products and internal research capabilities while evaluating long-term ownership opportunities.
+            Queenan Capital is an independent holding company based in Chicago. Its work centers on software, data systems and useful operating products, alongside a long-term commitment to disciplined business ownership.
           </p>
         </section>
 
