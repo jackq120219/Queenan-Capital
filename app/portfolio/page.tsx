@@ -5,7 +5,7 @@ import styles from './portfolio.module.css';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
-  description: 'Queenan Capital's current initiatives include Waterline Intel, COEUS, Queenan Alpha, and Project Endeavour at different stages of work.',
+  description: 'Current Queenan Capital initiatives include Waterline Intel, COEUS, Queenan Alpha, and Project Endeavour at different stages of work.',
   alternates: { canonical: 'https://www.queenancapital.com/portfolio' },
 };
 
