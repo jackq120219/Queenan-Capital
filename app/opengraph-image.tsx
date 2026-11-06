@@ -16,7 +16,7 @@ export default function OpenGraphImage() {
           height: '100%',
           display: 'flex',
           position: 'relative',
-          background: '#111111',
+          background: '#172a20',
           color: '#f6f3ed',
           fontFamily: 'Georgia, Times New Roman, serif',
         }}
@@ -28,7 +28,7 @@ export default function OpenGraphImage() {
             top: 0,
             bottom: 0,
             width: 22,
-            background: '#7a2330',
+            background: '#47765b',
           }}
         />
 
@@ -51,7 +51,7 @@ export default function OpenGraphImage() {
                 position: 'relative',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: '#111111',
+                background: '#172a20',
               }}
             >
               <div
@@ -61,7 +61,7 @@ export default function OpenGraphImage() {
                   top: 0,
                   bottom: 0,
                   width: 14,
-                  background: '#7a2330',
+                  background: '#47765b',
                 }}
               />
               <div
@@ -100,7 +100,7 @@ export default function OpenGraphImage() {
                 }}
               >
                 <span style={{ fontSize: 108, color: '#f6f3ed' }}>QUEENAN</span>
-                <span style={{ fontSize: 108, color: '#7a2330', marginLeft: 48 }}>CAPITAL</span>
+                <span style={{ fontSize: 108, color: '#47765b', marginLeft: 48 }}>CAPITAL</span>
               </div>
             </div>
           </div>
