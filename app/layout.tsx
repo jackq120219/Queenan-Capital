@@ -37,10 +37,10 @@ export const metadata: Metadata = {
   category: 'business',
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon', sizes: '192x192' },
+      { url: '/favicon.png', type: 'image/png', sizes: '192x192' },
       { url: '/queenan-favicon.png', type: 'image/png', sizes: '192x192' },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/favicon.png',
     apple: '/queenan-favicon.png',
   },
   alternates: {

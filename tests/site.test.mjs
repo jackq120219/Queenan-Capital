@@ -16,7 +16,7 @@ const [layout, home, portfolio, orbit, companies, letter, sitemap] = await Promi
 test('production metadata stays on the canonical Queenan Capital domain', () => {
   assert.match(layout, /https:\/\/www\.queenancapital\.com/);
   assert.match(layout, /opengraph-image/);
-  assert.match(layout, /\/favicon\.ico/);
+  assert.match(layout, /\/favicon\.png/);
 });
 
 test('original site identity and prominent Waterline section remain', () => {
