@@ -36,8 +36,11 @@ export const metadata: Metadata = {
   publisher: 'Queenan Capital',
   category: 'business',
   icons: {
-    icon: [{ url: '/queenan-favicon.png', type: 'image/png', sizes: '192x192' }],
-    shortcut: '/queenan-favicon.png',
+    icon: [
+      { url: '/favicon.png', type: 'image/png', sizes: '192x192' },
+      { url: '/queenan-favicon.png', type: 'image/png', sizes: '192x192' },
+    ],
+    shortcut: '/favicon.png',
     apple: '/queenan-favicon.png',
   },
   alternates: {
